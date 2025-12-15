@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodiDental - Cintas Codificadoras</title>
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      margin: 0;
+      background-color: #FFF7FA;
+      color: #333;
+    }
+
+    header {
+  position: relative;
+  text-align: center;
+  padding: 80px 10px;
+  color: white;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  overflow: visible;
+  background: linear-gradient(
+  135deg,
+  rgba(255, 215, 230, 0.95),  /* Rosa suave pastel */
+  rgba(255, 200, 215, 0.95),  /* Rosa durazno rosado */
+  rgba(255, 220, 195, 0.95),  /* Durazno pastel cálido */
+  rgba(255, 235, 205, 0.95)   /* Amarillo manteca suave */
+);
+
+}
+
+/* Imagen fondoencabezado que cubre todo el encabezado */
+header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("fondoencabezado.png") center/cover no-repeat;
+  opacity: 0.7; /* Ajustá transparencia: 0.3 = más sutil, 0.9 = más visible */
+  z-index: 1;
+}
+
+/* Texto del encabezado por encima del fondo */
+header * {
+  position: relative;
+  z-index: 2;
+}
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-flotante {
+  position: absolute;
+  top: 20px; /* distancia desde arriba */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px; /* tamaño del logo */
+  height: auto;
+  z-index: 10; /* para que quede sobre el fondo */
+}
+/* Contenedor centrado */
+.boton-catalogo-container {
+  text-align: center;
+  margin: 40px 0;
+}
+
+/* Botón tipo cinta animada */
+.boton-cinta {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #ffc4d5, #ffd2c0, #fff2cc);
+  color: #a7436a;
+  font-weight: 700;
+  padding: 15px 40px;
+  border-radius: 30px;
+  text-decoration: none;
+  overflow: hidden;
+  font-size: 20px;
+  letter-spacing: 1px;
+ box-shadow: 0 4px 15px rgba(255, 180, 200, 0.35);
+  transition: transform 0.3s ease;
+}
+
+/* Efecto cinta que se abre */
+.boton-cinta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.3);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+
+/* Al pasar el mouse: efecto de apertura */
+.boton-cinta:hover::before {
+  left: 100%;
+}
+
+.boton-cinta:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+
+    .welcome {
+      text-align: center;
+      padding:30px 10px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+   /* ✅ Catálogo centrado y con filas de 4 en escritorio */
+/* ✅ Catálogo en grilla */
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  justify-items: center;
+}
+
+/* ✅ Fuerza que el siguiente producto arranque en una nueva fila */
+.corte-fila {
+  grid-column: 1 / -1;
+}
+
+/* ✅ Tablet (dos columnas) */
+@media (max-width: 900px) {
+  .catalogo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ✅ Móvil (una columna) */
+@media (max-width: 600px) {
+  .catalogo {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+    .producto {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.2s;
+    }
+/* 🔹 Estilo especial para el primer producto con rosa más suave */
+.producto.rosa {
+  background-color: #fff4f7; /* rosa muy clarito */
+  color: #704d5c; /* gris-rosado para texto */
+  box-shadow: 0 3px 10px rgba(255, 180, 200, 0.25);
+  border: 1px solid rgba(255, 200, 215, 0.3);
+}
+
+.producto.rosa h3 {
+  color: #85586b; /* título en rosa grisáceo más marcado */
+}
+
+.producto.rosa p strong {
+  color: #b65c7a; /* precio en rosa medio suave */
+}
+/* 🔹 Estilo especial para el segundo producto en tono menta suave */
+.producto.menta {
+  background-color: #f2fff9; /* menta muy suave */
+  color: #476556; /* verde grisáceo oscuro para texto */
+  box-shadow: 0 3px 10px rgba(150, 230, 190, 0.25);
+  border: 1px solid rgba(180, 240, 210, 0.3);
+}
+
+.producto.menta h3 {
+  color: #3d7a64; /* título en verde menta más marcado */
+}
+
+.producto.menta p strong {
+  color: #4da17a; /* precio en verde menta intermedio */
+}
+/* 🔹 Estilo especial para el tercer producto en tono turquesa suave */
+.producto.turquesa {
+  background-color: #f0fcfd; /* turquesa muy clarito, casi celeste */
+  color: #3b5f63; /* azul verdoso suave para texto */
+  box-shadow: 0 3px 10px rgba(160, 220, 230, 0.25);
+  border: 1px solid rgba(180, 235, 240, 0.3);
+}
+
+.producto.turquesa h3 {
+  color: #337b80; /* título en turquesa medio */
+}
+
+.producto.turquesa p strong {
+  color: #42a3a8; /* precio con acento turquesa */
+}
+/* 🔹 Estilo especial para el cuarto producto en tono lila suave */
+.producto.lila {
+  background-color: #f9f6ff; /* lila muy claro, casi lavanda */
+  color: #594d72; /* violeta grisáceo para texto */
+  box-shadow: 0 3px 10px rgba(200, 180, 255, 0.25);
+  border: 1px solid rgba(210, 190, 255, 0.3);
+}
+
+.producto.lila h3 {
+  color: #6a5aa3; /* título en lila medio */
+}
+
+.producto.lila p strong {
+  color: #7e6ad1; /* precio en violeta suave */
+}
+
+/* 🔹 Salmón pastel suave */
+.producto.salmón {
+  background-color: #fff5f1; /* salmón muy clarito */
+  color: #7a5346;
+  box-shadow: 0 3px 10px rgba(255, 190, 170, 0.25);
+  border: 1px solid rgba(255, 200, 180, 0.35);
+}
+
+.producto.salmón h3 {
+  color: #b46a5b;
+}
+
+.producto.salmón p strong {
+  color: #d57b67;
+}
+
+/* 🔹 Rosa pastel suave */
+.producto.rosa-pastel {
+  background-color: #fff6fa; /* rosa pastel suave */
+  color: #6b4d5f;
+  box-shadow: 0 3px 10px rgba(255, 180, 215, 0.25);
+  border: 1px solid rgba(255, 210, 230, 0.35);
+}
+
+.producto.rosa-pastel h3 {
+  color: #9a5e8b;
+}
+
+.producto.rosa-pastel p strong {
+  color: #c06ea5;
+}
+
+/* 🔹 Lila metalizado pastel */
+.producto.lila-metalizado {
+  background-color: #f8f3ff; /* lila pastel muy suave */
+  color: #5a4a77;
+  box-shadow: 0 3px 10px rgba(200, 170, 255, 0.28);
+  border: 1px solid rgba(210, 185, 255, 0.35);
+}
+
+.producto.lila-metalizado h3 {
+  color: #7a63c9;
+}
+
+.producto.lila-metalizado p strong {
+  color: #9b7df0;
+}
+
+
+
+    .producto:hover {
+      transform: translateY(-5px);
+    }
+
+    .producto img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .producto h3 {
+      margin: 15px 0 5px;
+    }
+
+    .btn {
+      background: linear-gradient(90deg, #ffc4d5, #ffd2c0, #fff2cc);
+      color: #a7436a;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    .carrito {
+      text-align: center;
+      margin: 40px auto;
+      max-width: 700px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+
+    .carrito ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .carrito li {
+      margin: 8px 0;
+    }
+
+/* Efecto zoom al pasar el mouse */
+.producto img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.producto:hover img {
+  transform: scale(1.07);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track img {
+  width: 100%;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  border-radius: 10px;
+}
+
+/* 🔹 Puntitos flotando sobre la imagen */
+.carousel-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 5px 10px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.carousel-dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: #fff;
+  opacity: 0.6;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.carousel-dots button.active {
+  opacity: 1;
+  transform: scale(1.2);
+  background: linear-gradient(90deg, #b0c4ff, #d4b0ff, #f0b0c4);
+}
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track img {
+  width: 100%;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  border-radius: 10px;
+}
+
+/* 🔹 Puntitos flotantes */
+.carousel-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 6px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.carousel-dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ffffff;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.carousel-dots button.active {
+  opacity: 1;
+  transform: scale(1.2);
+   background: linear-gradient(90deg, #ffc4d5, #ffd2c0, #fff2cc);
+
+}
+
+/* Botón flotante */
+.boton-carrito-flotante {
+  position: fixed;
+  top: 380px;
+  right: 15px;
+  background: white;
+  color: #333;
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: bold;
+  border: 2px solid #d4b0ff;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  width: 28px;  /* 🔥 pequeño */
+  height: 28px;
+  display: none; /* 🔥 oculto por defecto */
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* para animación */
+  transform: scale(0.7);
+  transition: opacity 0.4s ease, transform 0.3s ease;
+}
+
+/* Estado visible con animación */
+.boton-carrito-flotante.mostrar {
+  display: flex;
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Burbuja con número */
+.burbuja-carrito {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #ff4d88;
+  color: white;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 50%;
+  display: none;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .boton-carrito-flotante {
+    top: 360px;
+    right: 10px;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-container">
+    <img src="logocodi.png" alt="Logo CodiDental" class="logo-flotante">
+    <p class="subtitulo">Cintas codificadoras</p>
+  </div>
+</header>
+
+<style>
+header {
+  position: relative;
+  text-align: center;
+  padding: 120px 10px 100px;
+  color: white;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  overflow: visible;
+ background: linear-gradient(
+  135deg,
+  rgba(255, 215, 230, 0.95),  /* Rosa suave pastel */
+  rgba(255, 200, 215, 0.95),  /* Rosa durazno rosado */
+  rgba(255, 220, 195, 0.95),  /* Durazno pastel cálido */
+  rgba(255, 235, 205, 0.95)   /* Amarillo manteca suave */
+);
+
+
+}
+
+/* 🔹 Fondo animado de desplazamiento lateral */
+header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%; /* doble ancho para permitir el desplazamiento */
+  height: 100%;
+  background: url("fondoencabezado.png") repeat-x center/contain;
+  opacity: 0.7;
+  z-index: 1;
+  animation: moverFondo 20s linear infinite;
+}
+
+/* 🔸 Animación: movimiento horizontal continuo */
+@keyframes moverFondo {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Contenido visible por encima del fondo */
+header * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Centrado del logo y texto */
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Logo más grande y más arriba */
+.logo-flotante {
+  width: 800px; /* ajustá a gusto */
+  max-width: 90%;
+  height: auto;
+  margin-top: -120px;
+  margin-bottom: 10px;
+}
+
+/* Texto blanco debajo del logo */
+.subtitulo {
+  font-size: 22px;
+  color: white;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Botones mini + y - dentro del carrito */
+.btn-mini {
+ background: #ffb4ca;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0 5px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-mini:hover {
+  opacity: 0.9;
+  transform: scale(1.1);
+}
+
+/* Estado activo de botón principal */
+.btn-quitar {
+  background: #ff8fa8;
+  color: white;
+}
+
+/* Efecto de desvanecido suave al cambiar imagen */
+.producto img {
+  transition: opacity 0.5s ease-in-out, transform 0.4s ease;
+}
+
+.producto:hover img {
+  transform: scale(1.07); /* el zoom que ya usás */
+}
+
+/* 🔹 Botón flotante "Tu carrito" */
+.boton-carrito-flotante {
+  position: fixed;
+  top: 470px; /* ajustá esta distancia para ponerlo exactamente debajo del botón de catálogo */
+  right: 20px;
+  background: linear-gradient(90deg, #ffc4d5, #ffd2c0, #fff2cc);
+  color: #a7436a;
+  padding: 15px 25px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 4px 15px rgba(255, 180, 200, 0.35);
+  transition: transform 0.3s ease;
+}
+
+/* Hover */
+.boton-carrito-flotante:hover {
+  transform: scale(1.05);
+}
+
+/* Versión mobile: mantenerlo más abajo */
+@media (max-width: 600px) {
+  .boton-carrito-flotante {
+    top: 520px;
+    right: 10px;
+    padding: 12px 22px;
+    font-size: 16px;
+  }
+}
+
+}
+/* 🔹 Barra fija de filtros de colores */
+.filtro-colores-barra {
+  position: sticky;
+  top: 0; /* queda pegado arriba de la pantalla */
+  z-index: 1000;
+  padding: 10px 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 245, 249, 0.98),
+    rgba(255, 245, 249, 0.90)
+  );
+  backdrop-filter: blur(6px);
+}
+
+/* En pantallas grandes, un poquito de margen */
+@media (min-width: 768px) {
+  .filtro-colores-barra {
+    top: 10px;
+  }
+}
+
+/* Contenedor de botones */
+.filtro-colores {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Botones base (color suave neutro) */
+.filtro-boton {
+  border: 1px solid #e1d2ff;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #fffafd, #fff6fb, #fffaf1);
+  color: #5a4b6e;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    filter 0.2s ease;
+}
+
+/* Hover suave */
+.filtro-boton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  filter: brightness(1.03);
+}
+
+/* Activo: se pinta con el color del tipo de cinta */
+
+/* 👉 Colores vivos: rosado/anaranjado como tu botón "VER CATÁLOGO" */
+.filtro-boton--vivos.activo {
+  background: linear-gradient(90deg, #ffb4cf, #ffd29a);
+  color: #a7436a;
+  box-shadow: 0 6px 16px rgba(255, 180, 200, 0.45);
+}
+
+/* 👉 Colores pastel: tono menta/clarito como las tarjetas pastel */
+.filtro-boton--pastel.activo {
+  background: linear-gradient(90deg, #f2fff9, #e9fff5);
+  color: #3d7a64;
+  box-shadow: 0 6px 16px rgba(170, 220, 190, 0.45);
+}
+
+/* 👉 Colores metalizados: lila suave como las tarjetas lilas */
+.filtro-boton--metalizado.activo {
+  background: linear-gradient(90deg, #f9f6ff, #f3eaff);
+  color: #594d72;
+  box-shadow: 0 6px 16px rgba(190, 170, 255, 0.45);
+}
+
+
+</style>
+
+
+
+
+
+
+  <section class="welcome">
+    <h2>Bienvenido a CodiDental</h2>
+    <p>
+      Transformamos tu instrumental odontológico en una experiencia mas ordenada, estética y profesional.
+Nuestras cintas codificadoras son <strong>autoclavables, resistentes al cloro y están disponibles en colores vibrantes.</strong> 
+<p>
+      <em>¡Descubrí nuestros colores, elegí tus favoritos y tu pedido lo entregamos en tu facultad!</em>
+    </p>
+<!-- Botón animado tipo cinta -->
+<div class="boton-catalogo-container">
+  <a href="#catalogo" class="boton-cinta">VER CATÁLOGO</a>
+</div>
+<!-- 🔹 Barra fija de tipos de colores -->
+<div class="filtro-colores-barra">
+  <div class="filtro-colores">
+    <button class="filtro-boton filtro-boton--vivos" data-target="#vivos">
+      Colores vivos
+    </button>
+    <button class="filtro-boton filtro-boton--pastel" data-target="#pastel">
+      Colores pastel
+    </button>
+    <button class="filtro-boton filtro-boton--metalizado" data-target="#metalizado">
+      Colores metalizados
+    </button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div id="btnCarritoFlotante" class="boton-carrito-flotante">
+  🛒
+  <span id="carritoBadge" class="burbuja-carrito">0</span>
+</div>
+
+  </section>
+
+    <!-- 🔽 Catálogo -->
+  <section id="catalogo" class="catalogo">
+
+    <!-- Ancla para "Colores vivos" -->
+    
+
+    <div class="producto rosa" id="vivos">
+      <div class="carousel">
+        <div class="carousel-track">
+          <img src="Cinta Rosa.png" alt="Cinta Rosa 1">
+          <img src="Cinta Rosa Muestra.png" alt="Muestra Rosa 1">
+        </div>
+        <div class="carousel-dots"></div>
+      </div>
+      <h3>Cinta Codificadora Rosa</h3>
+      <p>Color visible y fácil de identificar.
+Ideal para mantener el instrumental organizado con un tono cálido y suave.</p>
+      <p><strong>$1.500</strong></p>
+      <button class="btn" data-nombre="Cinta Rosa" onclick="agregarAlCarrito('Cinta Rosa', 1500)">Añadir al carrito</button>
+    </div>
+
+    <div class="producto menta">
+      <div class="carousel">
+        <div class="carousel-track">
+          <img src="Cinta Menta.png" alt="Cinta Menta 1">
+          <img src="Cinta Menta Muestra.png" alt="Cinta Menta Muestra 1">
+        </div>
+        <div class="carousel-dots"></div>
+      </div>
+      <h3>Cinta Codificadora Menta</h3>
+      <p>Tono fresco que aporta claridad visual al instrumental.
+Muy útil para diferenciar piezas rápidamente.</p>
+      <p><strong>$1.500</strong></p>
+      <button class="btn" data-nombre="Cinta Menta" onclick="agregarAlCarrito('Cinta Menta', 1500)">Añadir al carrito</button>
+    </div>
+
+    <div class="producto turquesa">
+      <div class="carousel">
+        <div class="carousel-track">
+          <img src="Cinta Turquesa.png" alt="Cinta Turquesa 1">
+          <img src="Cinta Turquesa Muestra.png" alt="Cinta Turquesa Muestra 1">
+        </div>
+        <div class="carousel-dots"></div>
+      </div>
+      <h3>Cinta Codificadora Turquesa</h3>
+      <p>Color limpio y moderno que se distingue sin ser demasiado intenso.
+Ayuda a ubicar el instrumental de forma rápida.</p>
+      <p><strong>$1.500</strong></p>
+      <button class="btn" data-nombre="Cinta Turquesa" onclick="agregarAlCarrito('Cinta Turquesa', 1500)">Añadir al carrito</button>
+    </div>
+
+    <div class="producto lila">
+      <div class="carousel">
+        <div class="carousel-track">
+          <img src="Cinta Lila.png" alt="Cinta Lila 1">
+          <img src="Cinta Lila Muestra.png" alt="Cinta Lila Muestra 1">
+        </div>
+        <div class="carousel-dots"></div>
+      </div>
+      <h3>Cinta Codificadora Lila</h3>
+      <p>Tono equilibrado, discreto y agradable a la vista. 
+Buena opción para quienes prefieren colores suaves pero notorios.</p>
+      <p><strong>$1.500</strong></p>
+      <button class="btn" data-nombre="Cinta Lila" onclick="agregarAlCarrito('Cinta Lila', 1500)">Añadir al carrito</button>
+    </div>
+
+ <div class="producto salmón">
+      <div class="carousel">
+        <div class="carousel-track">
+          <img src="Cinta Salmón.png" alt="Cinta Salmón 1">
+          <img src="Cinta Salmón Muestra.png" alt="Cinta Salmón Muestra 1">
+        </div>
+        <div class="carousel-dots"></div>
+      </div>
+      <h3>Cinta Codificadora Salmón</h3>
+      <p>Color cálido que destaca sin exagerar. Facilita la identificación y mantiene una estética uniforme.</p>
+      <p><strong>$1.500</strong></p>
+      <button class="btn" data-nombre="Cinta Salmón" onclick="agregarAlCarrito('Cinta Salmón', 1500)">Añadir al carrito</button>
+    </div>
+<div class="corte-fila"></div>
+
+
+    <!-- Ancla para "Colores pastel" -->
+    
+    <!-- Aquí después vas a poner tus productos rosa pastel, menta pastel, etc. -->
+
+ <div class="producto rosa-pastel" id="pastel">
+      <div class="carousel">
+        <div class="carousel-track">
+          <img src="Cinta Rosa Pastel.png" alt="Cinta Rosa Pastel 1">
+          <img src="Cinta Rosa Pastel Muestra.png" alt="Cinta Rosa pastel Muestra 1">
+        </div>
+        <div class="carousel-dots"></div>
+      </div>
+      <h3>Cinta Codificadora Rosa Pastel</h3>
+      <p>Tono delicado y armónico, ideal para un instrumental 
+prolijo y uniforme.</p>
+      <p><strong>$1.500</strong></p>
+      <button class="btn" data-nombre="Cinta Rosa Pastel" onclick="agregarAlCarrito('Cinta Rosa Pastel', 1500)">Añadir al carrito</button>
+    </div>
+<div class="corte-fila"></div>
+
+    <!-- Ancla para "Colores metalizados" -->
+   
+
+    <!-- Y aquí tus futuros productos metalizados -->
+
+ <div class="producto lila-metalizado" id="metalizado">
+      <div class="carousel">
+        <div class="carousel-track">
+          <img src="Cinta Lila Metalizado.png" alt="Cinta Lila Metalizado 1">
+          <img src="Cinta Lila Metalizado Muestra.png" alt="Lila Metalizado Muestra 1">
+        </div>
+        <div class="carousel-dots"></div>
+      </div>
+      <h3>Cinta Codificadora Lila Metalizado</h3>
+      <p>Acabado suave con un leve brillo que facilita diferenciar el instrumental sin perder sobriedad.</p>
+      <p><strong>$3000</strong></p>
+      <button class="btn" data-nombre="Cinta Lila Metalizado" onclick="agregarAlCarrito('Cinta Lila Metalizado', 3000)">Añadir al carrito</button>
+    </div>
+<div class="corte-fila"></div>
+
+  </section>
+
+
+  <section class="carrito">
+    <h2>🛒 Tu carrito</h2>
+    <ul id="listaCarrito"></ul>
+    <p id="total"></p>
+    <button class="btn" onclick="enviarWhatsApp()">Finalizar pedido</button>
+  </section>
+
+ <script>
+  let carrito = [];
+
+  // === 🛒 CARRITO ===
+  function agregarAlCarrito(nombre, precio) {
+    const p = carrito.find(i => i.nombre === nombre);
+    if (p) { p.cantidad++; } else { carrito.push({ nombre, precio, cantidad: 1 }); }
+    mostrarCarrito();
+actualizarBotones(nombre);
+actualizarBurbujaCarrito();
+actualizarBotonCarritoFlotante();
+
+
+
+  }
+
+  function quitarDelCarrito(nombre) {
+    const p = carrito.find(i => i.nombre === nombre);
+    if (!p) return;
+    p.cantidad--;
+    if (p.cantidad <= 0) carrito = carrito.filter(i => i.nombre !== nombre);
+    mostrarCarrito();
+actualizarBotones(nombre);
+actualizarBurbujaCarrito();
+actualizarBotonCarritoFlotante();
+
+
+  }
+function actualizarBurbujaCarrito() {
+  const badge = document.getElementById("carritoBadge");
+  const totalItems = carrito.reduce((a, i) => a + i.cantidad, 0);
+
+  if (totalItems > 0) {
+    badge.style.display = "block";
+    badge.textContent = totalItems;
+  } else {
+    badge.style.display = "none";
+  }
+}
+function actualizarBotonCarritoFlotante() {
+  const boton = document.getElementById("btnCarritoFlotante");
+  const totalItems = carrito.reduce((a, i) => a + i.cantidad, 0);
+
+  if (totalItems > 0) {
+    boton.style.display = "flex"; // aparece
+  } else {
+    boton.style.display = "none"; // desaparece
+  }
+}
+
+
+
+  function mostrarCarrito() {
+    const lista = document.getElementById("listaCarrito");
+    lista.innerHTML = "";
+    let total = 0;
+    carrito.forEach(item => {
+      total += item.precio * item.cantidad;
+      const li = document.createElement("li");
+      li.innerHTML = `
+        ${item.nombre} - $${item.precio} x ${item.cantidad} = <strong>$${item.precio * item.cantidad}</strong>
+        <button class="btn-mini" onclick="quitarDelCarrito('${item.nombre}')">−</button>
+        <button class="btn-mini" onclick="agregarAlCarrito('${item.nombre}', ${item.precio})">+</button>
+      `;
+      lista.appendChild(li);
+    });
+    document.getElementById("total").textContent =
+      carrito.length ? `Total: $${total}` : "Tu carrito está vacío";
+  }
+
+  function actualizarBotones(nombre) {
+    const botones = document.querySelectorAll(".btn[data-nombre]");
+    botones.forEach(b => {
+      if (b.dataset.nombre === nombre) {
+        const p = carrito.find(i => i.nombre === nombre);
+        if (p) { b.textContent = `Añadir (+1) — En carrito: ${p.cantidad}`; b.classList.add("btn-quitar"); }
+        else   { b.textContent = "Añadir al carrito"; b.classList.remove("btn-quitar"); }
+      }
+    });
+  }
+</script>
+
+<script>
+
+  function enviarWhatsApp() {
+    if (!carrito.length) { alert("Agregá al menos un producto antes de finalizar el pedido."); return; }
+    let mensaje = "Hola! Quiero hacer este pedido:%0A";
+    carrito.forEach(i => mensaje += `- ${i.nombre} (${i.cantidad} unid): $${i.precio * i.cantidad}%0A`);
+    let total = carrito.reduce((a, i) => a + i.precio * i.cantidad, 0);
+    mensaje += `%0ATotal: $${total}`;
+    window.open(`https://wa.me/+5491122938343?text=${mensaje}`, "_blank");
+  }
+
+   const imagenesSecundarias = {
+    "Cinta Azul": "Muestra Azul1.png",
+    "Cinta Verde": "Muestra Verde1.png",
+    "Cinta Roja": "Muestra Roja1.png"
+  };
+
+  document.querySelectorAll(".producto img").forEach(img => {
+    const nombre = img.alt.trim();
+    const secundaria = imagenesSecundarias[nombre];
+    if (!secundaria) return;
+
+    const original = img.src;
+    let mostrandoSecundaria = false;
+    let intervalo;
+
+    img.addEventListener("mouseenter", () => {
+      intervalo = setInterval(() => {
+        img.style.opacity = 0;
+        setTimeout(() => {
+          img.src = mostrandoSecundaria ? original : secundaria;
+          mostrandoSecundaria = !mostrandoSecundaria;
+          img.style.opacity = 1;
+        }, 250); // mitad del tiempo del fade
+      }, 1200); // cada 1.2 segundos
+    });
+
+    img.addEventListener("mouseleave", () => {
+      clearInterval(intervalo);
+      img.style.opacity = 0;
+      setTimeout(() => {
+        img.src = original;
+        img.style.opacity = 1;
+      }, 250);
+    });
+  });
+</script>
+
+<script>
+document.querySelectorAll('.carousel').forEach(carousel => {
+  const track = carousel.querySelector('.carousel-track');
+  const dotsContainer = carousel.querySelector('.carousel-dots');
+  const images = carousel.querySelectorAll('img');
+
+  // Crear un punto por imagen
+  images.forEach((_, i) => {
+    const dot = document.createElement('button');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => {
+      track.scrollTo({
+        left: track.clientWidth * i,
+        behavior: 'smooth'
+      });
+    });
+    dotsContainer.appendChild(dot);
+  });
+
+  // Actualizar el punto activo al deslizar
+  track.addEventListener('scroll', () => {
+    const index = Math.round(track.scrollLeft / track.clientWidth);
+    dotsContainer.querySelectorAll('button').forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  });
+});
+</script>
+<script>
+document.querySelector('.boton-cinta').addEventListener('click', function(e) {
+  e.preventDefault(); // Evita el salto brusco
+  const catalogo = document.querySelector('#catalogo');
+  window.scrollTo({
+    top: catalogo.offsetTop - 20, // un pequeño margen opcional
+    behavior: 'smooth'
+  });
+});
+</script>
+<script>
+// 🔹 Detectar si es un dispositivo móvil
+const esMovil = window.innerWidth <= 600;
+const btnCarritoFlotante = document.getElementById("btnCarritoFlotante");
+const carritoPrincipal = document.querySelector(".carrito");
+
+// 🔹 Mostrar el botón con animación
+function mostrarBotonCarrito() {
+  btnCarritoFlotante.style.display = "flex";
+  setTimeout(() => btnCarritoFlotante.classList.add("mostrar"), 10);
+}
+
+// 🔹 Ocultar el botón con animación
+function ocultarBotonCarrito() {
+  btnCarritoFlotante.classList.remove("mostrar");
+  setTimeout(() => (btnCarritoFlotante.style.display = "none"), 300);
+}
+
+// 🔹 Al presionar el botón
+btnCarritoFlotante.addEventListener("click", () => {
+  window.scrollTo({
+    top: carritoPrincipal.offsetTop - 10,
+    behavior: "smooth",
+  });
+  ocultarBotonCarrito(); // 🔥 Desaparece al presionarlo
+});
+
+// 🔹 Mostrar u ocultar según scroll
+window.addEventListener("scroll", () => {
+  const posicionActual = window.scrollY;
+  const distanciaHastaCarrito = carritoPrincipal.offsetTop;
+  const alturaVentana = window.innerHeight;
+  const totalItems = carrito.reduce((a, i) => a + i.cantidad, 0);
+
+  // 🔸 Oculta si el usuario ya está viendo el carrito
+  if (posicionActual + alturaVentana > distanciaHastaCarrito - 100) {
+    ocultarBotonCarrito();
+  } else if (totalItems > 0) {
+    mostrarBotonCarrito();
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const botonesFiltro = document.querySelectorAll(".filtro-boton");
+
+  const secciones = {
+    "#vivos": document.querySelector("#vivos"),
+    "#pastel": document.querySelector("#pastel"),
+    "#metalizado": document.querySelector("#metalizado")
+  };
+
+  // 🔹 Click en los botones → scroll suave a la sección
+  botonesFiltro.forEach(boton => {
+    boton.addEventListener("click", () => {
+      const targetSelector = boton.dataset.target;
+      const target = secciones[targetSelector];
+
+      if (!target) return;
+
+      const offset = 120; // espacio para que no quede pegado al borde
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+
+      window.scrollTo({
+        top,
+        behavior: "smooth"
+      });
+    });
+  });
+
+  // 🔹 Mientras scrolleás, marcar en qué tipo de cintas estás
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      let principal = null;
+
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (!principal || entry.intersectionRatio > principal.intersectionRatio) {
+            principal = entry;
+          }
+        }
+      });
+
+      if (!principal) return;
+
+      const idActivo = "#" + principal.target.id;
+
+      botonesFiltro.forEach(boton => {
+        if (boton.dataset.target === idActivo) {
+          boton.classList.add("activo");
+        } else {
+          boton.classList.remove("activo");
+        }
+      });
+    }, {
+      threshold: 0.5 // al menos 50% visible para considerarlo "activo"
+    });
+
+    Object.values(secciones).forEach(sec => {
+      if (sec) observer.observe(sec);
+    });
+  }
+});
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
