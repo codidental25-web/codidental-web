@@ -1,1207 +1,1262 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CodiDental - Cintas Codificadoras</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CodiDental Premium - Cintas Codificadoras de Alta Calidad</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
   <style>
-    body {
-      font-family: 'Quicksand', sans-serif;
-      margin: 0;
-      background-color: #FFF7FA;
-      color: #333;
-    }
+    :root {
+  /* === PALETA "PEACHY DELIGHT" (aprox) === */
+  --pd-sage: #D9E3DE;      /* verde salvia muy suave */
+  --pd-peach: #FBE5DD;     /* durazno/crema */
+  --pd-blush: #FDCED6;     /* rosa blush */
+  --pd-rose: #F4B0BB;      /* rosa más presente */
+  --pd-mauve: #9A7F86;     /* malva grisáceo (para texto/acentos) */
 
+  /* === MAPEADO UNIFORME DEL SITIO === */
+  --color-primary: var(--pd-rose);        /* fondos con degradado / secciones destacadas */
+  --color-secondary: var(--pd-peach);     /* fondo general suave */
+  --color-accent: var(--pd-mauve);        /* acento elegante (botones, títulos, bordes) */
+  --color-accent-light: var(--pd-blush);  /* hover suave / chips / highlights */
+
+  --color-text: #4B3A3F;                 /* texto legible (más oscuro que la paleta) */
+  --color-text-muted: #6A545A;           /* texto secundario */
+
+  --color-white: #FFF9F7;                /* “blanco” cálido, no puro */
+  --color-card-bg: #FFF3EF;              /* tarjetas bien suaves */
+
+  --gradient-gold: linear-gradient(135deg, var(--pd-blush), var(--pd-peach));
+  --shadow-soft: 0 10px 40px rgba(154, 127, 134, 0.18);
+  --shadow-glow: 0 0 30px rgba(244, 176, 187, 0.28);
+}
+
+    /* === HEADER === */
     header {
-  position: relative;
-  text-align: center;
-  padding: 80px 10px;
-  color: white;
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
-  overflow: hidden;
-  background: linear-gradient(
-  135deg,
-  rgba(255, 215, 230, 0.95),  /* Rosa suave pastel */
-  rgba(255, 200, 215, 0.95),  /* Rosa durazno rosado */
-  rgba(255, 220, 195, 0.95),  /* Durazno pastel cálido */
-  rgba(255, 235, 205, 0.95)   /* Amarillo manteca suave */
-);
-
-}
-
-/* Imagen fondoencabezado que cubre todo el encabezado */
-header::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("fondoencabezado.png") repeat-x center/contain;
-  opacity: 0.7;
-  z-index: 1;
-  animation: moverFondo 20s linear infinite;
-  background-position: 0 50%;
-}
-
-@keyframes moverFondo {
-  from { background-position: 0 50%; }
-  to   { background-position: -100% 50%; }
-}
-
-/* Texto del encabezado por encima del fondo */
-header * {
-  position: relative;
-  z-index: 2;
-}
-.logo-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo-flotante {
-  position: absolute;
-  top: 20px; /* distancia desde arriba */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 500px; /* tamaño del logo */
-  height: auto;
-  z-index: 10; /* para que quede sobre el fondo */
-}
-/* Contenedor centrado */
-.boton-catalogo-container {
-  text-align: center;
-  margin: 40px 0;
-}
-
-/* Botón tipo cinta animada */
-.boton-cinta {
-  position: relative;
-  display: inline-block;
-  background: linear-gradient(90deg, #ffc4d5, #ffd2c0, #fff2cc);
-  color: #a7436a;
-  font-weight: 700;
-  padding: 15px 40px;
-  border-radius: 30px;
-  text-decoration: none;
-  overflow: hidden;
-  font-size: 20px;
-  letter-spacing: 1px;
- box-shadow: 0 4px 15px rgba(255, 180, 200, 0.35);
-  transition: transform 0.3s ease;
-}
-
-/* Efecto cinta que se abre */
-.boton-cinta::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: rgba(255,255,255,0.3);
-  transform: skewX(-20deg);
-  transition: left 0.5s ease;
-}
-
-/* Al pasar el mouse: efecto de apertura */
-.boton-cinta:hover::before {
-  left: 100%;
-}
-
-.boton-cinta:hover {
-  transform: scale(1.05);
-}
-
-
-
-
-
-    .welcome {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding:30px 10px;
-      max-width: 1000px;
-      margin: auto;
+      padding: 60px 20px;
+      background: linear-gradient(
+        180deg,
+        var(--color-primary) 0%,
+        var(--color-secondary) 100%
+      );
+      overflow: hidden;
+      color: var(--color-text);
     }
 
-   /* ✅ Catálogo centrado y con filas de 4 en escritorio */
-/* ✅ Catálogo en grilla */
-.catalogo {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  justify-items: center;
-}
-
-/* ✅ Fuerza que el siguiente producto arranque en una nueva fila */
-.corte-fila {
-  grid-column: 1 / -1;
-}
-
-/* ✅ Tablet (dos columnas) */
-@media (max-width: 900px) {
-  .catalogo {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* ✅ Móvil (una columna) */
-@media (max-width: 600px) {
-  .catalogo {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-    .producto {
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: center;
-      padding: 20px;
-      transition: transform 0.2s;
-    }
-/* 🔹 Estilo especial para el primer producto con rosa más suave */
-.producto.rosa {
-  background-color: #fff4f7; /* rosa muy clarito */
-  color: #704d5c; /* gris-rosado para texto */
-  box-shadow: 0 3px 10px rgba(255, 180, 200, 0.25);
-  border: 1px solid rgba(255, 200, 215, 0.3);
-}
-
-.producto.rosa h3 {
-  color: #85586b; /* título en rosa grisáceo más marcado */
-}
-
-.producto.rosa p strong {
-  color: #b65c7a; /* precio en rosa medio suave */
-}
-/* 🔹 Estilo especial para el segundo producto en tono menta suave */
-.producto.menta {
-  background-color: #f2fff9; /* menta muy suave */
-  color: #476556; /* verde grisáceo oscuro para texto */
-  box-shadow: 0 3px 10px rgba(150, 230, 190, 0.25);
-  border: 1px solid rgba(180, 240, 210, 0.3);
-}
-
-.producto.menta h3 {
-  color: #3d7a64; /* título en verde menta más marcado */
-}
-
-.producto.menta p strong {
-  color: #4da17a; /* precio en verde menta intermedio */
-}
-/* 🔹 Estilo especial para el tercer producto en tono turquesa suave */
-.producto.turquesa {
-  background-color: #f0fcfd; /* turquesa muy clarito, casi celeste */
-  color: #3b5f63; /* azul verdoso suave para texto */
-  box-shadow: 0 3px 10px rgba(160, 220, 230, 0.25);
-  border: 1px solid rgba(180, 235, 240, 0.3);
-}
-
-.producto.turquesa h3 {
-  color: #337b80; /* título en turquesa medio */
-}
-
-.producto.turquesa p strong {
-  color: #42a3a8; /* precio con acento turquesa */
-}
-/* 🔹 Estilo especial para el cuarto producto en tono lila suave */
-.producto.lila {
-  background-color: #f9f6ff; /* lila muy claro, casi lavanda */
-  color: #594d72; /* violeta grisáceo para texto */
-  box-shadow: 0 3px 10px rgba(200, 180, 255, 0.25);
-  border: 1px solid rgba(210, 190, 255, 0.3);
-}
-
-.producto.lila h3 {
-  color: #6a5aa3; /* título en lila medio */
-}
-
-.producto.lila p strong {
-  color: #7e6ad1; /* precio en violeta suave */
-}
-
-/* 🔹 Salmón pastel suave */
-.producto.salmón {
-  background-color: #fff5f1; /* salmón muy clarito */
-  color: #7a5346;
-  box-shadow: 0 3px 10px rgba(255, 190, 170, 0.25);
-  border: 1px solid rgba(255, 200, 180, 0.35);
-}
-
-.producto.salmón h3 {
-  color: #b46a5b;
-}
-
-.producto.salmón p strong {
-  color: #d57b67;
-}
-
-/* 🔹 Rosa pastel suave */
-.producto.rosa-pastel {
-  background-color: #fff6fa; /* rosa pastel suave */
-  color: #6b4d5f;
-  box-shadow: 0 3px 10px rgba(255, 180, 215, 0.25);
-  border: 1px solid rgba(255, 210, 230, 0.35);
-}
-
-.producto.rosa-pastel h3 {
-  color: #9a5e8b;
-}
-
-.producto.rosa-pastel p strong {
-  color: #c06ea5;
-}
-
-/* 🔹 Lila metalizado pastel */
-.producto.lila-metalizado {
-  background-color: #f8f3ff; /* lila pastel muy suave */
-  color: #5a4a77;
-  box-shadow: 0 3px 10px rgba(200, 170, 255, 0.28);
-  border: 1px solid rgba(210, 185, 255, 0.35);
-}
-
-.producto.lila-metalizado h3 {
-  color: #7a63c9;
-}
-
-.producto.lila-metalizado p strong {
-  color: #9b7df0;
-}
-
-
-
-    .producto:hover {
-      transform: translateY(-5px);
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(192, 110, 165, 0.08) 0%,
+        transparent 70%
+      );
+      pointer-events: none;
     }
 
-    .producto img {
-      width: 100%;
-      border-radius: 10px;
+    .logo-container {
+      position: relative;
+      z-index: 2;
     }
 
-    .producto h3 {
-      margin: 15px 0 5px;
+    .logo-text {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 700;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
 
-    .btn {
-      background: linear-gradient(90deg, #ffc4d5, #ffd2c0, #fff2cc);
-      color: #a7436a;
-      border: none;
-      border-radius: 10px;
-      padding: 10px 15px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: opacity 0.2s;
+    .logo-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
     }
 
-    .btn:hover {
+    .tagline {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      font-style: italic;
+      color: var(--color-accent-light);
+      margin-bottom: 20px;
       opacity: 0.9;
     }
 
-    .carrito {
-      text-align: center;
-      margin: 40px auto;
+    .hero-description {
       max-width: 700px;
-      background: white;
+      font-size: 1.1rem;
+      color: var(--color-text-muted);
+      margin-bottom: 50px;
+      line-height: 1.9;
+    }
+
+    .hero-description strong {
+      color: var(--color-accent);
+    }
+
+    /* === BUTTONS === */
+    .btn-premium {
+      display: inline-block;
+      padding: 18px 50px;
+      font-family: "Inter", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--color-accent);
+      background: var(--gradient-gold);
+      border: none;
       border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-premium:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-glow);
+      color: var(--color-primary);
+      background: var(--color-accent);
+    }
+
+    .btn-premium::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+      transition: left 0.5s ease;
+    }
+
+    .btn-premium:hover::after {
+      left: 100%;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--color-accent);
+      color: var(--color-accent);
+      padding: 16px 45px;
+      border-radius: 15px;
+    }
+
+    .btn-outline:hover {
+      background: var(--color-accent);
+      color: var(--color-primary);
+    }
+
+    /* === NAV STICKY === */
+    .nav-sticky {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(249, 246, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(198, 180, 255, 0.3);
       padding: 20px;
     }
 
-    .carrito ul {
+    .nav-filters {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 12px 30px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--color-text);
+      background: transparent;
+      border: 1px solid rgba(198, 180, 255, 0.3);
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.activo {
+      color: var(--color-accent);
+      background: var(--color-accent-light);
+      border-color: var(--color-accent);
+    }
+
+    /* === SECTIONS === */
+    .section {
+      padding: 100px 20px;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--color-text);
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--color-text-muted);
+      max-width: 600px;
+      margin: 0 auto 60px;
+      font-size: 1.1rem;
+    }
+
+    .gold-line {
+      width: 80px;
+      height: 2px;
+      background: var(--gradient-gold);
+      margin: 30px auto 60px;
+      border-radius: 10px;
+    }
+
+    /* === CATALOG === */
+    .catalogo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .categoria-titulo {
+      grid-column: 1 / -1;
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+      color: var(--color-accent);
+      text-align: center;
+      margin: 40px 0 20px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(198, 180, 255, 0.3);
+      border-radius: 10px;
+    }
+
+    .categoria-titulo:first-child {
+      border-top: none;
+      margin-top: 0;
+    }
+
+    /* === PRODUCT CARDS === */
+    .producto {
+      background: var(--color-card-bg);
+      border: 1px solid rgba(198, 180, 255, 0.3);
+      overflow: hidden;
+      transition: all 0.4s ease;
+      position: relative;
+      border-radius: 20px;
+      color: var(--color-text);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .producto::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-gold);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+      border-radius: 20px 20px 0 0;
+    }
+
+    .producto:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 40px rgba(198, 180, 255, 0.45);
+      border-color: var(--color-accent);
+    }
+
+    .producto:hover::before {
+      transform: scaleX(1);
+    }
+
+    .producto-imagen {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, #f2fff9, #f9f6ff);
+      border-radius: 20px 20px 0 0;
+    }
+
+    .carousel-track {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      height: 100%;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-track img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      transition: transform 0.6s ease;
+      border-radius: 20px 20px 0 0;
+    }
+
+    .producto:hover .carousel-track img {
+      transform: scale(1.05);
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      padding: 8px 15px;
+      background: rgba(255 255 255 / 0.6);
+      backdrop-filter: blur(5px);
+      border-radius: 20px;
+    }
+
+    .carousel-dots button {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(198, 180, 255, 0.6);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-dots button.active {
+      background: var(--color-accent);
+      transform: scale(1.3);
+    }
+
+    .producto-info {
+      padding: 30px;
+      text-align: center;
+    }
+
+    .producto h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--color-accent);
+      margin-bottom: 12px;
+    }
+
+    .producto p {
+      font-size: 0.95rem;
+      color: var(--color-text);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .producto-precio {
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+      color: var(--color-accent);
+      margin-bottom: 20px;
+    }
+
+    .producto-precio span {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+    }
+
+    .btn-agregar {
+      width: 100%;
+      padding: 15px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      background: transparent;
+      border: 1px solid var(--color-accent);
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-agregar:hover {
+      color: var(--color-primary);
+      background: var(--color-accent);
+    }
+
+    .btn-agregar.en-carrito {
+      background: var(--color-accent);
+      color: var(--color-primary);
+    }
+
+    /* === BADGE PREMIUM === */
+    .badge-premium {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 8px 15px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      background: var(--gradient-gold);
+      border-radius: 15px;
+      z-index: 10;
+    }
+
+    /* === FEATURES === */
+    .features {
+      background: var(--color-secondary);
+      color: var(--color-text);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature {
+      text-align: center;
+      padding: 40px 30px;
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 25px;
+      display: block;
+      color: var(--color-accent);
+    }
+
+    .feature h4 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: var(--color-accent);
+    }
+
+    .feature p {
+      color: var(--color-text);
+      font-size: 0.95rem;
+    }
+
+    /* === CART === */
+    .carrito-section {
+      background: linear-gradient(
+        180deg,
+        var(--color-primary) 0%,
+        var(--color-secondary) 100%
+      );
+    }
+
+    .carrito-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--color-card-bg);
+      border: 1px solid rgba(198, 180, 255, 0.3);
+      padding: 50px;
+      border-radius: 20px;
+      color: var(--color-text);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .carrito-titulo {
+      font-family: "Playfair Display", serif;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--color-accent);
+    }
+
+    #listaCarrito {
       list-style: none;
-      padding: 0;
     }
 
-    .carrito li {
-      margin: 8px 0;
+    #listaCarrito li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(198, 180, 255, 0.1);
+      flex-wrap: wrap;
+      gap: 15px;
+      color: var(--color-text);
     }
 
-/* Efecto zoom al pasar el mouse */
-.producto img {
-  width: 100%;
-  border-radius: 10px;
-  transition: transform 0.4s ease, box-shadow 0.3s ease;
-}
+    .item-nombre {
+      font-weight: 500;
+      color: var(--color-accent);
+      flex: 1;
+      min-width: 200px;
+    }
 
-.producto:hover img {
-  transform: scale(1.07);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-.carousel {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-}
+    .item-controles {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
 
-.carousel-track {
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-}
+    .btn-cantidad {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--color-accent);
+      background: transparent;
+      border: 1px solid var(--color-accent);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
 
-.carousel-track::-webkit-scrollbar {
-  display: none;
-}
+    .btn-cantidad:hover {
+      background: var(--color-accent);
+      color: var(--color-primary);
+    }
 
-.carousel-track img {
-  width: 100%;
-  flex-shrink: 0;
-  scroll-snap-align: start;
-  border-radius: 10px;
-}
+    .item-cantidad {
+      font-size: 1.1rem;
+      min-width: 30px;
+      text-align: center;
+      color: var(--color-text);
+    }
 
-/* 🔹 Puntitos flotando sobre la imagen */
-.carousel-dots {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  background: rgba(0, 0, 0, 0.25);
-  padding: 5px 10px;
-  border-radius: 20px;
-  backdrop-filter: blur(4px);
-}
+    .item-subtotal {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      color: var(--color-accent);
+      min-width: 100px;
+      text-align: right;
+    }
 
-.carousel-dots button {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: none;
-  background-color: #fff;
-  opacity: 0.6;
-  transition: opacity 0.3s ease, transform 0.2s ease;
-  cursor: pointer;
-}
+    #total {
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+      text-align: right;
+      margin-top: 30px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(198, 180, 255, 0.3);
+      color: var(--color-accent);
+    }
 
-.carousel-dots button.active {
-  opacity: 1;
-  transform: scale(1.2);
-  background: linear-gradient(90deg, #b0c4ff, #d4b0ff, #f0b0c4);
-}
-.carousel {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-}
+    #total span {
+      color: var(--color-accent);
+    }
 
-.carousel-track {
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-}
+    .carrito-vacio {
+      text-align: center;
+      color: var(--color-text-muted);
+      padding: 40px;
+      font-style: italic;
+    }
 
-.carousel-track::-webkit-scrollbar {
-  display: none;
-}
+    .btn-finalizar {
+      display: block;
+      width: 100%;
+      margin-top: 40px;
+      padding: 20px;
+      font-size: 1rem;
+      border-radius: 15px;
+      border: none;
+      background: var(--color-accent);
+      color: var(--color-primary);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
 
-.carousel-track img {
-  width: 100%;
-  flex-shrink: 0;
-  scroll-snap-align: start;
-  border-radius: 10px;
-}
+    .btn-finalizar:hover {
+      background: var(--color-accent-light);
+      color: var(--color-text);
+    }
 
-/* 🔹 Puntitos flotantes */
-.carousel-dots {
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 6px 12px;
-  border-radius: 20px;
-  backdrop-filter: blur(5px);
-}
+    /* === FLOATING CART === */
+    .btn-carrito-flotante {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      background: var(--gradient-gold);
+      color: var(--color-primary);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: var(--shadow-soft);
+      transition: all 0.3s ease;
+    }
 
-.carousel-dots button {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: none;
-  background-color: #ffffff;
-  opacity: 0.5;
-  cursor: pointer;
-  transition: opacity 0.3s ease, transform 0.2s ease;
-}
+    .btn-carrito-flotante:hover {
+      transform: scale(1.1);
+    }
 
-.carousel-dots button.active {
-  opacity: 1;
-  transform: scale(1.2);
-   background: linear-gradient(90deg, #ffc4d5, #ffd2c0, #fff2cc);
+    .btn-carrito-flotante.mostrar {
+      display: flex;
+    }
 
-}
+    .burbuja-carrito {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      min-width: 22px;
+      height: 22px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: #e74c3c;
+      color: white;
+      border-radius: 50%;
+    }
 
-/* Botón flotante */
-.boton-carrito-flotante {
-  position: fixed;
-  top: 380px;
-  right: 15px;
-  background: white;
-  color: #333;
-  padding: 5px;
-  border-radius: 50%;
-  font-size: 14px;
-  font-weight: bold;
-  border: 2px solid #d4b0ff;
-  cursor: pointer;
-  z-index: 9999;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  width: 28px;  /* 🔥 pequeño */
-  height: 28px;
-  display: none; /* 🔥 oculto por defecto */
-  justify-content: center;
-  align-items: center;
-  opacity: 0; /* para animación */
-  transform: scale(0.7);
-  transition: opacity 0.4s ease, transform 0.3s ease;
-}
+    /* === FOOTER === */
+    footer {
+      background: var(--color-primary);
+      padding: 60px 20px;
+      text-align: center;
+      border-top: 1px solid rgba(198, 180, 255, 0.1);
+      color: var(--color-text-muted);
+    }
 
-/* Estado visible con animación */
-.boton-carrito-flotante.mostrar {
-  display: flex;
-  opacity: 1;
-  transform: scale(1);
-}
+    .footer-logo {
+      font-family: "Playfair Display", serif;
+      font-size: 2rem;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+    }
 
-/* Burbuja con número */
-.burbuja-carrito {
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  background: #ff4d88;
-  color: white;
-  padding: 2px 6px;
-  font-size: 10px;
-  font-weight: bold;
-  border-radius: 50%;
-  display: none;
-}
+    .footer-text {
+      font-size: 0.9rem;
+      margin-bottom: 30px;
+    }
 
-/* Mobile */
-@media (max-width: 600px) {
-  .boton-carrito-flotante {
-    top: 360px;
-    right: 10px;
-  }
-}
+    .footer-contact {
+      font-size: 1.1rem;
+      color: var(--color-accent);
+    }
 
+    .footer-contact a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
 
+    .footer-contact a:hover {
+      opacity: 0.8;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      header {
+        min-height: auto;
+        padding: 80px 20px;
+      }
+
+      .nav-filters {
+        gap: 10px;
+      }
+
+      .filter-btn {
+        padding: 10px 20px;
+        font-size: 0.75rem;
+      }
+
+      .catalogo {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .carrito-container {
+        padding: 30px 20px;
+      }
+
+      #listaCarrito li {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .item-subtotal {
+        text-align: left;
+      }
+
+      .btn-carrito-flotante {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+      }
+    }
+
+    /* === ANIMATIONS === */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-in {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .delay-1 {
+      animation-delay: 0.1s;
+    }
+    .delay-2 {
+      animation-delay: 0.2s;
+    }
+    .delay-3 {
+      animation-delay: 0.3s;
+    }
+    .delay-4 {
+      animation-delay: 0.4s;
+    }
   </style>
 </head>
 <body>
+  <!-- HEADER -->
+  <header>
+    <div class="logo-container">
+      <h1 class="logo-text">CodiDental</h1>
+      <p class="logo-subtitle">Cintas Codificadoras Premium</p>
+      <p class="tagline">"Excelencia en cada detalle"</p>
+      <p class="hero-description">
+        Transformamos tu instrumental odontológico en una experiencia ordenada,
+        estética y profesional.
+        Nuestras cintas codificadoras son <strong>autoclavables</strong>,
+        <strong>resistentes al cloro</strong> y están disponibles en una selecta
+        gama de colores premium.
+      </p>
+      <a href="#catalogo" class="btn-premium">Explorar Colección</a>
+    </div>
+  </header>
 
-<header>
-  <div class="logo-container">
-    <img src="logocodi.png" alt="Logo CodiDental" class="logo-flotante">
-    <p class="subtitulo">Cintas codificadoras</p>
-  </div>
-</header>
+  <!-- NAV FILTROS -->
+  <nav class="nav-sticky">
+    <div class="nav-filters">
+      <button class="filter-btn" data-target="#vivos">Colores Vivos</button>
+      <button class="filter-btn" data-target="#pastel">Colores Pastel</button>
+      <button class="filter-btn" data-target="#metalizado">Colores Metalizados</button>
+    </div>
+  </nav>
 
-<style>
-header {
-  position: relative;
-  text-align: center;
-  padding: 120px 10px 100px;
-  color: white;
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
-  overflow: hidden;
- background: linear-gradient(
-  135deg,
-  rgba(255, 215, 230, 0.95),  /* Rosa suave pastel */
-  rgba(255, 200, 215, 0.95),  /* Rosa durazno rosado */
-  rgba(255, 220, 195, 0.95),  /* Durazno pastel cálido */
-  rgba(255, 235, 205, 0.95)   /* Amarillo manteca suave */
-);
+  <!-- FEATURES -->
+  <section class="section features">
+    <h2 class="section-title">¿Por qué elegir CodiDental?</h2>
+    <div class="gold-line"></div>
+    <div class="features-grid">
+      <div class="feature">
+        <span class="feature-icon">🔥</span>
+        <h4>Autoclavables</h4>
+        <p>Resistentes a altas temperaturas de esterilización sin perder color ni forma.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">💧</span>
+        <h4>Resistentes al Cloro</h4>
+        <p>Diseñadas para soportar procesos de desinfección rigurosos.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">🎨</span>
+        <h4>Colores Premium</h4>
+        <p>Gama exclusiva de tonos vibrantes, pastel y metalizados.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">🚚</span>
+        <h4>Entrega en Facultad</h4>
+        <p>Recibí tu pedido directamente en tu centro de estudios.</p>
+      </div>
+    </div>
+  </section>
 
-
-}
-
-/* 🔹 Fondo animado de desplazamiento lateral */
-header::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 200%; /* doble ancho para permitir el desplazamiento */
-  height: 100%;
-  background: url("fondoencabezado.png") repeat-x center/contain;
-  opacity: 0.7;
-  z-index: 1;
-  animation: moverFondo 20s linear infinite;
-}
-
-/* 🔸 Animación: movimiento horizontal continuo */
-@keyframes moverFondo {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-/* Contenido visible por encima del fondo */
-header * {
-  position: relative;
-  z-index: 2;
-}
-
-/* Centrado del logo y texto */
-.logo-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-/* Logo más grande y más arriba */
-.logo-flotante {
-  width: 800px; /* ajustá a gusto */
-  max-width: 90%;
-  height: auto;
-  margin-top: -120px;
-  margin-bottom: 10px;
-}
-
-/* Texto blanco debajo del logo */
-.subtitulo {
-  font-size: 22px;
-  color: white;
-  margin: 0;
-  font-weight: 500;
-}
-
-/* Botones mini + y - dentro del carrito */
-.btn-mini {
- background: #ffb4ca;
-  border: none;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  margin: 0 5px;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.btn-mini:hover {
-  opacity: 0.9;
-  transform: scale(1.1);
-}
-
-/* Estado activo de botón principal */
-.btn-quitar {
-  background: #ff8fa8;
-  color: white;
-}
-
-/* Efecto de desvanecido suave al cambiar imagen */
-.producto img {
-  transition: opacity 0.5s ease-in-out, transform 0.4s ease;
-}
-
-.producto:hover img {
-  transform: scale(1.07); /* el zoom que ya usás */
-}
-
-/* 🔹 Botón flotante "Tu carrito" */
-.boton-carrito-flotante {
-  position: fixed;
-  top: 470px; /* ajustá esta distancia para ponerlo exactamente debajo del botón de catálogo */
-  right: 20px;
-  background: linear-gradient(90deg, #ffc4d5, #ffd2c0, #fff2cc);
-  color: #a7436a;
-  padding: 15px 25px;
-  border-radius: 30px;
-  font-size: 18px;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  z-index: 9999;
-  box-shadow: 0 4px 15px rgba(255, 180, 200, 0.35);
-  transition: transform 0.3s ease;
-}
-
-/* Hover */
-.boton-carrito-flotante:hover {
-  transform: scale(1.05);
-}
-
-/* Versión mobile: mantenerlo más abajo */
-@media (max-width: 600px) {
-  .boton-carrito-flotante {
-    top: 520px;
-    right: 10px;
-    padding: 12px 22px;
-    font-size: 16px;
-  }
-}
-
-}
-/* 🔹 Barra fija de filtros de colores */
-.filtro-colores-barra {
-  position: sticky;
-  top: 0; /* queda pegado arriba de la pantalla */
-  z-index: 1000;
-  padding: 10px 0;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 245, 249, 0.98),
-    rgba(255, 245, 249, 0.90)
-  );
-  backdrop-filter: blur(6px);
-}
-
-/* En pantallas grandes, un poquito de margen */
-@media (min-width: 768px) {
-  .filtro-colores-barra {
-    top: 10px;
-  }
-}
-
-/* Contenedor de botones */
-.filtro-colores {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-/* Botones base (color suave neutro) */
-.filtro-boton {
-  border: 1px solid #e1d2ff;
-  border-radius: 999px;
-  padding: 8px 18px;
-  font-size: 14px;
-  font-weight: 600;
-  background: linear-gradient(90deg, #fffafd, #fff6fb, #fffaf1);
-  color: #5a4b6e;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease,
-    color 0.2s ease,
-    filter 0.2s ease;
-}
-
-/* Hover suave */
-.filtro-boton:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
-  filter: brightness(1.03);
-}
-
-/* Activo: se pinta con el color del tipo de cinta */
-
-/* 👉 Colores vivos: rosado/anaranjado como tu botón "VER CATÁLOGO" */
-.filtro-boton--vivos.activo {
-  background: linear-gradient(90deg, #ffb4cf, #ffd29a);
-  color: #a7436a;
-  box-shadow: 0 6px 16px rgba(255, 180, 200, 0.45);
-}
-
-/* 👉 Colores pastel: tono menta/clarito como las tarjetas pastel */
-.filtro-boton--pastel.activo {
-  background: linear-gradient(90deg, #f2fff9, #e9fff5);
-  color: #3d7a64;
-  box-shadow: 0 6px 16px rgba(170, 220, 190, 0.45);
-}
-
-/* 👉 Colores metalizados: lila suave como las tarjetas lilas */
-.filtro-boton--metalizado.activo {
-  background: linear-gradient(90deg, #f9f6ff, #f3eaff);
-  color: #594d72;
-  box-shadow: 0 6px 16px rgba(190, 170, 255, 0.45);
-}
-
-
-</style>
-
-
-
-
-
-
-  <section class="welcome">
-    <h2>Bienvenido a CodiDental</h2>
-    <p>
-      Transformamos tu instrumental odontológico en una experiencia mas ordenada, estética y profesional.
-Nuestras cintas codificadoras son <strong>autoclavables, resistentes al cloro y están disponibles en colores vibrantes.</strong> 
-<p>
-      <em>¡Descubrí nuestros colores, elegí tus favoritos y tu pedido lo entregamos en tu facultad!</em>
+  <!-- CATÁLOGO -->
+  <section id="catalogo" class="section">
+    <h2 class="section-title">Nuestra Colección</h2>
+    <p class="section-subtitle">
+      Cada cinta está cuidadosamente seleccionada para ofrecer la máxima calidad
+      y durabilidad.
     </p>
-<!-- Botón animado tipo cinta -->
-<div class="boton-catalogo-container">
-  <a href="#catalogo" class="boton-cinta">VER CATÁLOGO</a>
-</div>
-<!-- 🔹 Barra fija de tipos de colores -->
-<div class="filtro-colores-barra">
-  <div class="filtro-colores">
-    <button class="filtro-boton filtro-boton--vivos" data-target="#vivos">
-      Colores vivos
-    </button>
-    <button class="filtro-boton filtro-boton--pastel" data-target="#pastel">
-      Colores pastel
-    </button>
-    <button class="filtro-boton filtro-boton--metalizado" data-target="#metalizado">
-      Colores metalizados
-    </button>
-  </div>
-</div>
+    <div class="gold-line"></div>
 
+    <div class="catalogo">
+      <!-- COLORES VIVOS -->
+      <h3 class="categoria-titulo" id="vivos">— Colores Vivos —</h3>
 
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Rosa.png" alt="Cinta Rosa" />
+              <img src="Cinta Rosa Muestra.png" alt="Cinta Rosa Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Rosa</h3>
+          <p>
+            Color visible y fácil de identificar. Ideal para mantener el
+            instrumental organizado con un tono cálido y suave.
+          </p>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button
+            class="btn-agregar"
+            data-nombre="Cinta Rosa"
+            onclick="agregarAlCarrito('Cinta Rosa', 1500)"
+          >
+            Añadir al Carrito
+          </button>
+        </div>
+      </div>
 
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Menta.png" alt="Cinta Menta" />
+              <img src="Cinta Menta Muestra.png" alt="Cinta Menta Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Menta</h3>
+          <p>
+            Tono fresco que aporta claridad visual al instrumental. Muy útil para
+            diferenciar piezas rápidamente.
+          </p>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button
+            class="btn-agregar"
+            data-nombre="Cinta Menta"
+            onclick="agregarAlCarrito('Cinta Menta', 1500)"
+          >
+            Añadir al Carrito
+          </button>
+        </div>
+      </div>
 
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Turquesa.png" alt="Cinta Turquesa" />
+              <img
+                src="Cinta Turquesa Muestra.png"
+                alt="Cinta Turquesa Muestra"
+              />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Turquesa</h3>
+          <p>
+            Color limpio y moderno que se distingue sin ser demasiado intenso.
+            Ayuda a ubicar el instrumental de forma rápida.
+          </p>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button
+            class="btn-agregar"
+            data-nombre="Cinta Turquesa"
+            onclick="agregarAlCarrito('Cinta Turquesa', 1500)"
+          >
+            Añadir al Carrito
+          </button>
+        </div>
+      </div>
 
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Lila.png" alt="Cinta Lila" />
+              <img src="Cinta Lila Muestra.png" alt="Cinta Lila Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Lila</h3>
+          <p>
+            Tono equilibrado, discreto y agradable a la vista. Buena opción para
+            quienes prefieren colores suaves pero notorios.
+          </p>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button
+            class="btn-agregar"
+            data-nombre="Cinta Lila"
+            onclick="agregarAlCarrito('Cinta Lila', 1500)"
+          >
+            Añadir al Carrito
+          </button>
+        </div>
+      </div>
 
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Salmón.png" alt="Cinta Salmón" />
+              <img
+                src="Cinta Salmón Muestra.png"
+                alt="Cinta Salmón Muestra"
+              />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Salmón</h3>
+          <p>
+            Color cálido que destaca sin exagerar. Facilita la identificación y
+            mantiene una estética uniforme.
+          </p>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button
+            class="btn-agregar"
+            data-nombre="Cinta Salmón"
+            onclick="agregarAlCarrito('Cinta Salmón', 1500)"
+          >
+            Añadir al Carrito
+          </button>
+        </div>
+      </div>
 
+      <!-- COLORES PASTEL -->
+      <h3 class="categoria-titulo" id="pastel">— Colores Pastel —</h3>
 
-<div id="btnCarritoFlotante" class="boton-carrito-flotante">
-  🛒
-  <span id="carritoBadge" class="burbuja-carrito">0</span>
-</div>
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Rosa Pastel.png" alt="Cinta Rosa Pastel" />
+              <img
+                src="Cinta Rosa Pastel Muestra.png"
+                alt="Cinta Rosa Pastel Muestra"
+              />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Rosa Pastel</h3>
+          <p>
+            Tono delicado y armónico, ideal para un instrumental prolijo y
+            uniforme.
+          </p>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button
+            class="btn-agregar"
+            data-nombre="Cinta Rosa Pastel"
+            onclick="agregarAlCarrito('Cinta Rosa Pastel', 1500)"
+          >
+            Añadir al Carrito
+          </button>
+        </div>
+      </div>
 
+      <!-- COLORES METALIZADOS -->
+      <h3 class="categoria-titulo" id="metalizado">— Colores Metalizados —</h3>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <span class="badge-premium">Premium</span>
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Lila Metalizado.png" alt="Cinta Lila Metalizado" />
+              <img
+                src="Cinta Lila Metalizado Muestra.png"
+                alt="Cinta Lila Metalizado Muestra"
+              />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Lila Metalizado</h3>
+          <p>
+            Acabado suave con un leve brillo que facilita diferenciar el
+            instrumental sin perder sobriedad.
+          </p>
+          <div class="producto-precio">$3.000 <span>ARS</span></div>
+          <button
+            class="btn-agregar"
+            data-nombre="Cinta Lila Metalizado"
+            onclick="agregarAlCarrito('Cinta Lila Metalizado', 3000)"
+          >
+            Añadir al Carrito
+          </button>
+        </div>
+      </div>
+    </div>
   </section>
 
-    <!-- 🔽 Catálogo -->
-  <section id="catalogo" class="catalogo">
-
-    <!-- Ancla para "Colores vivos" -->
-    
-
-    <div class="producto rosa" id="vivos">
-      <div class="carousel">
-        <div class="carousel-track">
-          <img src="Cinta Rosa.png" alt="Cinta Rosa 1">
-          <img src="Cinta Rosa Muestra.png" alt="Muestra Rosa 1">
-        </div>
-        <div class="carousel-dots"></div>
-      </div>
-      <h3>Cinta Codificadora Rosa</h3>
-      <p>Color visible y fácil de identificar.
-Ideal para mantener el instrumental organizado con un tono cálido y suave.</p>
-      <p><strong>$1.500</strong></p>
-      <button class="btn" data-nombre="Cinta Rosa" onclick="agregarAlCarrito('Cinta Rosa', 1500)">Añadir al carrito</button>
+  <!-- CARRITO -->
+  <section id="carrito" class="section carrito-section">
+    <div class="carrito-container">
+      <h2 class="carrito-titulo">Tu Carrito</h2>
+      <ul id="listaCarrito">
+        <li class="carrito-vacio">Tu carrito está vacío</li>
+      </ul>
+      <p id="total"></p>
+      <button class="btn-premium btn-finalizar" onclick="enviarWhatsApp()">
+        Finalizar Pedido
+      </button>
     </div>
-
-    <div class="producto menta">
-      <div class="carousel">
-        <div class="carousel-track">
-          <img src="Cinta Menta.png" alt="Cinta Menta 1">
-          <img src="Cinta Menta Muestra.png" alt="Cinta Menta Muestra 1">
-        </div>
-        <div class="carousel-dots"></div>
-      </div>
-      <h3>Cinta Codificadora Menta</h3>
-      <p>Tono fresco que aporta claridad visual al instrumental.
-Muy útil para diferenciar piezas rápidamente.</p>
-      <p><strong>$1.500</strong></p>
-      <button class="btn" data-nombre="Cinta Menta" onclick="agregarAlCarrito('Cinta Menta', 1500)">Añadir al carrito</button>
-    </div>
-
-    <div class="producto turquesa">
-      <div class="carousel">
-        <div class="carousel-track">
-          <img src="Cinta Turquesa.png" alt="Cinta Turquesa 1">
-          <img src="Cinta Turquesa Muestra.png" alt="Cinta Turquesa Muestra 1">
-        </div>
-        <div class="carousel-dots"></div>
-      </div>
-      <h3>Cinta Codificadora Turquesa</h3>
-      <p>Color limpio y moderno que se distingue sin ser demasiado intenso.
-Ayuda a ubicar el instrumental de forma rápida.</p>
-      <p><strong>$1.500</strong></p>
-      <button class="btn" data-nombre="Cinta Turquesa" onclick="agregarAlCarrito('Cinta Turquesa', 1500)">Añadir al carrito</button>
-    </div>
-
-    <div class="producto lila">
-      <div class="carousel">
-        <div class="carousel-track">
-          <img src="Cinta Lila.png" alt="Cinta Lila 1">
-          <img src="Cinta Lila Muestra.png" alt="Cinta Lila Muestra 1">
-        </div>
-        <div class="carousel-dots"></div>
-      </div>
-      <h3>Cinta Codificadora Lila</h3>
-      <p>Tono equilibrado, discreto y agradable a la vista. 
-Buena opción para quienes prefieren colores suaves pero notorios.</p>
-      <p><strong>$1.500</strong></p>
-      <button class="btn" data-nombre="Cinta Lila" onclick="agregarAlCarrito('Cinta Lila', 1500)">Añadir al carrito</button>
-    </div>
-
- <div class="producto salmón">
-      <div class="carousel">
-        <div class="carousel-track">
-          <img src="Cinta Salmón.png" alt="Cinta Salmón 1">
-          <img src="Cinta Salmón Muestra.png" alt="Cinta Salmón Muestra 1">
-        </div>
-        <div class="carousel-dots"></div>
-      </div>
-      <h3>Cinta Codificadora Salmón</h3>
-      <p>Color cálido que destaca sin exagerar. Facilita la identificación y mantiene una estética uniforme.</p>
-      <p><strong>$1.500</strong></p>
-      <button class="btn" data-nombre="Cinta Salmón" onclick="agregarAlCarrito('Cinta Salmón', 1500)">Añadir al carrito</button>
-    </div>
-<div class="corte-fila"></div>
-
-
-    <!-- Ancla para "Colores pastel" -->
-    
-    <!-- Aquí después vas a poner tus productos rosa pastel, menta pastel, etc. -->
-
- <div class="producto rosa-pastel" id="pastel">
-      <div class="carousel">
-        <div class="carousel-track">
-          <img src="Cinta Rosa Pastel.png" alt="Cinta Rosa Pastel 1">
-          <img src="Cinta Rosa Pastel Muestra.png" alt="Cinta Rosa pastel Muestra 1">
-        </div>
-        <div class="carousel-dots"></div>
-      </div>
-      <h3>Cinta Codificadora Rosa Pastel</h3>
-      <p>Tono delicado y armónico, ideal para un instrumental 
-prolijo y uniforme.</p>
-      <p><strong>$1500</strong></p>
-      <button class="btn" data-nombre="Cinta Rosa Pastel" onclick="agregarAlCarrito('Cinta Rosa Pastel', 1500)">Añadir al carrito</button>
-    </div>
-<div class="corte-fila"></div>
-
-    <!-- Ancla para "Colores metalizados" -->
-   
-
-    <!-- Y aquí tus futuros productos metalizados -->
-
- <div class="producto lila-metalizado" id="metalizado">
-      <div class="carousel">
-        <div class="carousel-track">
-          <img src="Cinta Lila Metalizado.png" alt="Cinta Lila Metalizado 1">
-          <img src="Cinta Lila Metalizado Muestra.png" alt="Lila Metalizado Muestra 1">
-        </div>
-        <div class="carousel-dots"></div>
-      </div>
-      <h3>Cinta Codificadora Lila Metalizado</h3>
-      <p>Acabado suave con un leve brillo que facilita diferenciar el instrumental sin perder sobriedad.</p>
-      <p><strong>$3000</strong></p>
-      <button class="btn" data-nombre="Cinta Lila Metalizado" onclick="agregarAlCarrito('Cinta Lila Metalizado', 3000)">Añadir al carrito</button>
-    </div>
-<div class="corte-fila"></div>
-
   </section>
 
+  <!-- BOTÓN FLOTANTE -->
+  <button id="btnCarritoFlotante" class="btn-carrito-flotante" onclick="irAlCarrito()">
+    🛒
+    <span id="carritoBadge" class="burbuja-carrito">0</span>
+  </button>
 
-  <section class="carrito">
-    <h2>🛒 Tu carrito</h2>
-    <ul id="listaCarrito"></ul>
-    <p id="total"></p>
-    <button class="btn" onclick="enviarWhatsApp()">Finalizar pedido</button>
-  </section>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">CodiDental</div>
+    <p class="footer-text">Cintas codificadoras premium para profesionales exigentes</p>
+    <p class="footer-contact">
+      <a href="https://wa.me/+5491122938343" target="_blank"
+        >📱 WhatsApp: +54 9 11 2293-8343</a
+      >
+    </p>
+  </footer>
 
- <script>
-  let carrito = [];
+  <script>
+    let carrito = [];
 
-  // === 🛒 CARRITO ===
-  function agregarAlCarrito(nombre, precio) {
-    const p = carrito.find(i => i.nombre === nombre);
-    if (p) { p.cantidad++; } else { carrito.push({ nombre, precio, cantidad: 1 }); }
-    mostrarCarrito();
-actualizarBotones(nombre);
-actualizarBurbujaCarrito();
-actualizarBotonCarritoFlotante();
-
-
-
-  }
-
-  function quitarDelCarrito(nombre) {
-    const p = carrito.find(i => i.nombre === nombre);
-    if (!p) return;
-    p.cantidad--;
-    if (p.cantidad <= 0) carrito = carrito.filter(i => i.nombre !== nombre);
-    mostrarCarrito();
-actualizarBotones(nombre);
-actualizarBurbujaCarrito();
-actualizarBotonCarritoFlotante();
-
-
-  }
-function actualizarBurbujaCarrito() {
-  const badge = document.getElementById("carritoBadge");
-  const totalItems = carrito.reduce((a, i) => a + i.cantidad, 0);
-
-  if (totalItems > 0) {
-    badge.style.display = "block";
-    badge.textContent = totalItems;
-  } else {
-    badge.style.display = "none";
-  }
-}
-function actualizarBotonCarritoFlotante() {
-  const boton = document.getElementById("btnCarritoFlotante");
-  const totalItems = carrito.reduce((a, i) => a + i.cantidad, 0);
-
-  if (totalItems > 0) {
-    boton.style.display = "flex"; // aparece
-  } else {
-    boton.style.display = "none"; // desaparece
-  }
-}
-
-
-
-  function mostrarCarrito() {
-    const lista = document.getElementById("listaCarrito");
-    lista.innerHTML = "";
-    let total = 0;
-    carrito.forEach(item => {
-      total += item.precio * item.cantidad;
-      const li = document.createElement("li");
-      li.innerHTML = `
-        ${item.nombre} - $${item.precio} x ${item.cantidad} = <strong>$${item.precio * item.cantidad}</strong>
-        <button class="btn-mini" onclick="quitarDelCarrito('${item.nombre}')">−</button>
-        <button class="btn-mini" onclick="agregarAlCarrito('${item.nombre}', ${item.precio})">+</button>
-      `;
-      lista.appendChild(li);
-    });
-    document.getElementById("total").textContent =
-      carrito.length ? `Total: $${total}` : "Tu carrito está vacío";
-  }
-
-  function actualizarBotones(nombre) {
-    const botones = document.querySelectorAll(".btn[data-nombre]");
-    botones.forEach(b => {
-      if (b.dataset.nombre === nombre) {
-        const p = carrito.find(i => i.nombre === nombre);
-        if (p) { b.textContent = `Añadir (+1) — En carrito: ${p.cantidad}`; b.classList.add("btn-quitar"); }
-        else   { b.textContent = "Añadir al carrito"; b.classList.remove("btn-quitar"); }
+    // === CARRITO FUNCTIONS ===
+    function agregarAlCarrito(nombre, precio) {
+      const p = carrito.find((i) => i.nombre === nombre);
+      if (p) {
+        p.cantidad++;
+      } else {
+        carrito.push({ nombre, precio, cantidad: 1 });
       }
-    });
-  }
-</script>
+      mostrarCarrito();
+      actualizarBotones(nombre);
+      actualizarBotonFlotante();
+    }
 
-<script>
+    function quitarDelCarrito(nombre) {
+      const p = carrito.find((i) => i.nombre === nombre);
+      if (!p) return;
+      p.cantidad--;
+      if (p.cantidad <= 0) carrito = carrito.filter((i) => i.nombre !== nombre);
+      mostrarCarrito();
+      actualizarBotones(nombre);
+      actualizarBotonFlotante();
+    }
 
-  function enviarWhatsApp() {
-    if (!carrito.length) { alert("Agregá al menos un producto antes de finalizar el pedido."); return; }
-    let mensaje = "Hola! Quiero hacer este pedido:%0A";
-    carrito.forEach(i => mensaje += `- ${i.nombre} (${i.cantidad} unid): $${i.precio * i.cantidad}%0A`);
-    let total = carrito.reduce((a, i) => a + i.precio * i.cantidad, 0);
-    mensaje += `%0ATotal: $${total}`;
-    window.open(`https://wa.me/+5491122938343?text=${mensaje}`, "_blank");
-  }
+    function mostrarCarrito() {
+      const lista = document.getElementById("listaCarrito");
+      lista.innerHTML = "";
 
-   const imagenesSecundarias = {
-    "Cinta Azul": "Muestra Azul1.png",
-    "Cinta Verde": "Muestra Verde1.png",
-    "Cinta Roja": "Muestra Roja1.png"
-  };
+      if (carrito.length === 0) {
+        lista.innerHTML = '<li class="carrito-vacio">Tu carrito está vacío</li>';
+        document.getElementById("total").textContent = "";
+        return;
+      }
 
-  document.querySelectorAll(".producto img").forEach(img => {
-    const nombre = img.alt.trim();
-    const secundaria = imagenesSecundarias[nombre];
-    if (!secundaria) return;
-
-    const original = img.src;
-    let mostrandoSecundaria = false;
-    let intervalo;
-
-    img.addEventListener("mouseenter", () => {
-      intervalo = setInterval(() => {
-        img.style.opacity = 0;
-        setTimeout(() => {
-          img.src = mostrandoSecundaria ? original : secundaria;
-          mostrandoSecundaria = !mostrandoSecundaria;
-          img.style.opacity = 1;
-        }, 250); // mitad del tiempo del fade
-      }, 1200); // cada 1.2 segundos
-    });
-
-    img.addEventListener("mouseleave", () => {
-      clearInterval(intervalo);
-      img.style.opacity = 0;
-      setTimeout(() => {
-        img.src = original;
-        img.style.opacity = 1;
-      }, 250);
-    });
-  });
-</script>
-
-<script>
-document.querySelectorAll('.carousel').forEach(carousel => {
-  const track = carousel.querySelector('.carousel-track');
-  const dotsContainer = carousel.querySelector('.carousel-dots');
-  const images = carousel.querySelectorAll('img');
-
-  // Crear un punto por imagen
-  images.forEach((_, i) => {
-    const dot = document.createElement('button');
-    if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => {
-      track.scrollTo({
-        left: track.clientWidth * i,
-        behavior: 'smooth'
+      let total = 0;
+      carrito.forEach((item) => {
+        total += item.precio * item.cantidad;
+        const li = document.createElement("li");
+        li.innerHTML = `
+        <span class="item-nombre">${item.nombre}</span>
+        <div class="item-controles">
+          <button class="btn-cantidad" onclick="quitarDelCarrito('${item.nombre}')">−</button>
+          <span class="item-cantidad">${item.cantidad}</span>
+          <button class="btn-cantidad" onclick="agregarAlCarrito('${item.nombre}', ${item.precio})">+</button>
+        </div>
+        <span class="item-subtotal">$${(item.precio * item.cantidad).toLocaleString()}</span>
+      `;
+        lista.appendChild(li);
       });
-    });
-    dotsContainer.appendChild(dot);
-  });
 
-  // Actualizar el punto activo al deslizar
-  track.addEventListener('scroll', () => {
-    const index = Math.round(track.scrollLeft / track.clientWidth);
-    dotsContainer.querySelectorAll('button').forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
-  });
-});
-</script>
-<script>
-document.querySelector('.boton-cinta').addEventListener('click', function(e) {
-  e.preventDefault(); // Evita el salto brusco
-  const catalogo = document.querySelector('#catalogo');
-  window.scrollTo({
-    top: catalogo.offsetTop - 20, // un pequeño margen opcional
-    behavior: 'smooth'
-  });
-});
-</script>
-<script>
-// 🔹 Detectar si es un dispositivo móvil
-const esMovil = window.innerWidth <= 600;
-const btnCarritoFlotante = document.getElementById("btnCarritoFlotante");
-const carritoPrincipal = document.querySelector(".carrito");
+      document.getElementById("total").innerHTML = `Total: <span>$${total.toLocaleString()}</span>`;
+    }
 
-// 🔹 Mostrar el botón con animación
-function mostrarBotonCarrito() {
-  btnCarritoFlotante.style.display = "flex";
-  setTimeout(() => btnCarritoFlotante.classList.add("mostrar"), 10);
-}
-
-// 🔹 Ocultar el botón con animación
-function ocultarBotonCarrito() {
-  btnCarritoFlotante.classList.remove("mostrar");
-  setTimeout(() => (btnCarritoFlotante.style.display = "none"), 300);
-}
-
-// 🔹 Al presionar el botón
-btnCarritoFlotante.addEventListener("click", () => {
-  window.scrollTo({
-    top: carritoPrincipal.offsetTop - 10,
-    behavior: "smooth",
-  });
-  ocultarBotonCarrito(); // 🔥 Desaparece al presionarlo
-});
-
-// 🔹 Mostrar u ocultar según scroll
-window.addEventListener("scroll", () => {
-  const posicionActual = window.scrollY;
-  const distanciaHastaCarrito = carritoPrincipal.offsetTop;
-  const alturaVentana = window.innerHeight;
-  const totalItems = carrito.reduce((a, i) => a + i.cantidad, 0);
-
-  // 🔸 Oculta si el usuario ya está viendo el carrito
-  if (posicionActual + alturaVentana > distanciaHastaCarrito - 100) {
-    ocultarBotonCarrito();
-  } else if (totalItems > 0) {
-    mostrarBotonCarrito();
-  }
-});
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const botonesFiltro = document.querySelectorAll(".filtro-boton");
-
-  const secciones = {
-    "#vivos": document.querySelector("#vivos"),
-    "#pastel": document.querySelector("#pastel"),
-    "#metalizado": document.querySelector("#metalizado")
-  };
-
-  // 🔹 Click en los botones → scroll suave a la sección
-  botonesFiltro.forEach(boton => {
-    boton.addEventListener("click", () => {
-      const targetSelector = boton.dataset.target;
-      const target = secciones[targetSelector];
-
-      if (!target) return;
-
-      const offset = 120; // espacio para que no quede pegado al borde
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-
-      window.scrollTo({
-        top,
-        behavior: "smooth"
-      });
-    });
-  });
-
-  // 🔹 Mientras scrolleás, marcar en qué tipo de cintas estás
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver((entries) => {
-      let principal = null;
-
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          if (!principal || entry.intersectionRatio > principal.intersectionRatio) {
-            principal = entry;
+    function actualizarBotones(nombre) {
+      const botones = document.querySelectorAll(".btn-agregar[data-nombre]");
+      botones.forEach((b) => {
+        if (b.dataset.nombre === nombre) {
+          const p = carrito.find((i) => i.nombre === nombre);
+          if (p) {
+            b.textContent = `En carrito (${p.cantidad})`;
+            b.classList.add("en-carrito");
+          } else {
+            b.textContent = "Añadir al Carrito";
+            b.classList.remove("en-carrito");
           }
         }
       });
+    }
 
-      if (!principal) return;
+    function actualizarBotonFlotante() {
+      const boton = document.getElementById("btnCarritoFlotante");
+      const badge = document.getElementById("carritoBadge");
+      const totalItems = carrito.reduce((a, i) => a + i.cantidad, 0);
 
-      const idActivo = "#" + principal.target.id;
+      if (totalItems > 0) {
+        boton.classList.add("mostrar");
+        badge.style.display = "flex";
+        badge.textContent = totalItems;
+      } else {
+        boton.classList.remove("mostrar");
+        badge.style.display = "none";
+      }
+    }
 
-      botonesFiltro.forEach(boton => {
-        if (boton.dataset.target === idActivo) {
-          boton.classList.add("activo");
-        } else {
-          boton.classList.remove("activo");
-        }
+    function irAlCarrito() {
+      document.getElementById("carrito").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function enviarWhatsApp() {
+      if (!carrito.length) {
+        alert("Agregá al menos un producto antes de finalizar el pedido.");
+        return;
+      }
+      let mensaje = "¡Hola! Quisiera realizar el siguiente pedido:%0A%0A";
+      carrito.forEach(
+        (i) =>
+          (mensaje += `• ${i.nombre} (${i.cantidad} unid): $${(
+            i.precio * i.cantidad
+          ).toLocaleString()}%0A`)
+      );
+      let total = carrito.reduce((a, i) => a + i.precio * i.cantidad, 0);
+      mensaje += `%0A*Total: $${total.toLocaleString()}*`;
+      window.open(`https://wa.me/+5491122938343?text=${mensaje}`, "_blank");
+    }
+
+    // === CAROUSEL ===
+    document.querySelectorAll(".carousel").forEach((carousel) => {
+      const track = carousel.querySelector(".carousel-track");
+      const dotsContainer = carousel.querySelector(".carousel-dots");
+      const images = carousel.querySelectorAll("img");
+
+      images.forEach((_, i) => {
+        const dot = document.createElement("button");
+        if (i === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => {
+          track.scrollTo({
+            left: track.clientWidth * i,
+            behavior: "smooth",
+          });
+        });
+        dotsContainer.appendChild(dot);
       });
-    }, {
-      threshold: 0.5 // al menos 50% visible para considerarlo "activo"
+
+      track.addEventListener("scroll", () => {
+        const index = Math.round(track.scrollLeft / track.clientWidth);
+        dotsContainer.querySelectorAll("button").forEach((dot, i) => {
+          dot.classList.toggle("active", i === index);
+        });
+      });
     });
 
-    Object.values(secciones).forEach(sec => {
-      if (sec) observer.observe(sec);
+    // === FILTER NAVIGATION ===
+    document.querySelectorAll(".filter-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const target = document.querySelector(btn.dataset.target);
+        if (target) {
+          const offset = 100;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+
+        document.querySelectorAll(".filter-btn").forEach((b) =>
+          b.classList.remove("activo")
+        );
+        btn.classList.add("activo");
+      });
     });
-  }
-});
-</script>
 
+    // === SMOOTH SCROLL FOR HEADER CTA ===
+    document.querySelector(".btn-premium").addEventListener("click", function (e) {
+      e.preventDefault();
+      const catalogo = document.querySelector("#catalogo");
+      window.scrollTo({
+        top: catalogo.offsetTop - 80,
+        behavior: "smooth",
+      });
+    });
 
+    // === INTERSECTION OBSERVER FOR FILTER HIGHLIGHT ===
+    const secciones = ["#vivos", "#pastel", "#metalizado"];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = "#" + entry.target.id;
+            document.querySelectorAll(".filter-btn").forEach((btn) => {
+              btn.classList.toggle(btn.dataset.target === id, true);
+              btn.classList.toggle(btn.dataset.target !== id, false);
+            });
+          }
+        });
+      },
+      { threshold: 0.3, rootMargin: "-100px" }
+    );
 
-
-
-
-
-
-
+    secciones.forEach((sel) => {
+      const el = document.querySelector(sel);
+      if (el) observer.observe(el);
+    });
+  </script>
 </body>
 </html>
