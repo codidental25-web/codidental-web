@@ -10,31 +10,28 @@
   />
   <style>
     :root {
-  /* === PALETA "PEACHY DELIGHT" (aprox) === */
-  --pd-sage: #D9E3DE;      /* verde salvia muy suave */
-  --pd-peach: #FBE5DD;     /* durazno/crema */
-  --pd-blush: #FDCED6;     /* rosa blush */
-  --pd-rose: #F4B0BB;      /* rosa más presente */
-  --pd-mauve: #9A7F86;     /* malva grisáceo (para texto/acentos) */
+  --pd-sage: #D9E3DE;
+  --pd-peach: #FBE5DD;
+  --pd-blush: #FDCED6;
+  --pd-rose: #F4B0BB;
+  --pd-mauve: #9A7F86;
 
-  /* === MAPEADO UNIFORME DEL SITIO === */
-  --color-primary: var(--pd-rose);        /* fondos con degradado / secciones destacadas */
-  --color-secondary: var(--pd-peach);     /* fondo general suave */
-  --color-accent: var(--pd-mauve);        /* acento elegante (botones, títulos, bordes) */
-  --color-accent-light: var(--pd-blush);  /* hover suave / chips / highlights */
+  --color-primary: var(--pd-rose);
+  --color-secondary: var(--pd-peach);
+  --color-accent: var(--pd-mauve);
+  --color-accent-light: var(--pd-blush);
 
-  --color-text: #4B3A3F;                 /* texto legible (más oscuro que la paleta) */
-  --color-text-muted: #6A545A;           /* texto secundario */
+  --color-text: #4B3A3F;
+  --color-text-muted: #6A545A;
 
-  --color-white: #FFF9F7;                /* “blanco” cálido, no puro */
-  --color-card-bg: #FFF3EF;              /* tarjetas bien suaves */
+  --color-white: #FFF9F7;
+  --color-card-bg: #FFF3EF;
 
   --gradient-gold: linear-gradient(135deg, var(--pd-blush), var(--pd-peach));
   --shadow-soft: 0 10px 40px rgba(154, 127, 134, 0.18);
   --shadow-glow: 0 0 30px rgba(244, 176, 187, 0.28);
 }
 
-    /* === HEADER === */
     header {
       position: relative;
       min-height: 100vh;
@@ -44,11 +41,7 @@
       align-items: center;
       text-align: center;
       padding: 60px 20px;
-      background: linear-gradient(
-        180deg,
-        var(--color-primary) 0%,
-        var(--color-secondary) 100%
-      );
+      background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
       overflow: hidden;
       color: var(--color-text);
     }
@@ -56,22 +49,12 @@
     header::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(
-        ellipse at center,
-        rgba(192, 110, 165, 0.08) 0%,
-        transparent 70%
-      );
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at center, rgba(192, 110, 165, 0.08) 0%, transparent 70%);
       pointer-events: none;
     }
 
-    .logo-container {
-      position: relative;
-      z-index: 2;
-    }
+    .logo-container { position: relative; z-index: 2; }
 
     .logo-text {
       font-family: "Playfair Display", serif;
@@ -100,9 +83,9 @@
       font-family: "Playfair Display", serif;
       font-size: clamp(1.2rem, 3vw, 2rem);
       font-style: italic;
-      color: var(--color-text); /* Antes era --color-accent-light, ahora es más oscuro */
+      color: var(--color-text);
       margin-bottom: 20px;
-      opacity: 1; /* Le subimos la opacidad al máximo */
+      opacity: 1;
     }
 
     .hero-description {
@@ -113,11 +96,8 @@
       line-height: 1.9;
     }
 
-    .hero-description strong {
-      color: var(--color-accent);
-    }
+    .hero-description strong { color: var(--color-accent); }
 
-    /* === BUTTONS === */
     .btn-premium {
       display: inline-block;
       padding: 18px 50px;
@@ -147,22 +127,13 @@
     .btn-premium::after {
       content: "";
       position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.3),
-        transparent
-      );
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
       transition: left 0.5s ease;
     }
 
-    .btn-premium:hover::after {
-      left: 100%;
-    }
+    .btn-premium:hover::after { left: 100%; }
 
     .btn-outline {
       background: transparent;
@@ -177,7 +148,6 @@
       color: var(--color-primary);
     }
 
-    /* === NAV STICKY === */
     .nav-sticky {
       position: sticky;
       top: 0;
@@ -209,17 +179,13 @@
       transition: all 0.3s ease;
     }
 
-    .filter-btn:hover,
-    .filter-btn.activo {
+    .filter-btn:hover, .filter-btn.activo {
       color: var(--color-accent);
       background: var(--color-accent-light);
       border-color: var(--color-accent);
     }
 
-    /* === SECTIONS === */
-    .section {
-      padding: 100px 20px;
-    }
+    .section { padding: 100px 20px; }
 
     .section-title {
       font-family: "Playfair Display", serif;
@@ -245,7 +211,6 @@
       border-radius: 10px;
     }
 
-    /* === CATALOG === */
     .catalogo {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -267,12 +232,8 @@
       border-radius: 10px;
     }
 
-    .categoria-titulo:first-child {
-      border-top: none;
-      margin-top: 0;
-    }
+    .categoria-titulo:first-child { border-top: none; margin-top: 0; }
 
-    /* === PRODUCT CARDS === */
     .producto {
       background: var(--color-card-bg);
       border: 1px solid rgba(198, 180, 255, 0.3);
@@ -287,9 +248,7 @@
     .producto::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       height: 3px;
       background: var(--gradient-gold);
       transform: scaleX(0);
@@ -303,9 +262,7 @@
       border-color: var(--color-accent);
     }
 
-    .producto:hover::before {
-      transform: scaleX(1);
-    }
+    .producto:hover::before { transform: scaleX(1); }
 
     .producto-imagen {
       position: relative;
@@ -324,9 +281,7 @@
       height: 100%;
     }
 
-    .carousel-track::-webkit-scrollbar {
-      display: none;
-    }
+    .carousel-track::-webkit-scrollbar { display: none; }
 
     .carousel-track img {
       width: 100%;
@@ -338,9 +293,7 @@
       border-radius: 20px 20px 0 0;
     }
 
-    .producto:hover .carousel-track img {
-      transform: scale(1.05);
-    }
+    .producto:hover .carousel-track img { transform: scale(1.05); }
 
     .carousel-dots {
       position: absolute;
@@ -356,8 +309,7 @@
     }
 
     .carousel-dots button {
-      width: 8px;
-      height: 8px;
+      width: 8px; height: 8px;
       border-radius: 50%;
       border: none;
       background: rgba(198, 180, 255, 0.6);
@@ -370,10 +322,7 @@
       transform: scale(1.3);
     }
 
-    .producto-info {
-      padding: 30px;
-      text-align: center;
-    }
+    .producto-info { padding: 30px; text-align: center; }
 
     .producto h3 {
       font-family: "Playfair Display", serif;
@@ -397,10 +346,7 @@
       margin-bottom: 20px;
     }
 
-    .producto-precio span {
-      font-size: 1rem;
-      color: var(--color-text-muted);
-    }
+    .producto-precio span { font-size: 1rem; color: var(--color-text-muted); }
 
     .btn-agregar {
       width: 100%;
@@ -417,21 +363,12 @@
       transition: all 0.3s ease;
     }
 
-    .btn-agregar:hover {
-      color: var(--color-primary);
-      background: var(--color-accent);
-    }
+    .btn-agregar:hover { color: var(--color-primary); background: var(--color-accent); }
+    .btn-agregar.en-carrito { background: var(--color-accent); color: var(--color-primary); }
 
-    .btn-agregar.en-carrito {
-      background: var(--color-accent);
-      color: var(--color-primary);
-    }
-
-    /* === BADGE PREMIUM === */
     .badge-premium {
       position: absolute;
-      top: 20px;
-      right: 20px;
+      top: 20px; right: 20px;
       padding: 8px 15px;
       font-size: 0.7rem;
       font-weight: 600;
@@ -443,11 +380,7 @@
       z-index: 10;
     }
 
-    /* === FEATURES === */
-    .features {
-      background: var(--color-secondary);
-      color: var(--color-text);
-    }
+    .features { background: var(--color-secondary); color: var(--color-text); }
 
     .features-grid {
       display: grid;
@@ -457,17 +390,9 @@
       margin: 0 auto;
     }
 
-    .feature {
-      text-align: center;
-      padding: 40px 30px;
-    }
+    .feature { text-align: center; padding: 40px 30px; }
 
-    .feature-icon {
-      font-size: 3rem;
-      margin-bottom: 25px;
-      display: block;
-      color: var(--color-accent);
-    }
+    .feature-icon { font-size: 3rem; margin-bottom: 25px; display: block; color: var(--color-accent); }
 
     .feature h4 {
       font-family: "Playfair Display", serif;
@@ -476,18 +401,10 @@
       color: var(--color-accent);
     }
 
-    .feature p {
-      color: var(--color-text);
-      font-size: 0.95rem;
-    }
+    .feature p { color: var(--color-text); font-size: 0.95rem; }
 
-    /* === CART === */
     .carrito-section {
-      background: linear-gradient(
-        180deg,
-        var(--color-primary) 0%,
-        var(--color-secondary) 100%
-      );
+      background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
     }
 
     .carrito-container {
@@ -509,9 +426,7 @@
       color: var(--color-accent);
     }
 
-    #listaCarrito {
-      list-style: none;
-    }
+    #listaCarrito { list-style: none; }
 
     #listaCarrito li {
       display: flex;
@@ -524,22 +439,12 @@
       color: var(--color-text);
     }
 
-    .item-nombre {
-      font-weight: 500;
-      color: var(--color-accent);
-      flex: 1;
-      min-width: 200px;
-    }
+    .item-nombre { font-weight: 500; color: var(--color-accent); flex: 1; min-width: 200px; }
 
-    .item-controles {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
+    .item-controles { display: flex; align-items: center; gap: 15px; }
 
     .btn-cantidad {
-      width: 36px;
-      height: 36px;
+      width: 36px; height: 36px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -552,17 +457,9 @@
       transition: all 0.3s ease;
     }
 
-    .btn-cantidad:hover {
-      background: var(--color-accent);
-      color: var(--color-primary);
-    }
+    .btn-cantidad:hover { background: var(--color-accent); color: var(--color-primary); }
 
-    .item-cantidad {
-      font-size: 1.1rem;
-      min-width: 30px;
-      text-align: center;
-      color: var(--color-text);
-    }
+    .item-cantidad { font-size: 1.1rem; min-width: 30px; text-align: center; color: var(--color-text); }
 
     .item-subtotal {
       font-family: "Playfair Display", serif;
@@ -582,16 +479,9 @@
       color: var(--color-accent);
     }
 
-    #total span {
-      color: var(--color-accent);
-    }
+    #total span { color: var(--color-accent); }
 
-    .carrito-vacio {
-      text-align: center;
-      color: var(--color-text-muted);
-      padding: 40px;
-      font-style: italic;
-    }
+    .carrito-vacio { text-align: center; color: var(--color-text-muted); padding: 40px; font-style: italic; }
 
     .btn-finalizar {
       display: block;
@@ -607,18 +497,12 @@
       transition: background 0.3s ease;
     }
 
-    .btn-finalizar:hover {
-      background: var(--color-accent-light);
-      color: var(--color-text);
-    }
+    .btn-finalizar:hover { background: var(--color-accent-light); color: var(--color-text); }
 
-    /* === FLOATING CART === */
     .btn-carrito-flotante {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 60px;
-      height: 60px;
+      bottom: 30px; right: 30px;
+      width: 60px; height: 60px;
       display: none;
       align-items: center;
       justify-content: center;
@@ -633,20 +517,13 @@
       transition: all 0.3s ease;
     }
 
-    .btn-carrito-flotante:hover {
-      transform: scale(1.1);
-    }
-
-    .btn-carrito-flotante.mostrar {
-      display: flex;
-    }
+    .btn-carrito-flotante:hover { transform: scale(1.1); }
+    .btn-carrito-flotante.mostrar { display: flex; }
 
     .burbuja-carrito {
       position: absolute;
-      top: -5px;
-      right: -5px;
-      min-width: 22px;
-      height: 22px;
+      top: -5px; right: -5px;
+      min-width: 22px; height: 22px;
       display: none;
       align-items: center;
       justify-content: center;
@@ -657,7 +534,6 @@
       border-radius: 50%;
     }
 
-    /* === FOOTER === */
     footer {
       background: var(--color-primary);
       padding: 60px 20px;
@@ -676,98 +552,44 @@
       margin-bottom: 20px;
     }
 
-    .footer-text {
-      font-size: 0.9rem;
-      margin-bottom: 30px;
-    }
+    .footer-text { font-size: 0.9rem; margin-bottom: 30px; }
 
-    .footer-contact {
-      font-size: 1.1rem;
-      color: var(--color-accent);
-    }
+    .footer-contact { font-size: 1.1rem; color: var(--color-accent); }
 
-    .footer-contact a {
-      color: var(--color-accent);
-      text-decoration: none;
-      transition: opacity 0.3s ease;
-    }
+    .footer-contact a { color: var(--color-accent); text-decoration: none; transition: opacity 0.3s ease; }
+    .footer-contact a:hover { opacity: 0.8; }
 
-    .footer-contact a:hover {
-      opacity: 0.8;
-    }
-
-    /* === RESPONSIVE === */
     @media (max-width: 768px) {
-      header {
-        min-height: auto; /* Quitamos el alto forzado */
-        padding: 40px 15px; /* Reducimos el espacio arriba y abajo */
-      }
-
-      .logo-text {
-        font-size: 2.8rem; /* Achicamos el "CODIDENTAL" para que no se corte */
-        letter-spacing: 4px; /* Menos espacio entre letras para que entre */
-      }
-
-      .logo-subtitle {
-        font-size: 0.9rem;
-        letter-spacing: 3px;
-        margin-bottom: 25px;
-      }
-
-      .hero-description {
-        font-size: 1rem;
-        line-height: 1.6;
-        margin-bottom: 30px;
-      }
-
-      .nav-filters {
-        gap: 10px;
-      }
-
-      .filter-btn {
-        padding: 10px 15px;
-        font-size: 0.7rem;
-      }
-
-      .catalogo {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      .carrito-container {
-        padding: 30px 20px;
-      }
+      header { min-height: auto; padding: 40px 15px; }
+      .logo-text { font-size: 2.8rem; letter-spacing: 4px; }
+      .logo-subtitle { font-size: 0.9rem; letter-spacing: 3px; margin-bottom: 25px; }
+      .hero-description { font-size: 1rem; line-height: 1.6; margin-bottom: 30px; }
+      .nav-filters { gap: 10px; }
+      .filter-btn { padding: 10px 15px; font-size: 0.7rem; }
+      .catalogo { grid-template-columns: 1fr; gap: 30px; }
+      .carrito-container { padding: 30px 20px; }
     }
 
-    /* === ANIMATIONS === */
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .animate-in {
-      animation: fadeInUp 0.8s ease forwards;
-    }
-
-    .delay-1 {
-      animation-delay: 0.1s;
-    }
-    .delay-2 {
-      animation-delay: 0.2s;
-    }
-    .delay-3 {
-      animation-delay: 0.3s;
-    }
-    .delay-4 {
-      animation-delay: 0.4s;
-    }
+    .animate-in { animation: fadeInUp 0.8s ease forwards; }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
   </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P6JPXSH1FJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-P6JPXSH1FJ');
+  </script>
 </head>
 <body>
   <!-- HEADER -->
@@ -849,18 +671,9 @@
         </div>
         <div class="producto-info">
           <h3>Cinta Codificadora Rosa</h3>
-          <p>
-            Color visible y fácil de identificar. Ideal para mantener el
-            instrumental organizado con un tono cálido y suave.
-          </p>
+          <p>Color visible y fácil de identificar. Ideal para mantener el instrumental organizado con un tono cálido y suave.</p>
           <div class="producto-precio">$1.500 <span>ARS</span></div>
-          <button
-            class="btn-agregar"
-            data-nombre="Cinta Rosa"
-            onclick="agregarAlCarrito('Cinta Rosa', 1500)"
-          >
-            Añadir al Carrito
-          </button>
+          <button class="btn-agregar" data-nombre="Cinta Rosa" onclick="agregarAlCarrito('Cinta Rosa', 1500)">Añadir al Carrito</button>
         </div>
       </div>
 
@@ -876,18 +689,9 @@
         </div>
         <div class="producto-info">
           <h3>Cinta Codificadora Menta</h3>
-          <p>
-            Tono fresco que aporta claridad visual al instrumental. Muy útil para
-            diferenciar piezas rápidamente.
-          </p>
+          <p>Tono fresco que aporta claridad visual al instrumental. Muy útil para diferenciar piezas rápidamente.</p>
           <div class="producto-precio">$1.500 <span>ARS</span></div>
-          <button
-            class="btn-agregar"
-            data-nombre="Cinta Menta"
-            onclick="agregarAlCarrito('Cinta Menta', 1500)"
-          >
-            Añadir al Carrito
-          </button>
+          <button class="btn-agregar" data-nombre="Cinta Menta" onclick="agregarAlCarrito('Cinta Menta', 1500)">Añadir al Carrito</button>
         </div>
       </div>
 
@@ -896,28 +700,16 @@
           <div class="carousel">
             <div class="carousel-track">
               <img src="Cinta Turquesa.png" alt="Cinta Turquesa" />
-              <img
-                src="Cinta Turquesa Muestra.png"
-                alt="Cinta Turquesa Muestra"
-              />
+              <img src="Cinta Turquesa Muestra.png" alt="Cinta Turquesa Muestra" />
             </div>
             <div class="carousel-dots"></div>
           </div>
         </div>
         <div class="producto-info">
           <h3>Cinta Codificadora Turquesa</h3>
-          <p>
-            Color limpio y moderno que se distingue sin ser demasiado intenso.
-            Ayuda a ubicar el instrumental de forma rápida.
-          </p>
+          <p>Color limpio y moderno que se distingue sin ser demasiado intenso. Ayuda a ubicar el instrumental de forma rápida.</p>
           <div class="producto-precio">$1.500 <span>ARS</span></div>
-          <button
-            class="btn-agregar"
-            data-nombre="Cinta Turquesa"
-            onclick="agregarAlCarrito('Cinta Turquesa', 1500)"
-          >
-            Añadir al Carrito
-          </button>
+          <button class="btn-agregar" data-nombre="Cinta Turquesa" onclick="agregarAlCarrito('Cinta Turquesa', 1500)">Añadir al Carrito</button>
         </div>
       </div>
 
@@ -933,18 +725,9 @@
         </div>
         <div class="producto-info">
           <h3>Cinta Codificadora Lila</h3>
-          <p>
-            Tono equilibrado, discreto y agradable a la vista. Buena opción para
-            quienes prefieren colores suaves pero notorios.
-          </p>
+          <p>Tono equilibrado, discreto y agradable a la vista. Buena opción para quienes prefieren colores suaves pero notorios.</p>
           <div class="producto-precio">$1.500 <span>ARS</span></div>
-          <button
-            class="btn-agregar"
-            data-nombre="Cinta Lila"
-            onclick="agregarAlCarrito('Cinta Lila', 1500)"
-          >
-            Añadir al Carrito
-          </button>
+          <button class="btn-agregar" data-nombre="Cinta Lila" onclick="agregarAlCarrito('Cinta Lila', 1500)">Añadir al Carrito</button>
         </div>
       </div>
 
@@ -953,28 +736,16 @@
           <div class="carousel">
             <div class="carousel-track">
               <img src="Cinta Salmón.png" alt="Cinta Salmón" />
-              <img
-                src="Cinta Salmón Muestra.png"
-                alt="Cinta Salmón Muestra"
-              />
+              <img src="Cinta Salmón Muestra.png" alt="Cinta Salmón Muestra" />
             </div>
             <div class="carousel-dots"></div>
           </div>
         </div>
         <div class="producto-info">
           <h3>Cinta Codificadora Salmón</h3>
-          <p>
-            Color cálido que destaca sin exagerar. Facilita la identificación y
-            mantiene una estética uniforme.
-          </p>
+          <p>Color cálido que destaca sin exagerar. Facilita la identificación y mantiene una estética uniforme.</p>
           <div class="producto-precio">$1.500 <span>ARS</span></div>
-          <button
-            class="btn-agregar"
-            data-nombre="Cinta Salmón"
-            onclick="agregarAlCarrito('Cinta Salmón', 1500)"
-          >
-            Añadir al Carrito
-          </button>
+          <button class="btn-agregar" data-nombre="Cinta Salmón" onclick="agregarAlCarrito('Cinta Salmón', 1500)">Añadir al Carrito</button>
         </div>
       </div>
 
@@ -986,28 +757,16 @@
           <div class="carousel">
             <div class="carousel-track">
               <img src="Cinta Rosa Pastel.png" alt="Cinta Rosa Pastel" />
-              <img
-                src="Cinta Rosa Pastel Muestra.png"
-                alt="Cinta Rosa Pastel Muestra"
-              />
+              <img src="Cinta Rosa Pastel Muestra.png" alt="Cinta Rosa Pastel Muestra" />
             </div>
             <div class="carousel-dots"></div>
           </div>
         </div>
         <div class="producto-info">
           <h3>Cinta Codificadora Rosa Pastel</h3>
-          <p>
-            Tono delicado y armónico, ideal para un instrumental prolijo y
-            uniforme.
-          </p>
+          <p>Tono delicado y armónico, ideal para un instrumental prolijo y uniforme.</p>
           <div class="producto-precio">$1.500 <span>ARS</span></div>
-          <button
-            class="btn-agregar"
-            data-nombre="Cinta Rosa Pastel"
-            onclick="agregarAlCarrito('Cinta Rosa Pastel', 1500)"
-          >
-            Añadir al Carrito
-          </button>
+          <button class="btn-agregar" data-nombre="Cinta Rosa Pastel" onclick="agregarAlCarrito('Cinta Rosa Pastel', 1500)">Añadir al Carrito</button>
         </div>
       </div>
 
@@ -1020,28 +779,16 @@
           <div class="carousel">
             <div class="carousel-track">
               <img src="Cinta Lila Metalizado.png" alt="Cinta Lila Metalizado" />
-              <img
-                src="Cinta Lila Metalizado Muestra.png"
-                alt="Cinta Lila Metalizado Muestra"
-              />
+              <img src="Cinta Lila Metalizado Muestra.png" alt="Cinta Lila Metalizado Muestra" />
             </div>
             <div class="carousel-dots"></div>
           </div>
         </div>
         <div class="producto-info">
           <h3>Cinta Codificadora Lila Metalizado</h3>
-          <p>
-            Acabado suave con un leve brillo que facilita diferenciar el
-            instrumental sin perder sobriedad.
-          </p>
+          <p>Acabado suave con un leve brillo que facilita diferenciar el instrumental sin perder sobriedad.</p>
           <div class="producto-precio">$3.000 <span>ARS</span></div>
-          <button
-            class="btn-agregar"
-            data-nombre="Cinta Lila Metalizado"
-            onclick="agregarAlCarrito('Cinta Lila Metalizado', 3000)"
-          >
-            Añadir al Carrito
-          </button>
+          <button class="btn-agregar" data-nombre="Cinta Lila Metalizado" onclick="agregarAlCarrito('Cinta Lila Metalizado', 3000)">Añadir al Carrito</button>
         </div>
       </div>
     </div>
@@ -1072,23 +819,46 @@
     <div class="footer-logo">CodiDental</div>
     <p class="footer-text">Cintas codificadoras premium para profesionales exigentes</p>
     <p class="footer-contact">
-      <a href="https://wa.me/+5491122938343" target="_blank"
-        >📱 WhatsApp: +54 9 11 2293-8343</a
-      >
+      <a href="https://wa.me/+5491122938343" target="_blank">📱 WhatsApp: +54 9 11 2293-8343</a>
     </p>
   </footer>
 
   <script>
     let carrito = [];
 
+    // === ANALYTICS HELPERS (GA4) ===
+    function trackEvent(name, params = {}) {
+      if (typeof gtag === "function") {
+        gtag("event", name, params);
+      }
+    }
+
+    let cartCreatedTracked = false;
+
     // === CARRITO FUNCTIONS ===
     function agregarAlCarrito(nombre, precio) {
+      const wasEmpty = carrito.length === 0; // para evento B
+
       const p = carrito.find((i) => i.nombre === nombre);
       if (p) {
         p.cantidad++;
       } else {
         carrito.push({ nombre, precio, cantidad: 1 });
       }
+
+      // (A) Evento: alguien agregó un producto al carrito
+      trackEvent("add_to_cart", {
+        currency: "ARS",
+        value: precio,
+        item_name: nombre
+      });
+
+      // (B) Evento: primera vez que el carrito pasa de vacío a tener items
+      if (wasEmpty && !cartCreatedTracked) {
+        cartCreatedTracked = true;
+        trackEvent("cart_created", { method: "site_cart" });
+      }
+
       mostrarCarrito();
       actualizarBotones(nombre);
       actualizarBotonFlotante();
@@ -1119,14 +889,14 @@
         total += item.precio * item.cantidad;
         const li = document.createElement("li");
         li.innerHTML = `
-        <span class="item-nombre">${item.nombre}</span>
-        <div class="item-controles">
-          <button class="btn-cantidad" onclick="quitarDelCarrito('${item.nombre}')">−</button>
-          <span class="item-cantidad">${item.cantidad}</span>
-          <button class="btn-cantidad" onclick="agregarAlCarrito('${item.nombre}', ${item.precio})">+</button>
-        </div>
-        <span class="item-subtotal">$${(item.precio * item.cantidad).toLocaleString()}</span>
-      `;
+          <span class="item-nombre">${item.nombre}</span>
+          <div class="item-controles">
+            <button class="btn-cantidad" onclick="quitarDelCarrito('${item.nombre}')">−</button>
+            <span class="item-cantidad">${item.cantidad}</span>
+            <button class="btn-cantidad" onclick="agregarAlCarrito('${item.nombre}', ${item.precio})">+</button>
+          </div>
+          <span class="item-subtotal">$${(item.precio * item.cantidad).toLocaleString()}</span>
+        `;
         lista.appendChild(li);
       });
 
@@ -1175,13 +945,19 @@
       }
       let mensaje = "¡Hola! Quisiera realizar el siguiente pedido:%0A%0A";
       carrito.forEach(
-        (i) =>
-          (mensaje += `• ${i.nombre} (${i.cantidad} unid): $${(
-            i.precio * i.cantidad
-          ).toLocaleString()}%0A`)
+        (i) => (mensaje += `• ${i.nombre} (${i.cantidad} unid): $${(i.precio * i.cantidad).toLocaleString()}%0A`)
       );
       let total = carrito.reduce((a, i) => a + i.precio * i.cantidad, 0);
       mensaje += `%0A*Total: $${total.toLocaleString()}*`;
+
+      // (C) Evento: usuario tocó "Finalizar Pedido" (WhatsApp)
+      trackEvent("begin_checkout", {
+        currency: "ARS",
+        value: total,
+        items_count: carrito.reduce((a, i) => a + i.cantidad, 0),
+        method: "whatsapp"
+      });
+
       window.open(`https://wa.me/+5491122938343?text=${mensaje}`, "_blank");
     }
 
@@ -1195,10 +971,7 @@
         const dot = document.createElement("button");
         if (i === 0) dot.classList.add("active");
         dot.addEventListener("click", () => {
-          track.scrollTo({
-            left: track.clientWidth * i,
-            behavior: "smooth",
-          });
+          track.scrollTo({ left: track.clientWidth * i, behavior: "smooth" });
         });
         dotsContainer.appendChild(dot);
       });
@@ -1220,10 +993,7 @@
           const top = target.getBoundingClientRect().top + window.scrollY - offset;
           window.scrollTo({ top, behavior: "smooth" });
         }
-
-        document.querySelectorAll(".filter-btn").forEach((b) =>
-          b.classList.remove("activo")
-        );
+        document.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("activo"));
         btn.classList.add("activo");
       });
     });
@@ -1232,10 +1002,7 @@
     document.querySelector(".btn-premium").addEventListener("click", function (e) {
       e.preventDefault();
       const catalogo = document.querySelector("#catalogo");
-      window.scrollTo({
-        top: catalogo.offsetTop - 80,
-        behavior: "smooth",
-      });
+      window.scrollTo({ top: catalogo.offsetTop - 80, behavior: "smooth" });
     });
 
     // === INTERSECTION OBSERVER FOR FILTER HIGHLIGHT ===
