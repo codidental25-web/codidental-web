@@ -519,6 +519,10 @@
 
     .btn-carrito-flotante:hover { transform: scale(1.1); }
     .btn-carrito-flotante.mostrar { display: flex; }
+    .btn-carrito-flotante {
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
 
     .burbuja-carrito {
       position: absolute;
@@ -809,7 +813,7 @@
   </section>
 
   <!-- BOTÓN FLOTANTE -->
-  <button id="btnCarritoFlotante" class="btn-carrito-flotante" onclick="irAlCarrito()">
+  <button id="btnCarritoFlotante" class="btn-carrito-flotante">
     🛒
     <span id="carritoBadge" class="burbuja-carrito">0</span>
   </button>
@@ -934,6 +938,23 @@
       }
     }
 
+    // === BOTÓN FLOTANTE - IR AL CARRITO ===
+    function irAlCarrito() {
+      const carritoSection = document.getElementById("carrito");
+      if (!carritoSection) return;
+      carritoSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    document.getElementById("btnCarritoFlotante").addEventListener("touchstart", function(e) {
+      e.preventDefault();
+      irAlCarrito();
+    }, { passive: false });
+
+    document.getElementById("btnCarritoFlotante").addEventListener("click", function(e) {
+      e.preventDefault();
+      irAlCarrito();
+    });
+
   function enviarWhatsApp() {
   if (!carrito.length) { 
     alert("Agregá al menos un producto antes de finalizar el pedido."); 
@@ -1030,3 +1051,5 @@
   </script>
 </body>
 </html>
+
+Este es el codigo actual, haz los cambios necesarios para el boton flotante del carrito y yo pegarlo directamente
