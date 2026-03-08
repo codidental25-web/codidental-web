@@ -934,20 +934,23 @@
       }
     }
 
-   function enviarWhatsApp() {
+  function enviarWhatsApp() {
   if (!carrito.length) { 
     alert("Agregá al menos un producto antes de finalizar el pedido."); 
     return; 
   }
 
-  // Mensaje informativo y solicitud de datos
-  let infoFacultad = prompt("Tu pedido se concretará por WhatsApp.\n\nPara gestionar la entrega, por favor indicanos en qué facultad cursas (opcional):", "");
+  // Mensaje mucho más amigable y relajado
+  let infoFacultad = prompt(
+    "¡Genial! Tu pedido se abrirá en WhatsApp para que coordinemos los detalles finales.\n\nSi querés, podés escribir acá tu facultad para que te contemos cuándo pasamos por ahí, o simplemente dale a 'Aceptar' para continuar:", 
+    ""
+  );
 
   let mensaje = "Hola! Quiero hacer este pedido:%0A";
   
-  // Si el usuario escribió algo, lo agregamos al mensaje
+  // Solo agrega la facultad si el cliente escribió algo
   if (infoFacultad && infoFacultad.trim() !== "") {
-    mensaje += `*Facultad:* ${infoFacultad}%0A%0A`;
+    mensaje += `*Facultad/Lugar:* ${infoFacultad}%0A%0A`;
   }
 
   carrito.forEach(i => {
@@ -959,7 +962,6 @@
 
   window.open(`https://wa.me/+5491122938343?text=${mensaje}`, "_blank");
 }
-
     // === CAROUSEL ===
     document.querySelectorAll(".carousel").forEach((carousel) => {
       const track = carousel.querySelector(".carousel-track");
