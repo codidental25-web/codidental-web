@@ -366,6 +366,38 @@
     .btn-agregar:hover { color: var(--color-primary); background: var(--color-accent); }
     .btn-agregar.en-carrito { background: var(--color-accent); color: var(--color-primary); }
 
+    .badge-agotado {
+      position: absolute;
+      top: 20px; left: 20px;
+      padding: 8px 15px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fff;
+      background: #b0b0b0;
+      border-radius: 15px;
+      z-index: 10;
+    }
+
+    .producto.agotado {
+      opacity: 0.75;
+      filter: grayscale(30%);
+    }
+
+    .btn-agregar:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+      background: transparent;
+      color: var(--color-text-muted);
+      border-color: var(--color-text-muted);
+    }
+
+    .btn-agregar:disabled:hover {
+      background: transparent;
+      color: var(--color-text-muted);
+    }
+
     .badge-premium {
       position: absolute;
       top: 20px; right: 20px;
@@ -756,8 +788,17 @@
       <!-- COLORES PASTEL -->
       <h3 class="categoria-titulo" id="pastel">— Colores Pastel —</h3>
 
-      <div class="producto">
+      <!-- ============================================================
+           ROSA PASTEL — INTERRUPTOR DE STOCK
+           DISPONIBLE: class="producto"  +  comentar badge  +  usar botón 1
+           AGOTADO:    class="producto agotado"  +  descomentar badge  +  usar botón 2
+           ============================================================ -->
+      <div class="producto agotado">  <!-- ← AGOTADO: cambiá a class="producto agotado" -->
         <div class="producto-imagen">
+
+          <!-- BADGE AGOTADO: quitá los comentarios de abajo para mostrarlo -->
+          <span class="badge-agotado">Agotado</span>
+
           <div class="carousel">
             <div class="carousel-track">
               <img src="Cinta Rosa Pastel.png" alt="Cinta Rosa Pastel" />
@@ -770,7 +811,13 @@
           <h3>Cinta Codificadora Rosa Pastel</h3>
           <p>Tono delicado y armónico, ideal para un instrumental prolijo y uniforme.</p>
           <div class="producto-precio">$1.500 <span>ARS</span></div>
-          <button class="btn-agregar" data-nombre="Cinta Rosa Pastel" onclick="agregarAlCarrito('Cinta Rosa Pastel', 1500)">Añadir al Carrito</button>
+
+          <!-- BOTÓN 1 — DISPONIBLE (activo ahora) -->
+          <!-- <button class="btn-agregar" data-nombre="Cinta Rosa Pastel" onclick="agregarAlCarrito('Cinta Rosa Pastel', 1500)">Añadir al Carrito</button> -->
+
+          <!-- BOTÓN 2 — AGOTADO (comentado ahora): quitá los comentarios y comentá el botón 1 -->
+          <button class="btn-agregar" disabled>Sin stock temporalmente</button>
+
         </div>
       </div>
 
@@ -1052,4 +1099,4 @@
 </body>
 </html>
 
-Este es el codigo actual, haz los cambios necesarios para el boton flotante del carrito y yo pegarlo directamente
+Este es el codigo actual, necesito poner que las cintas codificadoras color rosa pastel estan agotadas temporalmente
