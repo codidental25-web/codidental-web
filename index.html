@@ -10,27 +10,42 @@
   />
   <style>
     :root {
-  --pd-sage: #D9E3DE;
-  --pd-peach: #FBE5DD;
-  --pd-blush: #FDCED6;
-  --pd-rose: #F4B0BB;
-  --pd-mauve: #9A7F86;
+      --pd-sage: #D9E3DE;
+      --pd-peach: #FBE5DD;
+      --pd-blush: #FDCED6;
+      --pd-rose: #F4B0BB;
+      --pd-mauve: #9A7F86;
 
-  --color-primary: var(--pd-rose);
-  --color-secondary: var(--pd-peach);
-  --color-accent: var(--pd-mauve);
-  --color-accent-light: var(--pd-blush);
+      --color-primary: var(--pd-rose);
+      --color-secondary: var(--pd-peach);
+      --color-accent: var(--pd-mauve);
+      --color-accent-light: var(--pd-blush);
 
-  --color-text: #4B3A3F;
-  --color-text-muted: #6A545A;
+      --color-text: #4B3A3F;
+      --color-text-muted: #6A545A;
 
-  --color-white: #FFF9F7;
-  --color-card-bg: #FFF3EF;
+      --color-white: #FFF9F7;
+      --color-card-bg: #FFF3EF;
 
-  --gradient-gold: linear-gradient(135deg, var(--pd-blush), var(--pd-peach));
-  --shadow-soft: 0 10px 40px rgba(154, 127, 134, 0.18);
-  --shadow-glow: 0 0 30px rgba(244, 176, 187, 0.28);
-}
+      --gradient-gold: linear-gradient(135deg, var(--pd-blush), var(--pd-peach));
+      --shadow-soft: 0 10px 40px rgba(154, 127, 134, 0.18);
+      --shadow-glow: 0 0 30px rgba(244, 176, 187, 0.28);
+    }
+
+    /* === NUEVO: Announcement Bar (envíos a todo el país) === */
+    .announcement-bar {
+      background: var(--color-accent);
+      color: #fff;
+      text-align: center;
+      padding: 10px 12px;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+    }
 
     header {
       position: relative;
@@ -150,7 +165,7 @@
 
     .nav-sticky {
       position: sticky;
-      top: 0;
+      top: 48px; /* para que quede debajo del announcement-bar */
       z-index: 100;
       background: rgba(249, 246, 255, 0.95);
       backdrop-filter: blur(10px);
@@ -604,6 +619,8 @@
       .filter-btn { padding: 10px 15px; font-size: 0.7rem; }
       .catalogo { grid-template-columns: 1fr; gap: 30px; }
       .carrito-container { padding: 30px 20px; }
+      .nav-sticky { top: 44px; padding: 16px; }
+      .announcement-bar { font-size: 0.72rem; padding: 9px 10px; }
     }
 
     @keyframes fadeInUp {
@@ -628,19 +645,26 @@
   </script>
 </head>
 <body>
+  <!-- NUEVO: ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    ¡Novedad! Realizamos envíos a toda la Argentina
+  </div>
+
   <!-- HEADER -->
   <header>
     <div class="logo-container">
       <h1 class="logo-text">CodiDental</h1>
       <p class="logo-subtitle">Cintas Codificadoras Premium</p>
       <p class="tagline">"Excelencia en cada detalle"</p>
+
+      <!-- MODIFICADO: Hero description -->
       <p class="hero-description">
         Transformamos tu instrumental odontológico en una experiencia ordenada,
         estética y profesional.
-        Nuestras cintas codificadoras son <strong>autoclavables</strong>,
-        <strong>resistentes al cloro</strong> y están disponibles en una selecta
-        gama de colores premium.
+        Nuestras cintas son <strong>autoclavables</strong> y <strong>resistentes al cloro</strong>.
+        ¡Ahora con <strong>envíos a todo el país</strong> y entregas en facultad!
       </p>
+
       <a href="#catalogo" class="btn-premium">Explorar Colección</a>
     </div>
   </header>
@@ -674,10 +698,12 @@
         <h4>Colores Premium</h4>
         <p>Gama exclusiva de tonos vibrantes, pastel y metalizados.</p>
       </div>
+
+      <!-- MODIFICADO: envío a todo el país -->
       <div class="feature">
-        <span class="feature-icon">🚚</span>
-        <h4>Entrega en Facultad</h4>
-        <p>Recibí tu pedido directamente en tu centro de estudios.</p>
+        <span class="feature-icon">📦</span>
+        <h4>Envíos a todo el País</h4>
+        <p>Llegamos a cada rincón de Argentina. También coordinamos entregas en facultades seleccionadas.</p>
       </div>
     </div>
   </section>
@@ -788,15 +814,8 @@
       <!-- COLORES PASTEL -->
       <h3 class="categoria-titulo" id="pastel">— Colores Pastel —</h3>
 
-      <!-- ============================================================
-           ROSA PASTEL — INTERRUPTOR DE STOCK
-           DISPONIBLE: class="producto"  +  comentar badge  +  usar botón 1
-           AGOTADO:    class="producto agotado"  +  descomentar badge  +  usar botón 2
-           ============================================================ -->
-      <div class="producto agotado">  <!-- ← AGOTADO: cambiá a class="producto agotado" -->
+      <div class="producto agotado">
         <div class="producto-imagen">
-
-          <!-- BADGE AGOTADO: quitá los comentarios de abajo para mostrarlo -->
           <span class="badge-agotado">Agotado</span>
 
           <div class="carousel">
@@ -811,13 +830,7 @@
           <h3>Cinta Codificadora Rosa Pastel</h3>
           <p>Tono delicado y armónico, ideal para un instrumental prolijo y uniforme.</p>
           <div class="producto-precio">$1.500 <span>ARS</span></div>
-
-          <!-- BOTÓN 1 — DISPONIBLE (activo ahora) -->
-          <!-- <button class="btn-agregar" data-nombre="Cinta Rosa Pastel" onclick="agregarAlCarrito('Cinta Rosa Pastel', 1500)">Añadir al Carrito</button> -->
-
-          <!-- BOTÓN 2 — AGOTADO (comentado ahora): quitá los comentarios y comentá el botón 1 -->
           <button class="btn-agregar" disabled>Sin stock temporalmente</button>
-
         </div>
       </div>
 
@@ -888,7 +901,7 @@
 
     // === CARRITO FUNCTIONS ===
     function agregarAlCarrito(nombre, precio) {
-      const wasEmpty = carrito.length === 0; // para evento B
+      const wasEmpty = carrito.length === 0;
 
       const p = carrito.find((i) => i.nombre === nombre);
       if (p) {
@@ -897,14 +910,12 @@
         carrito.push({ nombre, precio, cantidad: 1 });
       }
 
-      // (A) Evento: alguien agregó un producto al carrito
       trackEvent("add_to_cart", {
         currency: "ARS",
         value: precio,
         item_name: nombre
       });
 
-      // (B) Evento: primera vez que el carrito pasa de vacío a tener items
       if (wasEmpty && !cartCreatedTracked) {
         cartCreatedTracked = true;
         trackEvent("cart_created", { method: "site_cart" });
@@ -1002,34 +1013,34 @@
       irAlCarrito();
     });
 
-  function enviarWhatsApp() {
-  if (!carrito.length) { 
-    alert("Agregá al menos un producto antes de finalizar el pedido."); 
-    return; 
-  }
+    // === MODIFICADO: WHATSAPP (ahora pide facultad o ciudad/provincia para envío) ===
+    function enviarWhatsApp() {
+      if (!carrito.length) { 
+        alert("Agregá al menos un producto antes de finalizar el pedido."); 
+        return; 
+      }
 
-  // Mensaje mucho más amigable y relajado
-  let infoFacultad = prompt(
-    "¡Genial! Tu pedido se abrirá en WhatsApp para que coordinemos los detalles finales.\n\nSi querés, podés escribir acá tu facultad para que te contemos cuándo pasamos por ahí, o simplemente dale a 'Aceptar' para continuar:", 
-    ""
-  );
+      let infoEntrega = prompt(
+        "¡Genial! Tu pedido se abrirá en WhatsApp para coordinar.\n\nEscribí tu Facultad (si querés entrega en facultad) o tu Ciudad/Provincia para el envío:", 
+        ""
+      );
 
-  let mensaje = "Hola! Quiero hacer este pedido:%0A";
-  
-  // Solo agrega la facultad si el cliente escribió algo
-  if (infoFacultad && infoFacultad.trim() !== "") {
-    mensaje += `*Facultad/Lugar:* ${infoFacultad}%0A%0A`;
-  }
+      let mensaje = "Hola! Quiero hacer este pedido:%0A";
 
-  carrito.forEach(i => {
-    mensaje += `- ${i.nombre} (${i.cantidad} unid): $${i.precio * i.cantidad}%0A`;
-  });
+      if (infoEntrega && infoEntrega.trim() !== "") {
+        mensaje += `*Entrega/Envío:* ${infoEntrega}%0A%0A`;
+      }
 
-  let total = carrito.reduce((a, i) => a + i.precio * i.cantidad, 0);
-  mensaje += `%0A*Total: $${total}*`;
+      carrito.forEach(i => {
+        mensaje += `- ${i.nombre} (${i.cantidad} unid): $${i.precio * i.cantidad}%0A`;
+      });
 
-  window.open(`https://wa.me/+5491122938343?text=${mensaje}`, "_blank");
-}
+      let total = carrito.reduce((a, i) => a + i.precio * i.cantidad, 0);
+      mensaje += `%0A*Total: $${total}*`;
+
+      window.open(`https://wa.me/+5491122938343?text=${mensaje}`, "_blank");
+    }
+
     // === CAROUSEL ===
     document.querySelectorAll(".carousel").forEach((carousel) => {
       const track = carousel.querySelector(".carousel-track");
@@ -1058,7 +1069,7 @@
       btn.addEventListener("click", () => {
         const target = document.querySelector(btn.dataset.target);
         if (target) {
-          const offset = 100;
+          const offset = 120; /* ajustado por announcement + nav */
           const top = target.getBoundingClientRect().top + window.scrollY - offset;
           window.scrollTo({ top, behavior: "smooth" });
         }
@@ -1071,7 +1082,7 @@
     document.querySelector(".btn-premium").addEventListener("click", function (e) {
       e.preventDefault();
       const catalogo = document.querySelector("#catalogo");
-      window.scrollTo({ top: catalogo.offsetTop - 80, behavior: "smooth" });
+      window.scrollTo({ top: catalogo.offsetTop - 120, behavior: "smooth" });
     });
 
     // === INTERSECTION OBSERVER FOR FILTER HIGHLIGHT ===
@@ -1088,7 +1099,7 @@
           }
         });
       },
-      { threshold: 0.3, rootMargin: "-100px" }
+      { threshold: 0.3, rootMargin: "-120px" }
     );
 
     secciones.forEach((sel) => {
@@ -1098,5 +1109,3 @@
   </script>
 </body>
 </html>
-
-Este es el codigo actual, necesito poner que las cintas codificadoras color rosa pastel estan agotadas temporalmente
