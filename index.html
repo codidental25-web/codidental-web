@@ -32,7 +32,7 @@
       --shadow-glow: 0 0 30px rgba(244, 176, 187, 0.28);
     }
 
-    /* === NUEVO: Announcement Bar (envíos a todo el país) === */
+    /* === ANNOUNCEMENT BAR === */
     .announcement-bar {
       background: var(--color-accent);
       color: #fff;
@@ -45,6 +45,46 @@
       position: sticky;
       top: 0;
       z-index: 9999;
+    }
+
+    /* === POPUP NOVEDAD === */
+    .popup-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(75, 58, 63, 0.6);
+      backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.5s ease;
+    }
+    .popup-overlay.active { opacity: 1; visibility: visible; }
+    .popup-content {
+      background: var(--color-white);
+      padding: 50px 40px;
+      border-radius: 30px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      box-shadow: var(--shadow-soft);
+      transform: translateY(20px);
+      transition: transform 0.5s ease;
+    }
+    .popup-overlay.active .popup-content { transform: translateY(0); }
+    .popup-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: none; border: none;
+      font-size: 1.5rem; color: var(--color-mauve);
+      cursor: pointer;
+    }
+    .popup-btn {
+      margin-top: 25px;
+      box-shadow: var(--shadow-glow);
     }
 
     header {
@@ -150,22 +190,9 @@
 
     .btn-premium:hover::after { left: 100%; }
 
-    .btn-outline {
-      background: transparent;
-      border: 1px solid var(--color-accent);
-      color: var(--color-accent);
-      padding: 16px 45px;
-      border-radius: 15px;
-    }
-
-    .btn-outline:hover {
-      background: var(--color-accent);
-      color: var(--color-primary);
-    }
-
     .nav-sticky {
       position: sticky;
-      top: 48px; /* para que quede debajo del announcement-bar */
+      top: 48px;
       z-index: 100;
       background: rgba(249, 246, 255, 0.95);
       backdrop-filter: blur(10px);
@@ -408,11 +435,6 @@
       border-color: var(--color-text-muted);
     }
 
-    .btn-agregar:disabled:hover {
-      background: transparent;
-      color: var(--color-text-muted);
-    }
-
     .badge-premium {
       position: absolute;
       top: 20px; right: 20px;
@@ -427,8 +449,50 @@
       z-index: 10;
     }
 
-    .features { background: var(--color-secondary); color: var(--color-text); }
+    /* === NOVEDAD SECTION === */
+    .novedad-section {
+      background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-card-bg) 100%);
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+    .novedad-box {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--gradient-gold);
+      border-radius: 24px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+      color: var(--color-text);
+    }
+    .novedad-label {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.65);
+      color: var(--color-accent);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .novedad-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--color-accent);
+      margin-bottom: 14px;
+    }
+    .novedad-text {
+      max-width: 700px;
+      margin: 0 auto 24px;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--color-text);
+    }
+    .novedad-highlight { font-weight: 600; color: var(--color-accent); }
 
+    .features { background: var(--color-secondary); color: var(--color-text); }
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -436,24 +500,19 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-
     .feature { text-align: center; padding: 40px 30px; }
-
     .feature-icon { font-size: 3rem; margin-bottom: 25px; display: block; color: var(--color-accent); }
-
     .feature h4 {
       font-family: "Playfair Display", serif;
       font-size: 1.3rem;
       margin-bottom: 15px;
       color: var(--color-accent);
     }
-
     .feature p { color: var(--color-text); font-size: 0.95rem; }
 
     .carrito-section {
       background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
     }
-
     .carrito-container {
       max-width: 800px;
       margin: 0 auto;
@@ -464,7 +523,6 @@
       color: var(--color-text);
       box-shadow: var(--shadow-soft);
     }
-
     .carrito-titulo {
       font-family: "Playfair Display", serif;
       font-size: 2rem;
@@ -472,9 +530,7 @@
       margin-bottom: 40px;
       color: var(--color-accent);
     }
-
     #listaCarrito { list-style: none; }
-
     #listaCarrito li {
       display: flex;
       justify-content: space-between;
@@ -485,11 +541,8 @@
       gap: 15px;
       color: var(--color-text);
     }
-
     .item-nombre { font-weight: 500; color: var(--color-accent); flex: 1; min-width: 200px; }
-
     .item-controles { display: flex; align-items: center; gap: 15px; }
-
     .btn-cantidad {
       width: 36px; height: 36px;
       display: flex;
@@ -503,11 +556,8 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
-
     .btn-cantidad:hover { background: var(--color-accent); color: var(--color-primary); }
-
     .item-cantidad { font-size: 1.1rem; min-width: 30px; text-align: center; color: var(--color-text); }
-
     .item-subtotal {
       font-family: "Playfair Display", serif;
       font-size: 1.2rem;
@@ -515,7 +565,6 @@
       min-width: 100px;
       text-align: right;
     }
-
     #total {
       font-family: "Playfair Display", serif;
       font-size: 1.8rem;
@@ -525,11 +574,8 @@
       border-top: 1px solid rgba(198, 180, 255, 0.3);
       color: var(--color-accent);
     }
-
     #total span { color: var(--color-accent); }
-
     .carrito-vacio { text-align: center; color: var(--color-text-muted); padding: 40px; font-style: italic; }
-
     .btn-finalizar {
       display: block;
       width: 100%;
@@ -543,7 +589,6 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
-
     .btn-finalizar:hover { background: var(--color-accent-light); color: var(--color-text); }
 
     .btn-carrito-flotante {
@@ -563,14 +608,8 @@
       box-shadow: var(--shadow-soft);
       transition: all 0.3s ease;
     }
-
     .btn-carrito-flotante:hover { transform: scale(1.1); }
     .btn-carrito-flotante.mostrar { display: flex; }
-    .btn-carrito-flotante {
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-    }
-
     .burbuja-carrito {
       position: absolute;
       top: -5px; right: -5px;
@@ -592,7 +631,6 @@
       border-top: 1px solid rgba(198, 180, 255, 0.1);
       color: var(--color-text-muted);
     }
-
     .footer-logo {
       font-family: "Playfair Display", serif;
       font-size: 2rem;
@@ -602,11 +640,8 @@
       background-clip: text;
       margin-bottom: 20px;
     }
-
     .footer-text { font-size: 0.9rem; margin-bottom: 30px; }
-
     .footer-contact { font-size: 1.1rem; color: var(--color-accent); }
-
     .footer-contact a { color: var(--color-accent); text-decoration: none; transition: opacity 0.3s ease; }
     .footer-contact a:hover { opacity: 0.8; }
 
@@ -621,18 +656,8 @@
       .carrito-container { padding: 30px 20px; }
       .nav-sticky { top: 44px; padding: 16px; }
       .announcement-bar { font-size: 0.72rem; padding: 9px 10px; }
+      .novedad-box { padding: 30px 20px; }
     }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .animate-in { animation: fadeInUp 0.8s ease forwards; }
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
-    .delay-4 { animation-delay: 0.4s; }
   </style>
 
   <!-- Google tag (gtag.js) -->
@@ -645,19 +670,31 @@
   </script>
 </head>
 <body>
-  <!-- NUEVO: ANNOUNCEMENT BAR -->
+
+  <!-- POPUP NOVEDAD -->
+  <div class="popup-overlay" id="popupNovedad">
+    <div class="popup-content">
+      <button class="popup-close" onclick="cerrarPopup()">&times;</button>
+      <span class="novedad-label">Lanzamiento</span>
+      <h2 class="novedad-title">¡Nuevos Colores Brillosos! ✨</h2>
+      <p class="novedad-text">
+        Descubrí el nuevo <strong>Rosa Brilloso</strong> y <strong>Azul Brilloso</strong>. 
+        Dale un toque de luz y elegancia a tu instrumental odontológico.
+      </p>
+      <button class="btn-premium popup-btn" onclick="irABrillosos()">Ver Colección</button>
+    </div>
+  </div>
+
   <div class="announcement-bar">
     ¡Novedad! Realizamos envíos a toda la Argentina
   </div>
 
-  <!-- HEADER -->
   <header>
     <div class="logo-container">
       <h1 class="logo-text">CodiDental</h1>
       <p class="logo-subtitle">Cintas Codificadoras Premium</p>
       <p class="tagline">"Excelencia en cada detalle"</p>
 
-      <!-- MODIFICADO: Hero description -->
       <p class="hero-description">
         Transformamos tu instrumental odontológico en una experiencia ordenada,
         estética y profesional.
@@ -669,16 +706,15 @@
     </div>
   </header>
 
-  <!-- NAV FILTROS -->
   <nav class="nav-sticky">
     <div class="nav-filters">
       <button class="filter-btn" data-target="#vivos">Colores Vivos</button>
+      <button class="filter-btn" data-target="#brillosos">Brillosos ✨</button>
       <button class="filter-btn" data-target="#pastel">Colores Pastel</button>
       <button class="filter-btn" data-target="#metalizado">Colores Metalizados</button>
     </div>
   </nav>
 
-  <!-- FEATURES -->
   <section class="section features">
     <h2 class="section-title">¿Por qué elegir CodiDental?</h2>
     <div class="gold-line"></div>
@@ -698,8 +734,6 @@
         <h4>Colores Premium</h4>
         <p>Gama exclusiva de tonos vibrantes, pastel y metalizados.</p>
       </div>
-
-      <!-- MODIFICADO: envío a todo el país -->
       <div class="feature">
         <span class="feature-icon">📦</span>
         <h4>Envíos a todo el País</h4>
@@ -708,7 +742,21 @@
     </div>
   </section>
 
-  <!-- CATÁLOGO -->
+  <!-- NOVEDAD SECTION -->
+  <section class="section novedad-section">
+    <div class="novedad-box">
+      <span class="novedad-label">Nueva Colección</span>
+      <h2 class="novedad-title">Llegaron las nuevas cintas Brillosas ✨</h2>
+      <p class="novedad-text">
+        Sumamos dos nuevas opciones a nuestra colección:
+        <span class="novedad-highlight">Rosa Brilloso</span> y
+        <span class="novedad-highlight">Azul Brilloso</span>.
+        Un acabado llamativo, delicado y elegante para destacar tu instrumental con un toque único.
+      </p>
+      <a href="#brillosos" class="btn-premium">Ver Cintas Brillosas</a>
+    </div>
+  </section>
+
   <section id="catalogo" class="section">
     <h2 class="section-title">Nuestra Colección</h2>
     <p class="section-subtitle">
@@ -811,13 +859,53 @@
         </div>
       </div>
 
+      <!-- BRILLOSOS (PRIORIDAD) -->
+      <h3 class="categoria-titulo" id="brillosos">— Brillosos —</h3>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <span class="badge-premium">Nuevo Lanzamiento</span>
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Rosa Brilloso.png" alt="Cinta Rosa Brilloso" />
+              <img src="Cinta Rosa Brilloso Muestra.png" alt="Cinta Rosa Brilloso Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Rosa Brilloso</h3>
+          <p>Un tono delicado con acabado brillante que aporta personalidad y una presencia única al instrumental.</p>
+          <div class="producto-precio">$3.000 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Rosa Brilloso" onclick="agregarAlCarrito('Cinta Rosa Brilloso', 3000)">Añadir al Carrito</button>
+        </div>
+      </div>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <span class="badge-premium">Nuevo Lanzamiento</span>
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Azul Brilloso.png" alt="Cinta Azul Brilloso" />
+              <img src="Cinta Azul Brilloso Muestra.png" alt="Cinta Azul Brilloso Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Azul Brilloso</h3>
+          <p>Color vibrante con terminación brillante, ideal para destacar y reconocer el instrumental de forma inmediata.</p>
+          <div class="producto-precio">$3.000 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Azul Brilloso" onclick="agregarAlCarrito('Cinta Azul Brilloso', 3000)">Añadir al Carrito</button>
+        </div>
+      </div>
+
       <!-- COLORES PASTEL -->
       <h3 class="categoria-titulo" id="pastel">— Colores Pastel —</h3>
 
       <div class="producto agotado">
         <div class="producto-imagen">
           <span class="badge-agotado">Agotado</span>
-
           <div class="carousel">
             <div class="carousel-track">
               <img src="Cinta Rosa Pastel.png" alt="Cinta Rosa Pastel" />
@@ -872,13 +960,11 @@
     </div>
   </section>
 
-  <!-- BOTÓN FLOTANTE -->
   <button id="btnCarritoFlotante" class="btn-carrito-flotante">
     🛒
     <span id="carritoBadge" class="burbuja-carrito">0</span>
   </button>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-logo">CodiDental</div>
     <p class="footer-text">Cintas codificadoras premium para profesionales exigentes</p>
@@ -890,37 +976,30 @@
   <script>
     let carrito = [];
 
-    // === ANALYTICS HELPERS (GA4) ===
-    function trackEvent(name, params = {}) {
-      if (typeof gtag === "function") {
-        gtag("event", name, params);
-      }
+    // === POPUP LOGIC ===
+    window.onload = () => {
+      setTimeout(() => {
+        document.getElementById('popupNovedad').classList.add('active');
+      }, 1000);
+    };
+
+    function cerrarPopup() {
+      document.getElementById('popupNovedad').classList.remove('active');
     }
 
-    let cartCreatedTracked = false;
+    function irABrillosos() {
+      cerrarPopup();
+      const target = document.querySelector('#brillosos');
+      const offset = 120;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
 
     // === CARRITO FUNCTIONS ===
     function agregarAlCarrito(nombre, precio) {
       const wasEmpty = carrito.length === 0;
-
       const p = carrito.find((i) => i.nombre === nombre);
-      if (p) {
-        p.cantidad++;
-      } else {
-        carrito.push({ nombre, precio, cantidad: 1 });
-      }
-
-      trackEvent("add_to_cart", {
-        currency: "ARS",
-        value: precio,
-        item_name: nombre
-      });
-
-      if (wasEmpty && !cartCreatedTracked) {
-        cartCreatedTracked = true;
-        trackEvent("cart_created", { method: "site_cart" });
-      }
-
+      if (p) { p.cantidad++; } else { carrito.push({ nombre, precio, cantidad: 1 }); }
       mostrarCarrito();
       actualizarBotones(nombre);
       actualizarBotonFlotante();
@@ -939,13 +1018,11 @@
     function mostrarCarrito() {
       const lista = document.getElementById("listaCarrito");
       lista.innerHTML = "";
-
       if (carrito.length === 0) {
         lista.innerHTML = '<li class="carrito-vacio">Tu carrito está vacío</li>';
         document.getElementById("total").textContent = "";
         return;
       }
-
       let total = 0;
       carrito.forEach((item) => {
         total += item.precio * item.cantidad;
@@ -961,7 +1038,6 @@
         `;
         lista.appendChild(li);
       });
-
       document.getElementById("total").innerHTML = `Total: <span>$${total.toLocaleString()}</span>`;
     }
 
@@ -985,7 +1061,6 @@
       const boton = document.getElementById("btnCarritoFlotante");
       const badge = document.getElementById("carritoBadge");
       const totalItems = carrito.reduce((a, i) => a + i.cantidad, 0);
-
       if (totalItems > 0) {
         boton.classList.add("mostrar");
         badge.style.display = "flex";
@@ -996,116 +1071,65 @@
       }
     }
 
-    // === BOTÓN FLOTANTE - IR AL CARRITO ===
     function irAlCarrito() {
       const carritoSection = document.getElementById("carrito");
       if (!carritoSection) return;
       carritoSection.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
-    document.getElementById("btnCarritoFlotante").addEventListener("touchstart", function(e) {
-      e.preventDefault();
-      irAlCarrito();
-    }, { passive: false });
+    document.getElementById("btnCarritoFlotante").addEventListener("click", irAlCarrito);
 
-    document.getElementById("btnCarritoFlotante").addEventListener("click", function(e) {
-      e.preventDefault();
-      irAlCarrito();
-    });
-
-    // === MODIFICADO: WHATSAPP (ahora pide facultad o ciudad/provincia para envío) ===
     function enviarWhatsApp() {
-      if (!carrito.length) { 
-        alert("Agregá al menos un producto antes de finalizar el pedido."); 
-        return; 
-      }
-
-      let infoEntrega = prompt(
-        "¡Genial! Tu pedido se abrirá en WhatsApp para coordinar.\n\nEscribí tu Facultad (si querés entrega en facultad) o tu Ciudad/Provincia para el envío:", 
-        ""
-      );
-
+      if (!carrito.length) { alert("Agregá al menos un producto."); return; }
+      let infoEntrega = prompt("Escribí tu Facultad o Ciudad/Provincia para el envío:", "");
       let mensaje = "Hola! Quiero hacer este pedido:%0A";
-
-      if (infoEntrega && infoEntrega.trim() !== "") {
-        mensaje += `*Entrega/Envío:* ${infoEntrega}%0A%0A`;
-      }
-
-      carrito.forEach(i => {
-        mensaje += `- ${i.nombre} (${i.cantidad} unid): $${i.precio * i.cantidad}%0A`;
-      });
-
+      if (infoEntrega && infoEntrega.trim() !== "") { mensaje += `*Entrega/Envío:* ${infoEntrega}%0A%0A`; }
+      carrito.forEach(i => { mensaje += `- ${i.nombre} (${i.cantidad} unid): $${i.precio * i.cantidad}%0A`; });
       let total = carrito.reduce((a, i) => a + i.precio * i.cantidad, 0);
       mensaje += `%0A*Total: $${total}*`;
-
       window.open(`https://wa.me/+5491122938343?text=${mensaje}`, "_blank");
     }
 
-    // === CAROUSEL ===
+    // === CAROUSEL & FILTERS ===
     document.querySelectorAll(".carousel").forEach((carousel) => {
       const track = carousel.querySelector(".carousel-track");
       const dotsContainer = carousel.querySelector(".carousel-dots");
       const images = carousel.querySelectorAll("img");
-
       images.forEach((_, i) => {
         const dot = document.createElement("button");
         if (i === 0) dot.classList.add("active");
-        dot.addEventListener("click", () => {
-          track.scrollTo({ left: track.clientWidth * i, behavior: "smooth" });
-        });
+        dot.addEventListener("click", () => { track.scrollTo({ left: track.clientWidth * i, behavior: "smooth" }); });
         dotsContainer.appendChild(dot);
       });
-
       track.addEventListener("scroll", () => {
         const index = Math.round(track.scrollLeft / track.clientWidth);
-        dotsContainer.querySelectorAll("button").forEach((dot, i) => {
-          dot.classList.toggle("active", i === index);
-        });
+        dotsContainer.querySelectorAll("button").forEach((dot, i) => { dot.classList.toggle("active", i === index); });
       });
     });
 
-    // === FILTER NAVIGATION ===
     document.querySelectorAll(".filter-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         const target = document.querySelector(btn.dataset.target);
         if (target) {
-          const offset = 120; /* ajustado por announcement + nav */
+          const offset = 120;
           const top = target.getBoundingClientRect().top + window.scrollY - offset;
           window.scrollTo({ top, behavior: "smooth" });
         }
-        document.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("activo"));
-        btn.classList.add("activo");
       });
     });
 
-    // === SMOOTH SCROLL FOR HEADER CTA ===
-    document.querySelector(".btn-premium").addEventListener("click", function (e) {
-      e.preventDefault();
-      const catalogo = document.querySelector("#catalogo");
-      window.scrollTo({ top: catalogo.offsetTop - 120, behavior: "smooth" });
-    });
-
-    // === INTERSECTION OBSERVER FOR FILTER HIGHLIGHT ===
-    const secciones = ["#vivos", "#pastel", "#metalizado"];
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = "#" + entry.target.id;
-            document.querySelectorAll(".filter-btn").forEach((btn) => {
-              btn.classList.toggle(btn.dataset.target === id, true);
-              btn.classList.toggle(btn.dataset.target !== id, false);
-            });
-          }
-        });
-      },
-      { threshold: 0.3, rootMargin: "-120px" }
-    );
-
-    secciones.forEach((sel) => {
-      const el = document.querySelector(sel);
-      if (el) observer.observe(el);
-    });
+    const secciones = ["#vivos", "#brillosos", "#pastel", "#metalizado"];
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = "#" + entry.target.id;
+          document.querySelectorAll(".filter-btn").forEach((btn) => {
+            btn.classList.toggle("activo", btn.dataset.target === id);
+          });
+        }
+      });
+    }, { threshold: 0.3, rootMargin: "-120px" });
+    secciones.forEach((sel) => { const el = document.querySelector(sel); if (el) observer.observe(el); });
   </script>
 </body>
 </html>
