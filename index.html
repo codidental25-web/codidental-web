@@ -32,7 +32,6 @@
       --shadow-glow: 0 0 30px rgba(244, 176, 187, 0.28);
     }
 
-    /* === ANNOUNCEMENT BAR === */
     .announcement-bar {
       background: var(--color-accent);
       color: #fff;
@@ -47,7 +46,6 @@
       z-index: 9999;
     }
 
-    /* === POPUP NOVEDAD === */
     .popup-overlay {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
@@ -449,7 +447,6 @@
       z-index: 10;
     }
 
-    /* === NOVEDAD SECTION === */
     .novedad-section {
       background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-card-bg) 100%);
       padding-top: 70px;
@@ -660,7 +657,6 @@
     }
   </style>
 
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-P6JPXSH1FJ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -676,12 +672,12 @@
     <div class="popup-content">
       <button class="popup-close" onclick="cerrarPopup()">&times;</button>
       <span class="novedad-label">Lanzamiento</span>
-      <h2 class="novedad-title">¡Nuevos Colores Brillosos! ✨</h2>
+      <h2 class="novedad-title">¡Nuevos Colores Disponibles! 🎨</h2>
       <p class="novedad-text">
-        Descubrí el nuevo <strong>Rosa Brilloso</strong> y <strong>Azul Brilloso</strong>. 
-        Dale un toque de luz y elegancia a tu instrumental odontológico.
+        Ampliamos nuestra colección con <strong>nuevos colores</strong> en todas las categorías.
+        ¡Explorá las novedades y encontrá tu favorito!
       </p>
-      <button class="btn-premium popup-btn" onclick="irABrillosos()">Ver Colección</button>
+      <button class="btn-premium popup-btn" onclick="irACatalogo()">Ver Colección</button>
     </div>
   </div>
 
@@ -694,14 +690,12 @@
       <h1 class="logo-text">CodiDental</h1>
       <p class="logo-subtitle">Cintas Codificadoras Premium</p>
       <p class="tagline">"Excelencia en cada detalle"</p>
-
       <p class="hero-description">
         Transformamos tu instrumental odontológico en una experiencia ordenada,
         estética y profesional.
         Nuestras cintas son <strong>autoclavables</strong> y <strong>resistentes al cloro</strong>.
         ¡Ahora con <strong>envíos a todo el país</strong> y entregas en facultad!
       </p>
-
       <a href="#catalogo" class="btn-premium">Explorar Colección</a>
     </div>
   </header>
@@ -746,14 +740,17 @@
   <section class="section novedad-section">
     <div class="novedad-box">
       <span class="novedad-label">Nueva Colección</span>
-      <h2 class="novedad-title">Llegaron las nuevas cintas Brillosas ✨</h2>
+      <h2 class="novedad-title">¡Nuevos colores en todas las categorías! 🎨</h2>
       <p class="novedad-text">
-        Sumamos dos nuevas opciones a nuestra colección:
-        <span class="novedad-highlight">Rosa Brilloso</span> y
-        <span class="novedad-highlight">Azul Brilloso</span>.
-        Un acabado llamativo, delicado y elegante para destacar tu instrumental con un toque único.
+        Sumamos nuevos colores a nuestra colección:
+        <span class="novedad-highlight">Azul</span>,
+        <span class="novedad-highlight">Rojo Bordó</span>,
+        <span class="novedad-highlight">Negro</span>,
+        <span class="novedad-highlight">Púrpura</span> en Colores Vivos y
+        <span class="novedad-highlight">Rosa Metalizado</span> en Metalizados.
+        ¡Más opciones para personalizar tu instrumental!
       </p>
-      <a href="#brillosos" class="btn-premium">Ver Cintas Brillosas</a>
+      <a href="#catalogo" class="btn-premium">Ver Colección Completa</a>
     </div>
   </section>
 
@@ -859,7 +856,84 @@
         </div>
       </div>
 
-      <!-- BRILLOSOS (PRIORIDAD) -->
+      <!-- NUEVOS COLORES VIVOS -->
+      <div class="producto">
+        <div class="producto-imagen">
+          <span class="badge-premium">Nuevo</span>
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Azul.png" alt="Cinta Azul" />
+              <img src="Cinta Azul Muestra.png" alt="Cinta Azul Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Azul</h3>
+          <p>Tono vibrante y llamativo que facilita la identificación inmediata del instrumental. Ideal para un sistema de colores claro y ordenado.</p>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Azul" onclick="agregarAlCarrito('Cinta Azul', 1500)">Añadir al Carrito</button>
+        </div>
+      </div>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <span class="badge-premium">Nuevo</span>
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Rojo Bordó.png" alt="Cinta Rojo Bordó" />
+              <img src="Cinta Rojo Bordó Muestra.png" alt="Cinta Rojo Bordó Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Rojo Bordó</h3>
+          <p>Color intenso y elegante que aporta distinción al instrumental. Perfecto para quienes buscan un tono profundo y sofisticado.</p>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Rojo Bordó" onclick="agregarAlCarrito('Cinta Rojo Bordó', 1500)">Añadir al Carrito</button>
+        </div>
+      </div>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <span class="badge-premium">Nuevo</span>
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Negro.png" alt="Cinta Negro" />
+              <img src="Cinta Negro Muestra.png" alt="Cinta Negro Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Negro</h3>
+          <p>Clásico y versátil, el negro aporta un look profesional y moderno al instrumental. Contraste perfecto para cualquier entorno clínico.</p>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Negro" onclick="agregarAlCarrito('Cinta Negro', 1500)">Añadir al Carrito</button>
+        </div>
+      </div>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <span class="badge-premium">Nuevo</span>
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Púrpura.png" alt="Cinta Púrpura" />
+              <img src="Cinta Púrpura Muestra.png" alt="Cinta Púrpura Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Púrpura</h3>
+          <p>Tono profundo y llamativo que combina elegancia y visibilidad. Una opción única para destacar el instrumental con personalidad.</p>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Púrpura" onclick="agregarAlCarrito('Cinta Púrpura', 1500)">Añadir al Carrito</button>
+        </div>
+      </div>
+
+      <!-- BRILLOSOS -->
       <h3 class="categoria-titulo" id="brillosos">— Brillosos —</h3>
 
       <div class="producto">
@@ -903,9 +977,8 @@
       <!-- COLORES PASTEL -->
       <h3 class="categoria-titulo" id="pastel">— Colores Pastel —</h3>
 
-      <div class="producto agotado">
+      <div class="producto">
         <div class="producto-imagen">
-          <span class="badge-agotado">Agotado</span>
           <div class="carousel">
             <div class="carousel-track">
               <img src="Cinta Rosa Pastel.png" alt="Cinta Rosa Pastel" />
@@ -918,7 +991,7 @@
           <h3>Cinta Codificadora Rosa Pastel</h3>
           <p>Tono delicado y armónico, ideal para un instrumental prolijo y uniforme.</p>
           <div class="producto-precio">$1.500 <span>ARS</span></div>
-          <button class="btn-agregar" disabled>Sin stock temporalmente</button>
+          <button class="btn-agregar" data-nombre="Cinta Rosa Pastel" onclick="agregarAlCarrito('Cinta Rosa Pastel', 1500)">Añadir al Carrito</button>
         </div>
       </div>
 
@@ -943,6 +1016,27 @@
           <button class="btn-agregar" data-nombre="Cinta Lila Metalizado" onclick="agregarAlCarrito('Cinta Lila Metalizado', 3000)">Añadir al Carrito</button>
         </div>
       </div>
+
+      <!-- NUEVO METALIZADO -->
+      <div class="producto">
+        <div class="producto-imagen">
+          <span class="badge-premium">Nuevo</span>
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Rosa Metalizado.png" alt="Cinta Rosa Metalizado" />
+              <img src="Cinta Rosa Metalizado Muestra.png" alt="Cinta Rosa Metalizado Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Rosa Metalizado</h3>
+          <p>Delicado tono rosado con acabado metalizado que combina suavidad y distinción. Una opción elegante para personalizar el instrumental.</p>
+          <div class="producto-precio">$3.000 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Rosa Metalizado" onclick="agregarAlCarrito('Cinta Rosa Metalizado', 3000)">Añadir al Carrito</button>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -976,7 +1070,6 @@
   <script>
     let carrito = [];
 
-    // === POPUP LOGIC ===
     window.onload = () => {
       setTimeout(() => {
         document.getElementById('popupNovedad').classList.add('active');
@@ -995,9 +1088,15 @@
       window.scrollTo({ top, behavior: "smooth" });
     }
 
-    // === CARRITO FUNCTIONS ===
+    function irACatalogo() {
+      cerrarPopup();
+      const target = document.querySelector('#catalogo');
+      const offset = 120;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+
     function agregarAlCarrito(nombre, precio) {
-      const wasEmpty = carrito.length === 0;
       const p = carrito.find((i) => i.nombre === nombre);
       if (p) { p.cantidad++; } else { carrito.push({ nombre, precio, cantidad: 1 }); }
       mostrarCarrito();
@@ -1079,87 +1178,85 @@
 
     document.getElementById("btnCarritoFlotante").addEventListener("click", irAlCarrito);
 
- function enviarWhatsApp() {
-  if (!carrito.length) {
-    alert("Agregá al menos un producto antes de finalizar el pedido.");
-    return;
-  }
-
-  const overlay = document.createElement('div');
-  overlay.style.cssText = `
-    position:fixed; top:0; left:0; width:100%; height:100%;
-    background:rgba(75,58,63,0.6); backdrop-filter:blur(5px);
-    display:flex; align-items:center; justify-content:center;
-    z-index:20000;
-  `;
-
-  overlay.innerHTML = `
-    <div style="
-      background:#FFF9F7; border-radius:24px; padding:40px 30px;
-      max-width:420px; width:90%; text-align:center;
-      box-shadow:0 10px 40px rgba(154,127,134,0.25);
-      font-family:'Inter',sans-serif; color:#4B3A3F;
-    ">
-      <p style="font-size:0.75rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#9A7F86; margin-bottom:12px;">Finalizar Pedido</p>
-      <h2 style="font-family:'Playfair Display',serif; font-size:1.6rem; color:#9A7F86; margin-bottom:10px;">¿Dónde cursás?</h2>
-      <p style="font-size:0.95rem; color:#6A545A; margin-bottom:28px; line-height:1.6;">Elegí tu zona para coordinar la entrega correctamente.</p>
-      <div style="display:flex; flex-direction:column; gap:12px;">
-        <button data-zona="caba" style="padding:14px; border-radius:14px; border:1px solid #9A7F86; background:transparent; color:#9A7F86; font-size:0.9rem; font-weight:600; letter-spacing:1px; cursor:pointer; font-family:'Inter',sans-serif;">🏙️ Ciudad de Buenos Aires</button>
-        <button data-zona="laplata" style="padding:14px; border-radius:14px; border:1px solid #9A7F86; background:transparent; color:#9A7F86; font-size:0.9rem; font-weight:600; letter-spacing:1px; cursor:pointer; font-family:'Inter',sans-serif;">🎓 La Plata</button>
-        <button data-zona="otras" style="padding:14px; border-radius:14px; border:1px solid #9A7F86; background:transparent; color:#9A7F86; font-size:0.9rem; font-weight:600; letter-spacing:1px; cursor:pointer; font-family:'Inter',sans-serif;">📦 Otras Provincias</button>
-        <button data-zona="cancelar" style="margin-top:8px; background:none; border:none; color:#6A545A; font-size:0.85rem; cursor:pointer; text-decoration:underline; font-family:'Inter',sans-serif;">Cancelar</button>
-      </div>
-    </div>
-  `;
-
-  overlay.querySelectorAll('button[data-zona]').forEach(btn => {
-    btn.addEventListener('mouseenter', () => {
-      if (btn.dataset.zona !== 'cancelar') {
-        btn.style.background = '#9A7F86';
-        btn.style.color = '#F4B0BB';
-      }
-    });
-    btn.addEventListener('mouseleave', () => {
-      if (btn.dataset.zona !== 'cancelar') {
-        btn.style.background = 'transparent';
-        btn.style.color = '#9A7F86';
-      }
-    });
-
-    btn.addEventListener('click', () => {
-      document.body.removeChild(overlay);
-      const zona = btn.dataset.zona;
-      if (!zona || zona === 'cancelar') return;
-
-      let mensaje = "Hola! Quiero hacer este pedido:%0A";
-      mensaje += `*Zona:* ${zona === 'caba' ? 'Ciudad de Buenos Aires' : zona === 'laplata' ? 'La Plata' : 'Otras Provincias'}%0A%0A`;
-
-      if (zona === 'otras') {
-        let ciudad = prompt("¿De qué ciudad/provincia sos?", "");
-        if (ciudad && ciudad.trim() !== "") {
-          mensaje += `*Ciudad/Provincia:* ${ciudad}%0A%0A`;
-        }
+    function enviarWhatsApp() {
+      if (!carrito.length) {
+        alert("Agregá al menos un producto antes de finalizar el pedido.");
+        return;
       }
 
-      carrito.forEach(i => {
-        mensaje += `- ${i.nombre} (${i.cantidad} unid): $${i.precio * i.cantidad}%0A`;
+      const overlay = document.createElement('div');
+      overlay.style.cssText = `
+        position:fixed; top:0; left:0; width:100%; height:100%;
+        background:rgba(75,58,63,0.6); backdrop-filter:blur(5px);
+        display:flex; align-items:center; justify-content:center;
+        z-index:20000;
+      `;
+
+      overlay.innerHTML = `
+        <div style="
+          background:#FFF9F7; border-radius:24px; padding:40px 30px;
+          max-width:420px; width:90%; text-align:center;
+          box-shadow:0 10px 40px rgba(154,127,134,0.25);
+          font-family:'Inter',sans-serif; color:#4B3A3F;
+        ">
+          <p style="font-size:0.75rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#9A7F86; margin-bottom:12px;">Finalizar Pedido</p>
+          <h2 style="font-family:'Playfair Display',serif; font-size:1.6rem; color:#9A7F86; margin-bottom:10px;">¿Dónde cursás?</h2>
+          <p style="font-size:0.95rem; color:#6A545A; margin-bottom:28px; line-height:1.6;">Elegí tu zona para coordinar la entrega correctamente.</p>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <button data-zona="caba" style="padding:14px; border-radius:14px; border:1px solid #9A7F86; background:transparent; color:#9A7F86; font-size:0.9rem; font-weight:600; letter-spacing:1px; cursor:pointer; font-family:'Inter',sans-serif;">🏙️ Ciudad de Buenos Aires</button>
+            <button data-zona="laplata" style="padding:14px; border-radius:14px; border:1px solid #9A7F86; background:transparent; color:#9A7F86; font-size:0.9rem; font-weight:600; letter-spacing:1px; cursor:pointer; font-family:'Inter',sans-serif;">🎓 La Plata</button>
+            <button data-zona="otras" style="padding:14px; border-radius:14px; border:1px solid #9A7F86; background:transparent; color:#9A7F86; font-size:0.9rem; font-weight:600; letter-spacing:1px; cursor:pointer; font-family:'Inter',sans-serif;">📦 Otras Provincias</button>
+            <button data-zona="cancelar" style="margin-top:8px; background:none; border:none; color:#6A545A; font-size:0.85rem; cursor:pointer; text-decoration:underline; font-family:'Inter',sans-serif;">Cancelar</button>
+          </div>
+        </div>
+      `;
+
+      overlay.querySelectorAll('button[data-zona]').forEach(btn => {
+        btn.addEventListener('mouseenter', () => {
+          if (btn.dataset.zona !== 'cancelar') {
+            btn.style.background = '#9A7F86';
+            btn.style.color = '#F4B0BB';
+          }
+        });
+        btn.addEventListener('mouseleave', () => {
+          if (btn.dataset.zona !== 'cancelar') {
+            btn.style.background = 'transparent';
+            btn.style.color = '#9A7F86';
+          }
+        });
+        btn.addEventListener('click', () => {
+          document.body.removeChild(overlay);
+          const zona = btn.dataset.zona;
+          if (!zona || zona === 'cancelar') return;
+
+          let mensaje = "Hola! Quiero hacer este pedido:%0A";
+          mensaje += `*Zona:* ${zona === 'caba' ? 'Ciudad de Buenos Aires' : zona === 'laplata' ? 'La Plata' : 'Otras Provincias'}%0A%0A`;
+
+          if (zona === 'otras') {
+            let ciudad = prompt("¿De qué ciudad/provincia sos?", "");
+            if (ciudad && ciudad.trim() !== "") {
+              mensaje += `*Ciudad/Provincia:* ${ciudad}%0A%0A`;
+            }
+          }
+
+          carrito.forEach(i => {
+            mensaje += `- ${i.nombre} (${i.cantidad} unid): $${i.precio * i.cantidad}%0A`;
+          });
+
+          let total = carrito.reduce((a, i) => a + i.precio * i.cantidad, 0);
+          mensaje += `%0A*Total: $${total}*`;
+
+          const numeroCABA    = "5491122938343";
+          const numeroLaPlata = "5492216181642";
+          const numero = zona === 'laplata' ? numeroLaPlata : numeroCABA;
+
+          window.open(`https://wa.me/${numero}?text=${mensaje}`, "_blank");
+        });
       });
 
-      let total = carrito.reduce((a, i) => a + i.precio * i.cantidad, 0);
-      mensaje += `%0A*Total: $${total}*`;
+      document.body.appendChild(overlay);
+    }
 
-      const numeroCABA    = "5491122938343";
-      const numeroLaPlata = "5492216181642";
-      const numero = zona === 'laplata' ? numeroLaPlata : numeroCABA;
-
-      window.open(`https://wa.me/${numero}?text=${mensaje}`, "_blank");
-    });
-  });
-
-  document.body.appendChild(overlay);
-}
-
-    // === CAROUSEL & FILTERS ===
     document.querySelectorAll(".carousel").forEach((carousel) => {
       const track = carousel.querySelector(".carousel-track");
       const dotsContainer = carousel.querySelector(".carousel-dots");
