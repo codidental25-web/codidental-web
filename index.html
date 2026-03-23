@@ -667,7 +667,6 @@
 </head>
 <body>
 
-  <!-- POPUP NOVEDAD -->
   <div class="popup-overlay" id="popupNovedad">
     <div class="popup-content">
       <button class="popup-close" onclick="cerrarPopup()">&times;</button>
@@ -677,7 +676,7 @@
         Ampliamos nuestra colección con <strong>nuevos colores</strong> en todas las categorías.
         ¡Explorá las novedades y encontrá tu favorito!
       </p>
-      <button class="btn-premium popup-btn" onclick="irACatalogo()">Ver Colección</button>
+      <button class="btn-premium popup-btn" onclick="irABrillantes()">Ver Colección</button>
     </div>
   </div>
 
@@ -703,7 +702,7 @@
   <nav class="nav-sticky">
     <div class="nav-filters">
       <button class="filter-btn" data-target="#vivos">Colores Vivos</button>
-      <button class="filter-btn" data-target="#brillosos">Brillantes ✨</button>
+      <button class="filter-btn" data-target="#brillantes">Brillantes ✨</button>
       <button class="filter-btn" data-target="#pastel">Colores Pastel</button>
       <button class="filter-btn" data-target="#metalizado">Colores Metalizados</button>
     </div>
@@ -736,7 +735,6 @@
     </div>
   </section>
 
-  <!-- NOVEDAD SECTION -->
   <section class="section novedad-section">
     <div class="novedad-box">
       <span class="novedad-label">Nueva Colección</span>
@@ -763,7 +761,6 @@
     <div class="gold-line"></div>
 
     <div class="catalogo">
-      <!-- COLORES VIVOS -->
       <h3 class="categoria-titulo" id="vivos">— Colores Vivos —</h3>
 
       <div class="producto">
@@ -838,7 +835,6 @@
         </div>
       </div>
 
-      <!-- NUEVOS COLORES VIVOS -->
       <div class="producto">
         <div class="producto-imagen">
           <span class="badge-premium">Nuevo</span>
@@ -915,7 +911,6 @@
         </div>
       </div>
 
-      <!-- BRILLANTES -->
       <h3 class="categoria-titulo" id="brillantes">— Brillantes —</h3>
 
       <div class="producto">
@@ -956,7 +951,6 @@
         </div>
       </div>
 
-      <!-- COLORES PASTEL -->
       <h3 class="categoria-titulo" id="pastel">— Colores Pastel —</h3>
 
       <div class="producto">
@@ -995,7 +989,6 @@
         </div>
       </div>
 
-      <!-- COLORES METALIZADOS -->
       <h3 class="categoria-titulo" id="metalizado">— Colores Metalizados —</h3>
 
       <div class="producto">
@@ -1017,7 +1010,6 @@
         </div>
       </div>
 
-      <!-- NUEVO METALIZADO -->
       <div class="producto">
         <div class="producto-imagen">
           <span class="badge-premium">Nuevo</span>
@@ -1036,11 +1028,9 @@
           <button class="btn-agregar" data-nombre="Cinta Rosa Metalizado" onclick="agregarAlCarrito('Cinta Rosa Metalizado', 3000)">Añadir al Carrito</button>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- CARRITO -->
   <section id="carrito" class="section carrito-section">
     <div class="carrito-container">
       <h2 class="carrito-titulo">Tu Carrito</h2>
@@ -1080,9 +1070,9 @@
       document.getElementById('popupNovedad').classList.remove('active');
     }
 
-    function irABrillosos() {
+    function irABrillantes() {
       cerrarPopup();
-      const target = document.querySelector('#brillosos');
+      const target = document.querySelector('#brillantes');
       const offset = 120;
       const top = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: "smooth" });
@@ -1264,12 +1254,16 @@
       images.forEach((_, i) => {
         const dot = document.createElement("button");
         if (i === 0) dot.classList.add("active");
-        dot.addEventListener("click", () => { track.scrollTo({ left: track.clientWidth * i, behavior: "smooth" }); });
+        dot.addEventListener("click", () => {
+          track.scrollTo({ left: track.clientWidth * i, behavior: "smooth" });
+        });
         dotsContainer.appendChild(dot);
       });
       track.addEventListener("scroll", () => {
         const index = Math.round(track.scrollLeft / track.clientWidth);
-        dotsContainer.querySelectorAll("button").forEach((dot, i) => { dot.classList.toggle("active", i === index); });
+        dotsContainer.querySelectorAll("button").forEach((dot, i) => {
+          dot.classList.toggle("active", i === index);
+        });
       });
     });
 
@@ -1284,7 +1278,7 @@
       });
     });
 
-    const secciones = ["#vivos", "#brillosos", "#pastel", "#metalizado"];
+    const secciones = ["#vivos", "#brillantes", "#pastel", "#metalizado"];
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -1295,7 +1289,11 @@
         }
       });
     }, { threshold: 0.3, rootMargin: "-120px" });
-    secciones.forEach((sel) => { const el = document.querySelector(sel); if (el) observer.observe(el); });
+
+    secciones.forEach((sel) => {
+      const el = document.querySelector(sel);
+      if (el) observer.observe(el);
+    });
   </script>
 </body>
 </html>
