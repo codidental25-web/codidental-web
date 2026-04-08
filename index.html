@@ -3,86 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CodiDental Premium - Cintas Codificadoras de Alta Calidad</title>
+  <title>CodiDental - Cintas Codificadoras de Alta Calidad</title>
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet"
   />
   <style>
     :root {
-      --pd-sage: #D9E3DE;
-      --pd-peach: #FBE5DD;
-      --pd-blush: #FDCED6;
-      --pd-rose: #F4B0BB;
-      --pd-mauve: #9A7F86;
+      /* Paleta Lila & Nude */
+      --pd-lilac-dark: #3D2B5E;
+      --pd-lilac: #9B7FBD;
+      --pd-lilac-light: #C9B8D8;
+      --pd-lilac-pale: #F0EBF5;
+      --pd-nude: #E8C4B0;
 
-      --color-primary: var(--pd-rose);
-      --color-secondary: var(--pd-peach);
-      --color-accent: var(--pd-mauve);
-      --color-accent-light: var(--pd-blush);
+      --color-primary: var(--pd-lilac);
+      --color-secondary: var(--pd-lilac-pale);
+      --color-accent: var(--pd-nude);
+      --color-accent-light: var(--pd-lilac-light);
 
-      --color-text: #4B3A3F;
-      --color-text-muted: #6A545A;
+      --color-text: var(--pd-lilac-dark);
+      --color-text-muted: #7A6B8A;
 
-      --color-white: #FFF9F7;
-      --color-card-bg: #FFF3EF;
+      --color-white: #F9F7FB;
+      --color-card-bg: #F4F0F9;
 
-      --gradient-gold: linear-gradient(135deg, var(--pd-blush), var(--pd-peach));
-      --shadow-soft: 0 10px 40px rgba(154, 127, 134, 0.18);
-      --shadow-glow: 0 0 30px rgba(244, 176, 187, 0.28);
+      --gradient-gold: linear-gradient(135deg, var(--pd-lilac-light), var(--pd-lilac-pale));
+      --shadow-soft: 0 10px 40px rgba(155, 140, 180, 0.18);
+      --shadow-glow: 0 0 30px rgba(155, 140, 180, 0.28);
     }
 
+    /* ANUNCIO PRINCIPAL (mejor contraste para lectura) */
     .announcement-bar {
       background: var(--color-accent);
-      color: #fff;
+      color: var(--pd-lilac-dark); /* texto más oscuro para mejor contraste */
       text-align: center;
       padding: 10px 12px;
-      font-size: 0.8rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: none;
+      font-weight: 700;
       position: sticky;
       top: 0;
       z-index: 9999;
-    }
-
-    .popup-overlay {
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(75, 58, 63, 0.6);
-      backdrop-filter: blur(5px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10000;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.5s ease;
-    }
-    .popup-overlay.active { opacity: 1; visibility: visible; }
-    .popup-content {
-      background: var(--color-white);
-      padding: 50px 40px;
-      border-radius: 30px;
-      max-width: 500px;
-      width: 90%;
-      text-align: center;
-      position: relative;
-      box-shadow: var(--shadow-soft);
-      transform: translateY(20px);
-      transition: transform 0.5s ease;
-    }
-    .popup-overlay.active .popup-content { transform: translateY(0); }
-    .popup-close {
-      position: absolute;
-      top: 20px; right: 20px;
-      background: none; border: none;
-      font-size: 1.5rem; color: var(--color-mauve);
-      cursor: pointer;
-    }
-    .popup-btn {
-      margin-top: 25px;
-      box-shadow: var(--shadow-glow);
+      border-bottom: 1px solid rgba(61,43,94,0.06);
     }
 
     header {
@@ -103,44 +67,59 @@
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(ellipse at center, rgba(192, 110, 165, 0.08) 0%, transparent 70%);
+      background: radial-gradient(ellipse at center, rgba(61, 43, 94, 0.08) 0%, transparent 70%);
       pointer-events: none;
     }
 
     .logo-container { position: relative; z-index: 2; }
 
-    .logo-text {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(3rem, 8vw, 6rem);
-      font-weight: 700;
-      background: var(--gradient-gold);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: 8px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
+    .header-logo-img {
+      display: block;
+      margin: 0 auto 20px;
+      width: 100%;
+      max-width: 360px;
+      height: auto;
+      filter: drop-shadow(0px 6px 18px rgba(61,43,94,0.15));
+      transition: transform 0.35s ease, filter 0.35s ease;
+      image-rendering: -webkit-optimize-contrast;
     }
 
+    .header-logo-img:hover {
+      transform: translateY(-4px) scale(1.02);
+    }
+
+    .sr-only {
+      position: absolute !important;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0);
+      white-space: nowrap; border: 0;
+    }
+
+    .logo-text { display: none !important; }
+
+    /* Subtitulo del logo: removed "premium" y aumentado contraste */
     .logo-subtitle {
       font-size: clamp(1rem, 2.5vw, 1.4rem);
-      font-weight: 300;
-      color: var(--color-text-muted);
+      font-weight: 600;
+      color: var(--pd-lilac-dark); /* más oscuro para legibilidad */
       letter-spacing: 6px;
       text-transform: uppercase;
       margin-bottom: 40px;
     }
 
+    /* Nueva frase principal */
     .tagline {
-      text-shadow: 0px 1px 2px rgba(255, 255, 255, 0.8);
+      text-shadow: 0px 1px 2px rgba(255, 255, 255, 0.9);
       font-family: "Playfair Display", serif;
       font-size: clamp(1.2rem, 3vw, 2rem);
       font-style: italic;
-      color: var(--color-text);
+      color: var(--pd-lilac-dark);
       margin-bottom: 20px;
       opacity: 1;
     }
 
+    /* Texto descriptivo: ajustar contraste en los acentos (antes dorado poco legible) */
     .hero-description {
       max-width: 700px;
       font-size: 1.1rem;
@@ -149,18 +128,19 @@
       line-height: 1.9;
     }
 
-    .hero-description strong { color: var(--color-accent); }
+    .hero-description strong { color: var(--pd-lilac-dark); font-weight:700; }
 
-    .btn-premium {
+    /* Botón principal: texto claro para mejor lectura en el degradado */
+    .btn-cta {
       display: inline-block;
       padding: 18px 50px;
       font-family: "Inter", sans-serif;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 3px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 2px;
       text-transform: uppercase;
       text-decoration: none;
-      color: var(--color-accent);
+      color: #ffffff; /* blanco para contraste */
       background: var(--gradient-gold);
       border: none;
       border-radius: 15px;
@@ -168,25 +148,26 @@
       transition: all 0.4s ease;
       position: relative;
       overflow: hidden;
-    }
-
-    .btn-premium:hover {
-      transform: translateY(-3px);
       box-shadow: var(--shadow-glow);
-      color: var(--color-primary);
-      background: var(--color-accent);
     }
 
-    .btn-premium::after {
+    .btn-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 50px rgba(61,43,94,0.12);
+      background: linear-gradient(135deg, var(--pd-lilac), var(--pd-lilac-light));
+      color: #fff;
+    }
+
+    .btn-cta::after {
       content: "";
       position: absolute;
       top: 0; left: -100%;
       width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
       transition: left 0.5s ease;
     }
 
-    .btn-premium:hover::after { left: 100%; }
+    .btn-cta:hover::after { left: 100%; }
 
     .nav-sticky {
       position: sticky;
@@ -194,7 +175,7 @@
       z-index: 100;
       background: rgba(249, 246, 255, 0.95);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(198, 180, 255, 0.3);
+      border-bottom: 1px solid rgba(155, 140, 180, 0.3);
       padding: 20px;
     }
 
@@ -213,7 +194,7 @@
       text-transform: uppercase;
       color: var(--color-text);
       background: transparent;
-      border: 1px solid rgba(198, 180, 255, 0.3);
+      border: 1px solid rgba(155, 140, 180, 0.3);
       border-radius: 20px;
       cursor: pointer;
       transition: all 0.3s ease;
@@ -268,7 +249,7 @@
       text-align: center;
       margin: 40px 0 20px;
       padding-top: 40px;
-      border-top: 1px solid rgba(198, 180, 255, 0.3);
+      border-top: 1px solid rgba(155, 140, 180, 0.3);
       border-radius: 10px;
     }
 
@@ -276,7 +257,7 @@
 
     .producto {
       background: var(--color-card-bg);
-      border: 1px solid rgba(198, 180, 255, 0.3);
+      border: 1px solid rgba(155, 140, 180, 0.3);
       overflow: hidden;
       transition: all 0.4s ease;
       position: relative;
@@ -298,7 +279,7 @@
 
     .producto:hover {
       transform: translateY(-10px);
-      box-shadow: 0 10px 40px rgba(198, 180, 255, 0.45);
+      box-shadow: 0 10px 40px rgba(155, 140, 180, 0.45);
       border-color: var(--color-accent);
     }
 
@@ -308,7 +289,7 @@
       position: relative;
       overflow: hidden;
       aspect-ratio: 1;
-      background: linear-gradient(135deg, #f2fff9, #f9f6ff);
+      background: linear-gradient(135deg, #f9f9ff, #f0ebf5);
       border-radius: 20px 20px 0 0;
     }
 
@@ -343,7 +324,7 @@
       display: flex;
       gap: 8px;
       padding: 8px 15px;
-      background: rgba(255 255 255 / 0.6);
+      background: rgba(249 246 255 / 0.6);
       backdrop-filter: blur(5px);
       border-radius: 20px;
     }
@@ -352,7 +333,7 @@
       width: 8px; height: 8px;
       border-radius: 50%;
       border: none;
-      background: rgba(198, 180, 255, 0.6);
+      background: rgba(155, 140, 180, 0.6);
       cursor: pointer;
       transition: all 0.3s ease;
     }
@@ -406,20 +387,6 @@
     .btn-agregar:hover { color: var(--color-primary); background: var(--color-accent); }
     .btn-agregar.en-carrito { background: var(--color-accent); color: var(--color-primary); }
 
-    .badge-agotado {
-      position: absolute;
-      top: 20px; left: 20px;
-      padding: 8px 15px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #fff;
-      background: #b0b0b0;
-      border-radius: 15px;
-      z-index: 10;
-    }
-
     .producto.agotado {
       opacity: 0.75;
       filter: grayscale(30%);
@@ -433,61 +400,7 @@
       border-color: var(--color-text-muted);
     }
 
-    .badge-premium {
-      position: absolute;
-      top: 20px; right: 20px;
-      padding: 8px 15px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--color-primary);
-      background: var(--gradient-gold);
-      border-radius: 15px;
-      z-index: 10;
-    }
-
-    .novedad-section {
-      background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-card-bg) 100%);
-      padding-top: 70px;
-      padding-bottom: 70px;
-    }
-    .novedad-box {
-      max-width: 900px;
-      margin: 0 auto;
-      background: var(--gradient-gold);
-      border-radius: 24px;
-      padding: 40px 30px;
-      text-align: center;
-      box-shadow: var(--shadow-soft);
-      color: var(--color-text);
-    }
-    .novedad-label {
-      display: inline-block;
-      margin-bottom: 16px;
-      padding: 8px 16px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.65);
-      color: var(--color-accent);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-    .novedad-title {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      color: var(--color-accent);
-      margin-bottom: 14px;
-    }
-    .novedad-text {
-      max-width: 700px;
-      margin: 0 auto 24px;
-      font-size: 1rem;
-      line-height: 1.8;
-      color: var(--color-text);
-    }
-    .novedad-highlight { font-weight: 600; color: var(--color-accent); }
+    .novedad-section { display: none; } /* no se usa (removida) */
 
     .features { background: var(--color-secondary); color: var(--color-text); }
     .features-grid {
@@ -514,7 +427,7 @@
       max-width: 800px;
       margin: 0 auto;
       background: var(--color-card-bg);
-      border: 1px solid rgba(198, 180, 255, 0.3);
+      border: 1px solid rgba(155, 140, 180, 0.3);
       padding: 50px;
       border-radius: 20px;
       color: var(--color-text);
@@ -533,7 +446,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 0;
-      border-bottom: 1px solid rgba(198, 180, 255, 0.1);
+      border-bottom: 1px solid rgba(155, 140, 180, 0.1);
       flex-wrap: wrap;
       gap: 15px;
       color: var(--color-text);
@@ -568,7 +481,7 @@
       text-align: right;
       margin-top: 30px;
       padding-top: 30px;
-      border-top: 1px solid rgba(198, 180, 255, 0.3);
+      border-top: 1px solid rgba(155, 140, 180, 0.3);
       color: var(--color-accent);
     }
     #total span { color: var(--color-accent); }
@@ -625,7 +538,7 @@
       background: var(--color-primary);
       padding: 60px 20px;
       text-align: center;
-      border-top: 1px solid rgba(198, 180, 255, 0.1);
+      border-top: 1px solid rgba(155, 140, 180, 0.1);
       color: var(--color-text-muted);
     }
     .footer-logo {
@@ -652,8 +565,7 @@
       .catalogo { grid-template-columns: 1fr; gap: 30px; }
       .carrito-container { padding: 30px 20px; }
       .nav-sticky { top: 44px; padding: 16px; }
-      .announcement-bar { font-size: 0.72rem; padding: 9px 10px; }
-      .novedad-box { padding: 30px 20px; }
+      .announcement-bar { font-size: 0.82rem; padding: 9px 10px; }
     }
   </style>
 
@@ -667,35 +579,35 @@
 </head>
 <body>
 
-  <div class="popup-overlay" id="popupNovedad">
-    <div class="popup-content">
-      <button class="popup-close" onclick="cerrarPopup()">&times;</button>
-      <span class="novedad-label">Lanzamiento</span>
-      <h2 class="novedad-title">¡Nuevos Colores Disponibles! 🎨</h2>
-      <p class="novedad-text">
-        Ampliamos nuestra colección con <strong>nuevos colores</strong> en todas las categorías.
-        ¡Explorá las novedades y encontrá tu favorito!
-      </p>
-      <button class="btn-premium popup-btn" onclick="irABrillantes()">Ver Colección</button>
-    </div>
-  </div>
-
+  <!-- Anuncio principal: envío gratis a partir de 12 cintas -->
   <div class="announcement-bar">
-    ¡Novedad! Realizamos envíos a toda la Argentina
+    Envío gratis en compras de 12 cintas o más — Envíos a toda la Argentina
   </div>
 
   <header>
     <div class="logo-container">
-      <h1 class="logo-text">CodiDental</h1>
-      <p class="logo-subtitle">Cintas Codificadoras Premium</p>
-      <p class="tagline">"Excelencia en cada detalle"</p>
+      <!-- H1 accesible para SEO pero visualmente reemplazado por la imagen -->
+      <h1 class="sr-only">CodiDental</h1>
+
+      <!-- Logo: asegurate que el nombre del archivo coincida exactamente -->
+      <img
+        src="Nuevo Logo.png"
+        alt="CodiDental - Cintas codificadoras"
+        class="header-logo-img"
+        width="600"
+        height="170"
+      />
+
+      <p class="logo-subtitle">Cintas Codificadoras</p>
+      <p class="tagline">Dale vida a tu instrumental</p>
+
       <p class="hero-description">
         Transformamos tu instrumental odontológico en una experiencia ordenada,
-        estética y profesional.
-        Nuestras cintas son <strong>autoclavables</strong> y <strong>resistentes al cloro</strong>.
-        ¡Ahora con <strong>envíos a todo el país</strong> y entregas en facultad!
+        estética y profesional. Nuestras cintas son <strong>resistentes al autoclave</strong> y
+        <strong>resistentes al cloro</strong>.
       </p>
-      <a href="#catalogo" class="btn-premium">Explorar Colección</a>
+
+      <a href="#catalogo" class="btn-cta">Explorar Colección</a>
     </div>
   </header>
 
@@ -715,7 +627,7 @@
       <div class="feature">
         <span class="feature-icon">🔥</span>
         <h4>Autoclavables</h4>
-        <p>Resistentes a altas temperaturas de esterilización sin perder color ni forma.</p>
+        <p>Resistentes al autoclave, manteniendo color y forma.</p>
       </div>
       <div class="feature">
         <span class="feature-icon">💧</span>
@@ -724,33 +636,18 @@
       </div>
       <div class="feature">
         <span class="feature-icon">🎨</span>
-        <h4>Colores Premium</h4>
-        <p>Gama exclusiva de tonos vibrantes, pastel y metalizados.</p>
+        <h4>Variedad de Colores</h4>
+        <p>Gama amplia de tonos vibrantes, pastel y metalizados para identificar fácilmente el instrumental.</p>
       </div>
       <div class="feature">
         <span class="feature-icon">📦</span>
         <h4>Envíos a todo el País</h4>
-        <p>Llegamos a cada rincón de Argentina. También coordinamos entregas en facultades seleccionadas.</p>
+        <p>Llegamos a cada rincón de Argentina. Envío gratis para compras de 12 cintas o más.</p>
       </div>
     </div>
   </section>
 
-  <section class="section novedad-section">
-    <div class="novedad-box">
-      <span class="novedad-label">Nueva Colección</span>
-      <h2 class="novedad-title">¡Nuevos colores en todas las categorías! 🎨</h2>
-      <p class="novedad-text">
-        Sumamos nuevos colores a nuestra colección:
-        <span class="novedad-highlight">Azul</span>,
-        <span class="novedad-highlight">Rojo Bordó</span>,
-        <span class="novedad-highlight">Negro</span>,
-        <span class="novedad-highlight">Púrpura</span> en Colores Vivos y
-        <span class="novedad-highlight">Rosa Metalizado</span> en Metalizados.
-        ¡Más opciones para personalizar tu instrumental!
-      </p>
-      <a href="#catalogo" class="btn-premium">Ver Colección Completa</a>
-    </div>
-  </section>
+  <!-- Sección "novedades" y popup removidos según pedido -->
 
   <section id="catalogo" class="section">
     <h2 class="section-title">Nuestra Colección</h2>
@@ -837,7 +734,6 @@
 
       <div class="producto">
         <div class="producto-imagen">
-          <span class="badge-premium">Nuevo</span>
           <div class="carousel">
             <div class="carousel-track">
               <img src="Cinta Azul.png" alt="Cinta Azul" />
@@ -856,7 +752,6 @@
 
       <div class="producto">
         <div class="producto-imagen">
-          <span class="badge-premium">Nuevo</span>
           <div class="carousel">
             <div class="carousel-track">
               <img src="Cinta Rojo Bordó.png" alt="Cinta Rojo Bordó" />
@@ -875,7 +770,6 @@
 
       <div class="producto">
         <div class="producto-imagen">
-          <span class="badge-premium">Nuevo</span>
           <div class="carousel">
             <div class="carousel-track">
               <img src="Cinta Negro.png" alt="Cinta Negro" />
@@ -894,7 +788,6 @@
 
       <div class="producto">
         <div class="producto-imagen">
-          <span class="badge-premium">Nuevo</span>
           <div class="carousel">
             <div class="carousel-track">
               <img src="Cinta Púrpura.png" alt="Cinta Púrpura" />
@@ -915,7 +808,6 @@
 
       <div class="producto">
         <div class="producto-imagen">
-          <span class="badge-premium">Nuevo Lanzamiento</span>
           <div class="carousel">
             <div class="carousel-track">
               <img src="Cinta Rosa Brillante.png" alt="Cinta Rosa Brillante" />
@@ -934,7 +826,6 @@
 
       <div class="producto">
         <div class="producto-imagen">
-          <span class="badge-premium">Nuevo Lanzamiento</span>
           <div class="carousel">
             <div class="carousel-track">
               <img src="Cinta Azul Brillante.png" alt="Cinta Azul Brillante" />
@@ -993,7 +884,6 @@
 
       <div class="producto">
         <div class="producto-imagen">
-          <span class="badge-premium">Premium</span>
           <div class="carousel">
             <div class="carousel-track">
               <img src="Cinta Lila Metalizado.png" alt="Cinta Lila Metalizado" />
@@ -1012,7 +902,6 @@
 
       <div class="producto">
         <div class="producto-imagen">
-          <span class="badge-premium">Nuevo</span>
           <div class="carousel">
             <div class="carousel-track">
               <img src="Cinta Rosa Metalizado.png" alt="Cinta Rosa Metalizado" />
@@ -1038,7 +927,7 @@
         <li class="carrito-vacio">Tu carrito está vacío</li>
       </ul>
       <p id="total"></p>
-      <button class="btn-premium btn-finalizar" onclick="enviarWhatsApp()">
+      <button class="btn-finalizar" onclick="enviarWhatsApp()">
         Finalizar Pedido
       </button>
     </div>
@@ -1051,7 +940,7 @@
 
   <footer>
     <div class="footer-logo">CodiDental</div>
-    <p class="footer-text">Cintas codificadoras premium para profesionales exigentes</p>
+    <p class="footer-text">Cintas codificadoras para profesionales exigentes</p>
     <p class="footer-contact">
       <a href="https://wa.me/+5491122938343" target="_blank">📱 WhatsApp: +54 9 11 2293-8343</a>
     </p>
@@ -1060,32 +949,57 @@
   <script>
     let carrito = [];
 
-    window.onload = () => {
-      setTimeout(() => {
-        document.getElementById('popupNovedad').classList.add('active');
-      }, 1000);
-    };
+    /* inicializaciones de carousel y UI */
+    document.querySelectorAll(".carousel").forEach((carousel) => {
+      const track = carousel.querySelector(".carousel-track");
+      const dotsContainer = carousel.querySelector(".carousel-dots");
+      const images = carousel.querySelectorAll("img");
+      images.forEach((_, i) => {
+        const dot = document.createElement("button");
+        if (i === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => {
+          track.scrollTo({ left: track.clientWidth * i, behavior: "smooth" });
+        });
+        dotsContainer.appendChild(dot);
+      });
+      track.addEventListener("scroll", () => {
+        const index = Math.round(track.scrollLeft / track.clientWidth);
+        dotsContainer.querySelectorAll("button").forEach((dot, i) => {
+          dot.classList.toggle("active", i === index);
+        });
+      });
+    });
 
-    function cerrarPopup() {
-      document.getElementById('popupNovedad').classList.remove('active');
-    }
+    /* navegación por filtros */
+    document.querySelectorAll(".filter-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const target = document.querySelector(btn.dataset.target);
+        if (target) {
+          const offset = 120;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+      });
+    });
 
-    function irABrillantes() {
-      cerrarPopup();
-      const target = document.querySelector('#brillantes');
-      const offset = 120;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: "smooth" });
-    }
+    const secciones = ["#vivos", "#brillantes", "#pastel", "#metalizado"];
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = "#" + entry.target.id;
+          document.querySelectorAll(".filter-btn").forEach((btn) => {
+            btn.classList.toggle("activo", btn.dataset.target === id);
+          });
+        }
+      });
+    }, { threshold: 0.3, rootMargin: "-120px" });
 
-    function irACatalogo() {
-      cerrarPopup();
-      const target = document.querySelector('#catalogo');
-      const offset = 120;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: "smooth" });
-    }
+    secciones.forEach((sel) => {
+      const el = document.querySelector(sel);
+      if (el) observer.observe(el);
+    });
 
+    /* Carrito */
     function agregarAlCarrito(nombre, precio) {
       const p = carrito.find((i) => i.nombre === nombre);
       if (p) { p.cantidad++; } else { carrito.push({ nombre, precio, cantidad: 1 }); }
@@ -1168,132 +1082,40 @@
 
     document.getElementById("btnCarritoFlotante").addEventListener("click", irAlCarrito);
 
+    /* Finalizar pedido via WhatsApp: incluye mensaje sobre envío gratis si corresponde */
     function enviarWhatsApp() {
       if (!carrito.length) {
         alert("Agregá al menos un producto antes de finalizar el pedido.");
         return;
       }
 
-      const overlay = document.createElement('div');
-      overlay.style.cssText = `
-        position:fixed; top:0; left:0; width:100%; height:100%;
-        background:rgba(75,58,63,0.6); backdrop-filter:blur(5px);
-        display:flex; align-items:center; justify-content:center;
-        z-index:20000;
-      `;
+      // Calcular cantidad total de unidades
+      const totalItems = carrito.reduce((a, i) => a + i.cantidad, 0);
+      const totalPrecio = carrito.reduce((a, i) => a + i.cantidad * i.precio, 0);
 
-      overlay.innerHTML = `
-        <div style="
-          background:#FFF9F7; border-radius:24px; padding:40px 30px;
-          max-width:420px; width:90%; text-align:center;
-          box-shadow:0 10px 40px rgba(154,127,134,0.25);
-          font-family:'Inter',sans-serif; color:#4B3A3F;
-        ">
-          <p style="font-size:0.75rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#9A7F86; margin-bottom:12px;">Finalizar Pedido</p>
-          <h2 style="font-family:'Playfair Display',serif; font-size:1.6rem; color:#9A7F86; margin-bottom:10px;">¿Dónde cursás?</h2>
-          <p style="font-size:0.95rem; color:#6A545A; margin-bottom:28px; line-height:1.6;">Elegí tu zona para coordinar la entrega correctamente.</p>
-          <div style="display:flex; flex-direction:column; gap:12px;">
-            <button data-zona="caba" style="padding:14px; border-radius:14px; border:1px solid #9A7F86; background:transparent; color:#9A7F86; font-size:0.9rem; font-weight:600; letter-spacing:1px; cursor:pointer; font-family:'Inter',sans-serif;">🏙️ Ciudad de Buenos Aires</button>
-            <button data-zona="laplata" style="padding:14px; border-radius:14px; border:1px solid #9A7F86; background:transparent; color:#9A7F86; font-size:0.9rem; font-weight:600; letter-spacing:1px; cursor:pointer; font-family:'Inter',sans-serif;">🎓 La Plata</button>
-            <button data-zona="otras" style="padding:14px; border-radius:14px; border:1px solid #9A7F86; background:transparent; color:#9A7F86; font-size:0.9rem; font-weight:600; letter-spacing:1px; cursor:pointer; font-family:'Inter',sans-serif;">📦 Otras Provincias</button>
-            <button data-zona="cancelar" style="margin-top:8px; background:none; border:none; color:#6A545A; font-size:0.85rem; cursor:pointer; text-decoration:underline; font-family:'Inter',sans-serif;">Cancelar</button>
-          </div>
-        </div>
-      `;
+      // Mensaje base
+      let mensaje = "Hola! Quiero hacer este pedido:%0A";
+      mensaje += `%0A`;
 
-      overlay.querySelectorAll('button[data-zona]').forEach(btn => {
-        btn.addEventListener('mouseenter', () => {
-          if (btn.dataset.zona !== 'cancelar') {
-            btn.style.background = '#9A7F86';
-            btn.style.color = '#F4B0BB';
-          }
-        });
-        btn.addEventListener('mouseleave', () => {
-          if (btn.dataset.zona !== 'cancelar') {
-            btn.style.background = 'transparent';
-            btn.style.color = '#9A7F86';
-          }
-        });
-        btn.addEventListener('click', () => {
-          document.body.removeChild(overlay);
-          const zona = btn.dataset.zona;
-          if (!zona || zona === 'cancelar') return;
-
-          let mensaje = "Hola! Quiero hacer este pedido:%0A";
-          mensaje += `*Zona:* ${zona === 'caba' ? 'Ciudad de Buenos Aires' : zona === 'laplata' ? 'La Plata' : 'Otras Provincias'}%0A%0A`;
-
-          if (zona === 'otras') {
-            let ciudad = prompt("¿De qué ciudad/provincia sos?", "");
-            if (ciudad && ciudad.trim() !== "") {
-              mensaje += `*Ciudad/Provincia:* ${ciudad}%0A%0A`;
-            }
-          }
-
-          carrito.forEach(i => {
-            mensaje += `- ${i.nombre} (${i.cantidad} unid): $${i.precio * i.cantidad}%0A`;
-          });
-
-          let total = carrito.reduce((a, i) => a + i.precio * i.cantidad, 0);
-          mensaje += `%0A*Total: $${total}*`;
-
-          const numeroCABA    = "5491122938343";
-          const numeroLaPlata = "5492216181642";
-          const numero = zona === 'laplata' ? numeroLaPlata : numeroCABA;
-
-          window.open(`https://wa.me/${numero}?text=${mensaje}`, "_blank");
-        });
+      carrito.forEach(i => {
+        mensaje += `- ${i.nombre} (${i.cantidad} unid): $${i.precio * i.cantidad}%0A`;
       });
 
-      document.body.appendChild(overlay);
+      mensaje += `%0A*Total: $${totalPrecio}*%0A`;
+
+      // Información sobre envío
+      if (totalItems >= 12) {
+        mensaje += `%0A*Nota:* Corresponde envío gratis (12+ cintas).%0A`;
+      } else {
+        mensaje += `%0A*Nota:* Envíos a toda la Argentina. Envío gratis a partir de 12 cintas.%0A`;
+      }
+
+      // Abrir selector de número según zona (simplificado)
+      const numeroCABA    = "5491122938343";
+      const numeroLaPlata = "5492216181642";
+      // por defecto enviamos a CABA; el usuario puede indicar otra ciudad en el mensaje
+      window.open(`https://wa.me/${numeroCABA}?text=${mensaje}`, "_blank");
     }
-
-    document.querySelectorAll(".carousel").forEach((carousel) => {
-      const track = carousel.querySelector(".carousel-track");
-      const dotsContainer = carousel.querySelector(".carousel-dots");
-      const images = carousel.querySelectorAll("img");
-      images.forEach((_, i) => {
-        const dot = document.createElement("button");
-        if (i === 0) dot.classList.add("active");
-        dot.addEventListener("click", () => {
-          track.scrollTo({ left: track.clientWidth * i, behavior: "smooth" });
-        });
-        dotsContainer.appendChild(dot);
-      });
-      track.addEventListener("scroll", () => {
-        const index = Math.round(track.scrollLeft / track.clientWidth);
-        dotsContainer.querySelectorAll("button").forEach((dot, i) => {
-          dot.classList.toggle("active", i === index);
-        });
-      });
-    });
-
-    document.querySelectorAll(".filter-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const target = document.querySelector(btn.dataset.target);
-        if (target) {
-          const offset = 120;
-          const top = target.getBoundingClientRect().top + window.scrollY - offset;
-          window.scrollTo({ top, behavior: "smooth" });
-        }
-      });
-    });
-
-    const secciones = ["#vivos", "#brillantes", "#pastel", "#metalizado"];
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = "#" + entry.target.id;
-          document.querySelectorAll(".filter-btn").forEach((btn) => {
-            btn.classList.toggle("activo", btn.dataset.target === id);
-          });
-        }
-      });
-    }, { threshold: 0.3, rootMargin: "-120px" });
-
-    secciones.forEach((sel) => {
-      const el = document.querySelector(sel);
-      if (el) observer.observe(el);
-    });
   </script>
 </body>
 </html>
