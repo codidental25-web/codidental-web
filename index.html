@@ -808,6 +808,7 @@
 
       <div class="producto">
         <div class="producto-imagen">
+          <span class="badge-premium">Nuevo Lanzamiento</span>
           <div class="carousel">
             <div class="carousel-track">
               <img src="Cinta Rosa Brillante.png" alt="Cinta Rosa Brillante" />
@@ -884,6 +885,7 @@
 
       <div class="producto">
         <div class="producto-imagen">
+          <span class="badge-premium">Premium</span>
           <div class="carousel">
             <div class="carousel-track">
               <img src="Cinta Lila Metalizado.png" alt="Cinta Lila Metalizado" />
@@ -1082,39 +1084,119 @@
 
     document.getElementById("btnCarritoFlotante").addEventListener("click", irAlCarrito);
 
-    /* Finalizar pedido via WhatsApp: incluye mensaje sobre envío gratis si corresponde */
+    /* Finalizar pedido via WhatsApp con selección de zona y facultad/provincia */
     function enviarWhatsApp() {
       if (!carrito.length) {
         alert("Agregá al menos un producto antes de finalizar el pedido.");
         return;
       }
 
-      // Calcular cantidad total de unidades
-      const totalItems = carrito.reduce((a, i) => a + i.cantidad, 0);
-      const totalPrecio = carrito.reduce((a, i) => a + i.cantidad * i.precio, 0);
+      const overlay = document.createElement('div');
+      overlay.style.cssText = `
+        position:fixed; top:0; left:0; width:100%; height:100%;
+        background:rgba(61,43,94,0.6); backdrop-filter:blur(5px);
+        display:flex; align-items:center; justify-content:center;
+        z-index:20000;
+      `;
 
-      // Mensaje base
-      let mensaje = "Hola! Quiero hacer este pedido:%0A";
-      mensaje += `%0A`;
+      overlay.innerHTML = `
+        <div style="
+          background: var(--color-white); border-radius:24px; padding:40px 30px;
+          max-width:420px; width:90%; text-align:center;
+          box-shadow:0 10px 40px rgba(155,140,180,0.25);
+          font-family:'Inter',sans-serif; color: var(--pd-lilac-dark);
+        ">
+          <p style="font-size:0.75rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px;">Finalizar Pedido</p>
+          <h2 style="font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:10px;">¿Dónde podés recibir el pedido?</h2>
+          <p style="font-size:0.95rem; margin-bottom:28px; line-height:1.6;">Elegí tu zona para coordinar la entrega correctamente.</p>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <button data-zona="caba" style="padding:14px; border-radius:14px; border:1px solid var(--pd-lilac); background:transparent; color: var(--pd-lilac); font-size:0.9rem; font-weight:600; letter-spacing:1px; cursor:pointer;">🏙️ Ciudad de Buenos Aires</button>
+            <button data-zona="bapro" style="padding:14px; border-radius:14px; border:1px solid var(--pd-lilac); background:transparent; color: var(--pd-lilac); font-size:0.9rem; font-weight:600; letter-spacing:1px; cursor:pointer;">🌆 Provincia de Buenos Aires</button>
+            <button data-zona="laplata" style="padding:14px; border-radius:14px; border:1px solid var(--pd-lilac); background:transparent; color: var(--pd-lilac); font-size:0.9rem; font-weight:600; letter-spacing:1px; cursor:pointer;">🎓 La Plata</button>
+            <button data-zona="otras" style="padding:14px; border-radius:14px; border:1px solid var(--pd-lilac); background:transparent; color: var(--pd-lilac); font-size:0.9rem; font-weight:600; letter-spacing:1px; cursor:pointer;">📦 Otras Provincias</button>
+            <button data-zona="cancelar" style="margin-top:8px; background:none; border:none; color: var(--color-text-muted); font-size:0.85rem; cursor:pointer; text-decoration:underline;">Cancelar</button>
+          </div>
+        </div>
+      `;
 
-      carrito.forEach(i => {
-        mensaje += `- ${i.nombre} (${i.cantidad} unid): $${i.precio * i.cantidad}%0A`;
+      overlay.querySelectorAll('button[data-zona]').forEach(btn => {
+        btn.addEventListener('mouseenter', () => {
+          if (btn.dataset.zona !== 'cancelar') {
+            btn.style.background = 'var(--pd-lilac)';
+            btn.style.color = '#fff';
+          }
+        });
+        btn.addEventListener('mouseleave', () => {
+          if (btn.dataset.zona !== 'cancelar') {
+            btn.style.background = 'transparent';
+            btn.style.color = 'var(--pd-lilac)';
+          }
+        });
+        btn.addEventListener('click', () => {
+          const zona = btn.dataset.zona;
+          if (!zona || zona === 'cancelar') {
+            document.body.removeChild(overlay);
+            return;
+          }
+
+          // Función para preguntar facultad o provincia según zona
+          function preguntarDetalle(mensajePrompt, callback) {
+            const detalle = prompt(mensajePrompt, "");
+            callback(detalle && detalle.trim() !== "" ? detalle.trim() : null);
+          }
+
+          // Construir mensaje base
+          let mensaje = "Hola! Quiero hacer este pedido:%0A%0A";
+
+          // Función para enviar mensaje a WhatsApp
+          function enviar(numero, mensajeFinal) {
+            window.open(`https://wa.me/${numero}?text=${mensajeFinal}`, "_blank");
+            document.body.removeChild(overlay);
+          }
+
+          // Función para armar mensaje con carrito y detalle
+          function armarMensaje(detalleTexto) {
+            if (detalleTexto) {
+              mensaje += `*Detalle:* ${detalleTexto}%0A%0A`;
+            }
+            carrito.forEach(i => {
+              mensaje += `- ${i.nombre} (${i.cantidad} unid): $${i.precio * i.cantidad}%0A`;
+            });
+            const totalPrecio = carrito.reduce((a, i) => a + i.cantidad * i.precio, 0);
+            mensaje += `%0A*Total: $${totalPrecio}*%0A%0A`;
+            if (carrito.reduce((a, i) => a + i.cantidad, 0) >= 12) {
+              mensaje += "¡Gracias! Corresponde envío gratis por compra de 12 o más cintas.%0A";
+            } else {
+              mensaje += "Envíos a toda la Argentina. Envío gratis a partir de 12 cintas.%0A";
+            }
+            return mensaje;
+          }
+
+          // Números de WhatsApp según zona
+          const numeroCABA    = "5491122938343";
+          const numeroBAPRO   = "5491122938343"; // Usamos mismo número que CABA para Provincia Bs As
+          const numeroLaPlata = "5492216181642";
+          const numeroOtras   = "5491122938343"; // Por defecto mismo número
+
+          if (zona === 'caba' || zona === 'bapro' || zona === 'laplata') {
+            // Preguntar facultad o lugar de trabajo
+            let pregunta = zona === 'laplata' ? "¿En qué facultad o lugar trabajás en La Plata?" : "¿En qué facultad o lugar trabajás?";
+            preguntarDetalle(pregunta, (detalle) => {
+              let numeroEnviar = zona === 'laplata' ? numeroLaPlata : (zona === 'bapro' ? numeroBAPRO : numeroCABA);
+              let mensajeFinal = armarMensaje(detalle);
+              enviar(numeroEnviar, mensajeFinal);
+            });
+          } else if (zona === 'otras') {
+            // Preguntar provincia
+            preguntarDetalle("¿A qué provincia realizamos el envío?", (detalle) => {
+              let mensajeFinal = armarMensaje(detalle);
+              enviar(numeroOtras, mensajeFinal);
+            });
+          }
+        });
       });
 
-      mensaje += `%0A*Total: $${totalPrecio}*%0A`;
-
-      // Información sobre envío
-      if (totalItems >= 12) {
-        mensaje += `%0A*Nota:* Corresponde envío gratis (12+ cintas).%0A`;
-      } else {
-        mensaje += `%0A*Nota:* Envíos a toda la Argentina. Envío gratis a partir de 12 cintas.%0A`;
-      }
-
-      // Abrir selector de número según zona (simplificado)
-      const numeroCABA    = "5491122938343";
-      const numeroLaPlata = "5492216181642";
-      // por defecto enviamos a CABA; el usuario puede indicar otra ciudad en el mensaje
-      window.open(`https://wa.me/${numeroCABA}?text=${mensaje}`, "_blank");
+      document.body.appendChild(overlay);
     }
   </script>
 </body>
