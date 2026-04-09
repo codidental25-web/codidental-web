@@ -1102,9 +1102,7 @@
             });
             const totalPrecio = carrito.reduce((a, i) => a + i.cantidad * i.precio, 0);
             mensaje += `%0A*Total: $${totalPrecio}*%0A%0A`;
-            if (incluirNotaEnvioGratis) {
-              mensaje += "Nota: envíos gratis a partir de 12 cintas.%0A";
-            }
+           
             return mensaje;
           }
 
