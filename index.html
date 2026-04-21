@@ -740,7 +740,6 @@
         </div>
       </div>
 
-      <!-- NUEVO: Violeta en Colores Vivos -->
       <div class="producto">
         <div class="producto-imagen">
           <div class="carousel">
@@ -756,6 +755,60 @@
           <p>Tono vibrante y distintivo que combina intensidad y elegancia. Ideal para quienes buscan un color llamativo con carácter propio.</p>
           <div class="producto-precio">$1.500 <span>ARS</span></div>
           <button class="btn-agregar" data-nombre="Cinta Violeta" onclick="agregarAlCarrito('Cinta Violeta', 1500)">Añadir al Carrito</button>
+        </div>
+      </div>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Azul Electrico.png" alt="Cinta Azul Electrico" />
+              <img src="Cinta Azul Electrico Muestra.png" alt="Cinta Azul Electrico Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Azul Eléctrico</h3>
+          <p>Tono intenso y llamativo que resalta al instante. Ideal para quienes buscan máxima visibilidad con un color vibrante y moderno.</p>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Azul Electrico" onclick="agregarAlCarrito('Cinta Azul Electrico', 1500)">Añadir al Carrito</button>
+        </div>
+      </div>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Blanco.png" alt="Cinta Blanco" />
+              <img src="Cinta Blanco Muestra.png" alt="Cinta Blanco Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Blanco</h3>
+          <p>Limpio y minimalista, el blanco aporta una estética neutra y elegante al instrumental. Perfecto para un look prolijo y sin estridencias.</p>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Blanco" onclick="agregarAlCarrito('Cinta Blanco', 1500)">Añadir al Carrito</button>
+        </div>
+      </div>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Marron.png" alt="Cinta Marron" />
+              <img src="Cinta Marron Muestra.png" alt="Cinta Marron Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Marrón</h3>
+          <p>Tono cálido y terroso que aporta sobriedad y distinción al instrumental. Una opción diferente para quienes prefieren colores naturales.</p>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Marron" onclick="agregarAlCarrito('Cinta Marron', 1500)">Añadir al Carrito</button>
         </div>
       </div>
 
@@ -797,7 +850,6 @@
         </div>
       </div>
 
-      <!-- NUEVO: Rojo Brillante -->
       <div class="producto">
         <div class="producto-imagen">
           <div class="carousel">
@@ -816,7 +868,6 @@
         </div>
       </div>
 
-      <!-- NUEVO: Verde Brillante -->
       <div class="producto">
         <div class="producto-imagen">
           <div class="carousel">
@@ -942,7 +993,6 @@
   <script>
     let carrito = [];
 
-    // Carousel initialization
     document.querySelectorAll(".carousel").forEach((carousel) => {
       const track = carousel.querySelector(".carousel-track");
       const dotsContainer = carousel.querySelector(".carousel-dots");
@@ -963,7 +1013,6 @@
       });
     });
 
-    // Navigation filters smooth scroll
     document.querySelectorAll(".filter-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         const target = document.querySelector(btn.dataset.target);
@@ -992,7 +1041,6 @@
       if (el) observer.observe(el);
     });
 
-    // Carrito functions
     function agregarAlCarrito(nombre, precio) {
       const p = carrito.find(i => i.nombre === nombre);
       if (p) {
