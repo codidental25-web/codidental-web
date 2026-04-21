@@ -10,7 +10,6 @@
   />
   <style>
     :root {
-      /* Paleta Lila & Nude */
       --pd-lilac-dark: #3D2B5E;
       --pd-lilac: #9B7FBD;
       --pd-lilac-light: #C9B8D8;
@@ -33,7 +32,6 @@
       --shadow-glow: 0 0 30px rgba(155, 140, 180, 0.28);
     }
 
-    /* ANUNCIO PRINCIPAL (mejor contraste para lectura) */
     .announcement-bar {
       background: var(--color-accent);
       color: var(--pd-lilac-dark);
@@ -41,7 +39,6 @@
       padding: 10px 12px;
       font-size: 0.9rem;
       letter-spacing: 1px;
-      text-transform: none;
       font-weight: 700;
       position: sticky;
       top: 0;
@@ -114,7 +111,6 @@
       font-style: italic;
       color: var(--pd-lilac-dark);
       margin-bottom: 20px;
-      opacity: 1;
     }
 
     .hero-description {
@@ -125,7 +121,7 @@
       line-height: 1.9;
     }
 
-    .hero-description strong { color: var(--pd-lilac-dark); font-weight:700; }
+    .hero-description strong { color: var(--pd-lilac-dark); font-weight: 700; }
 
     .btn-cta {
       display: inline-block;
@@ -320,7 +316,7 @@
       display: flex;
       gap: 8px;
       padding: 8px 15px;
-      background: rgba(249 246 255 / 0.6);
+      background: rgba(249, 246, 255, 0.6);
       backdrop-filter: blur(5px);
       border-radius: 20px;
     }
@@ -383,10 +379,7 @@
     .btn-agregar:hover { color: var(--color-primary); background: var(--color-accent); }
     .btn-agregar.en-carrito { background: var(--color-accent); color: var(--color-primary); }
 
-    .producto.agotado {
-      opacity: 0.75;
-      filter: grayscale(30%);
-    }
+    .producto.agotado { opacity: 0.75; filter: grayscale(30%); }
 
     .btn-agregar:disabled {
       cursor: not-allowed;
@@ -551,7 +544,6 @@
 
     @media (max-width: 768px) {
       header { min-height: auto; padding: 40px 15px; }
-      .logo-text { font-size: 2.8rem; letter-spacing: 4px; }
       .logo-subtitle { font-size: 0.9rem; letter-spacing: 3px; margin-bottom: 25px; }
       .hero-description { font-size: 1rem; line-height: 1.6; margin-bottom: 30px; }
       .nav-filters { gap: 10px; }
@@ -748,6 +740,25 @@
         </div>
       </div>
 
+      <!-- NUEVO: Violeta en Colores Vivos -->
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Violeta.png" alt="Cinta Violeta" />
+              <img src="Cinta Violeta Muestra.png" alt="Cinta Violeta Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Violeta</h3>
+          <p>Tono vibrante y distintivo que combina intensidad y elegancia. Ideal para quienes buscan un color llamativo con carácter propio.</p>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Violeta" onclick="agregarAlCarrito('Cinta Violeta', 1500)">Añadir al Carrito</button>
+        </div>
+      </div>
+
       <h3 class="categoria-titulo" id="brillantes">— Brillantes —</h3>
 
       <div class="producto">
@@ -783,6 +794,44 @@
           <p>Color vibrante con terminación brillante, ideal para destacar y reconocer el instrumental de forma inmediata.</p>
           <div class="producto-precio">$3.000 <span>ARS</span></div>
           <button class="btn-agregar" data-nombre="Cinta Azul Brillante" onclick="agregarAlCarrito('Cinta Azul Brillante', 3000)">Añadir al Carrito</button>
+        </div>
+      </div>
+
+      <!-- NUEVO: Rojo Brillante -->
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Rojo Brillante.png" alt="Cinta Rojo Brillante" />
+              <img src="Cinta Rojo Brillante Muestra.png" alt="Cinta Rojo Brillante Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Rojo Brillante</h3>
+          <p>Rojo intenso con acabado brillante que garantiza visibilidad inmediata. Una opción audaz y llamativa para identificar el instrumental al instante.</p>
+          <div class="producto-precio">$3.000 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Rojo Brillante" onclick="agregarAlCarrito('Cinta Rojo Brillante', 3000)">Añadir al Carrito</button>
+        </div>
+      </div>
+
+      <!-- NUEVO: Verde Brillante -->
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Verde Brillante.png" alt="Cinta Verde Brillante" />
+              <img src="Cinta Verde Brillante Muestra.png" alt="Cinta Verde Brillante Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Verde Brillante</h3>
+          <p>Tono fresco y vibrante con terminación brillante. Perfecta para quienes buscan un color enérgico y fácil de distinguir en el instrumental.</p>
+          <div class="producto-precio">$3.000 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Verde Brillante" onclick="agregarAlCarrito('Cinta Verde Brillante', 3000)">Añadir al Carrito</button>
         </div>
       </div>
 
@@ -995,8 +1044,7 @@
     }
 
     function actualizarBotones(nombre) {
-      const botones = document.querySelectorAll(".btn-agregar[data-nombre]");
-      botones.forEach(b => {
+      document.querySelectorAll(".btn-agregar[data-nombre]").forEach(b => {
         if (b.dataset.nombre === nombre) {
           const p = carrito.find(i => i.nombre === nombre);
           if (p) {
@@ -1024,15 +1072,10 @@
       }
     }
 
-    function irAlCarrito() {
-      const carritoSection = document.getElementById("carrito");
-      if (!carritoSection) return;
-      carritoSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    document.getElementById("btnCarritoFlotante").addEventListener("click", () => {
+      document.getElementById("carrito").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
 
-    document.getElementById("btnCarritoFlotante").addEventListener("click", irAlCarrito);
-
-    // Función enviarWhatsApp con popup y prompts según zona, con nota solo para otras provincias
     function enviarWhatsApp() {
       if (!carrito.length) {
         alert("Agregá al menos un producto antes de finalizar el pedido.");
@@ -1086,51 +1129,30 @@
             return;
           }
 
-          function preguntarDetalle(mensajePrompt, callback) {
-            const detalle = prompt(mensajePrompt, "");
-            callback(detalle && detalle.trim() !== "" ? detalle.trim() : null);
-          }
+          const prompts = {
+            caba: "¿En qué facultad o lugar se puede entregar el pedido?",
+            laplata: "¿En qué facultad cursás?",
+            otras: "¿A qué provincia realizamos el envío?"
+          };
+          const numeros = {
+            caba: "5491122938343",
+            laplata: "5492216181642",
+            otras: "5491122938343"
+          };
 
+          const detalle = prompt(prompts[zona], "");
           let mensaje = "Hola! Quiero hacer este pedido:%0A%0A";
-
-          function armarMensaje(detalleTexto, incluirNotaEnvioGratis) {
-            if (detalleTexto) {
-              mensaje += `*Detalle:* ${detalleTexto}%0A%0A`;
-            }
-            carrito.forEach(i => {
-              mensaje += `- ${i.nombre} (${i.cantidad} unid): $${i.precio * i.cantidad}%0A`;
-            });
-            const totalPrecio = carrito.reduce((a, i) => a + i.cantidad * i.precio, 0);
-            mensaje += `%0A*Total: $${totalPrecio}*%0A%0A`;
-           
-            return mensaje;
+          if (detalle && detalle.trim()) {
+            mensaje += `*Detalle:* ${detalle.trim()}%0A%0A`;
           }
+          carrito.forEach(i => {
+            mensaje += `- ${i.nombre} (${i.cantidad} unid): $${i.precio * i.cantidad}%0A`;
+          });
+          const totalPrecio = carrito.reduce((a, i) => a + i.cantidad * i.precio, 0);
+          mensaje += `%0A*Total: $${totalPrecio}*%0A%0A`;
 
-          const numeroCABA    = "5491122938343";
-          const numeroLaPlata = "5492216181642";
-          const numeroOtras   = "5491122938343";
-
-          function enviar(numero, mensajeFinal) {
-            window.open(`https://wa.me/${numero}?text=${mensajeFinal}`, "_blank");
-            document.body.removeChild(overlay);
-          }
-
-          if (zona === 'caba') {
-            preguntarDetalle("¿En qué facultad o lugar se puede entregar el pedido?", (detalle) => {
-              let mensajeFinal = armarMensaje(detalle, false);
-              enviar(numeroCABA, mensajeFinal);
-            });
-          } else if (zona === 'laplata') {
-            preguntarDetalle("¿En qué facultad cursás?", (detalle) => {
-              let mensajeFinal = armarMensaje(detalle, false);
-              enviar(numeroLaPlata, mensajeFinal);
-            });
-          } else if (zona === 'otras') {
-            preguntarDetalle("¿A qué provincia realizamos el envío?", (detalle) => {
-              let mensajeFinal = armarMensaje(detalle, true);
-              enviar(numeroOtras, mensajeFinal);
-            });
-          }
+          window.open(`https://wa.me/${numeros[zona]}?text=${mensaje}`, "_blank");
+          document.body.removeChild(overlay);
         });
       });
 
