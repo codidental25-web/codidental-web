@@ -161,6 +161,90 @@
 
     .btn-cta:hover::after { left: 100%; }
 
+    /* ── CARACTERÍSTICAS ── */
+    .caracteristicas {
+      background: var(--color-white);
+      padding: 80px 20px;
+    }
+
+    .caracteristicas .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      text-align: center;
+      margin-bottom: 16px;
+      color: var(--color-text);
+    }
+
+    .caracteristicas .section-subtitle {
+      text-align: center;
+      color: var(--color-text-muted);
+      max-width: 580px;
+      margin: 0 auto 50px;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .caract-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto 40px;
+    }
+
+    .caract-card {
+      background: var(--color-card-bg);
+      border: 1px solid rgba(155, 140, 180, 0.2);
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .caract-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 40px rgba(155, 140, 180, 0.28);
+    }
+
+    .caract-icon {
+      font-size: 2.4rem;
+      margin-bottom: 18px;
+      display: block;
+    }
+
+    .caract-card h4 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.15rem;
+      color: var(--pd-lilac-dark);
+      margin-bottom: 10px;
+    }
+
+    .caract-card p {
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+
+    .caract-nota {
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(232, 196, 176, 0.18);
+      border-left: 3px solid var(--pd-nude);
+      border-radius: 12px;
+      padding: 18px 24px;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .caract-nota strong {
+      color: var(--pd-lilac-dark);
+      font-weight: 600;
+    }
+
+    /* ── NAV ── */
     .nav-sticky {
       position: sticky;
       top: 48px;
@@ -389,24 +473,6 @@
       border-color: var(--color-text-muted);
     }
 
-    .features { background: var(--color-secondary); color: var(--color-text); }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 50px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .feature { text-align: center; padding: 40px 30px; }
-    .feature-icon { font-size: 3rem; margin-bottom: 25px; display: block; color: var(--color-accent); }
-    .feature h4 {
-      font-family: "Playfair Display", serif;
-      font-size: 1.3rem;
-      margin-bottom: 15px;
-      color: var(--color-accent);
-    }
-    .feature p { color: var(--color-text); font-size: 0.95rem; }
-
     .carrito-section {
       background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
     }
@@ -521,13 +587,15 @@
       border-radius: 50%;
     }
 
+    /* ── FOOTER ── */
     footer {
-      background: var(--color-primary);
-      padding: 60px 20px;
+      background: var(--pd-lilac-dark);
+      padding: 60px 20px 40px;
       text-align: center;
       border-top: 1px solid rgba(155, 140, 180, 0.1);
       color: var(--color-text-muted);
     }
+
     .footer-logo {
       font-family: "Playfair Display", serif;
       font-size: 2rem;
@@ -535,12 +603,63 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
-    .footer-text { font-size: 0.9rem; margin-bottom: 30px; }
-    .footer-contact { font-size: 1.1rem; color: var(--color-accent); }
-    .footer-contact a { color: var(--color-accent); text-decoration: none; transition: opacity 0.3s ease; }
-    .footer-contact a:hover { opacity: 0.8; }
+
+    .footer-text {
+      font-size: 0.9rem;
+      margin-bottom: 36px;
+      color: var(--pd-lilac-light);
+    }
+
+    .footer-redes {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .footer-red {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 24px;
+      border: 1px solid rgba(201, 184, 216, 0.35);
+      border-radius: 50px;
+      text-decoration: none;
+      color: var(--pd-lilac-light);
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .footer-red:hover {
+      background: rgba(201, 184, 216, 0.12);
+      border-color: var(--pd-nude);
+      color: var(--pd-nude);
+      transform: translateY(-2px);
+    }
+
+    .footer-red svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .footer-divider {
+      width: 60px;
+      height: 1px;
+      background: rgba(201, 184, 216, 0.2);
+      margin: 0 auto 24px;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: rgba(122, 107, 138, 0.7);
+    }
 
     @media (max-width: 768px) {
       header { min-height: auto; padding: 40px 15px; }
@@ -552,6 +671,9 @@
       .carrito-container { padding: 30px 20px; }
       .nav-sticky { top: 44px; padding: 16px; }
       .announcement-bar { font-size: 0.82rem; padding: 9px 10px; }
+      .caract-grid { grid-template-columns: 1fr; }
+      .footer-redes { gap: 12px; }
+      .footer-red { padding: 10px 18px; font-size: 0.82rem; }
     }
   </style>
 </head>
@@ -575,6 +697,44 @@
       <a href="#catalogo" class="btn-cta">Explorar Colección</a>
     </div>
   </header>
+
+  <!-- ── CARACTERÍSTICAS ── -->
+  <section class="caracteristicas">
+    <h2 class="section-title">¿Por qué elegir CodiDental?</h2>
+    <p class="section-subtitle">Diseñadas para el entorno clínico más exigente, nuestras cintas combinan funcionalidad, estética y durabilidad en cada detalle.</p>
+
+    <div class="caract-grid">
+
+      <div class="caract-card">
+        <span class="caract-icon">🔬</span>
+        <h4>Compatibles con Autoclave</h4>
+        <p>Soportan ciclos de esterilización en autoclave sin perder color ni adherencia. Tu instrumental siempre listo y seguro.</p>
+      </div>
+
+      <div class="caract-card">
+        <span class="caract-icon">🧴</span>
+        <h4>Resistentes al Cloro</h4>
+        <p>Toleran desinfecciones con soluciones cloradas de uso habitual en clínica, manteniendo su integridad lavado tras lavado.</p>
+      </div>
+
+      <div class="caract-card">
+        <span class="caract-icon">🎨</span>
+        <h4>Identificación Personalizada</h4>
+        <p>Con nuestra amplia paleta de colores podés crear un sistema de codificación completamente a medida para tu consultorio o cátedra.</p>
+      </div>
+
+      <div class="caract-card">
+        <span class="caract-icon">🚚</span>
+        <h4>Entregas y Envíos</h4>
+        <p>Hacemos entregas en todas las facultades de <strong>CABA</strong> y <strong>La Plata</strong>. Y enviamos a todo el país — <strong>gratis a partir de 12 cintas</strong>.</p>
+      </div>
+
+    </div>
+
+    <div class="caract-nota">
+      <strong>⚠️ Importante:</strong> Las cintas no son aptas para esterilización en estufa de calor seco. Se recomienda exclusivamente el uso en autoclave para garantizar su durabilidad.
+    </div>
+  </section>
 
   <nav class="nav-sticky">
     <div class="nav-filters">
@@ -985,9 +1145,36 @@
   <footer>
     <div class="footer-logo">CodiDental</div>
     <p class="footer-text">Cintas codificadoras para profesionales exigentes</p>
-    <p class="footer-contact">
-      <a href="https://wa.me/+5491122938343" target="_blank">📱 WhatsApp: +54 9 11 2293-8343</a>
-    </p>
+
+    <div class="footer-redes">
+
+      <a href="https://www.instagram.com/codi_dental/?hl=es-la" target="_blank" class="footer-red">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+        </svg>
+        @codi_dental
+      </a>
+
+      <a href="https://www.tiktok.com/@codi_dental" target="_blank" class="footer-red">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/>
+        </svg>
+        @codi_dental
+      </a>
+
+      <a href="https://wa.me/5491122938343" target="_blank" class="footer-red">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+        </svg>
+        +54 9 11 2293-8343
+      </a>
+
+    </div>
+
+    <div class="footer-divider"></div>
+    <p class="footer-copy">© 2025 CodiDental · Todos los derechos reservados</p>
   </footer>
 
   <script>
