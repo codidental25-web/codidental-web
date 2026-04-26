@@ -161,7 +161,6 @@
 
     .btn-cta:hover::after { left: 100%; }
 
-    /* ── CARACTERÍSTICAS ── */
     .caracteristicas {
       background: var(--color-white);
       padding: 80px 20px;
@@ -244,7 +243,6 @@
       font-weight: 600;
     }
 
-    /* ── NAV ── */
     .nav-sticky {
       position: sticky;
       top: 48px;
@@ -587,7 +585,6 @@
       border-radius: 50%;
     }
 
-    /* ── FOOTER ── */
     footer {
       background: var(--pd-lilac-dark);
       padding: 60px 20px 40px;
@@ -698,37 +695,31 @@
     </div>
   </header>
 
-  <!-- ── CARACTERÍSTICAS ── -->
   <section class="caracteristicas">
     <h2 class="section-title">¿Por qué elegir CodiDental?</h2>
     <p class="section-subtitle">Diseñadas para el entorno clínico más exigente, nuestras cintas combinan funcionalidad, estética y durabilidad en cada detalle.</p>
 
     <div class="caract-grid">
-
       <div class="caract-card">
         <span class="caract-icon">🔬</span>
         <h4>Compatibles con Autoclave</h4>
         <p>Soportan ciclos de esterilización en autoclave sin perder color ni adherencia. Tu instrumental siempre listo y seguro.</p>
       </div>
-
       <div class="caract-card">
         <span class="caract-icon">🧴</span>
         <h4>Resistentes al Cloro</h4>
         <p>Toleran desinfecciones con soluciones cloradas de uso habitual en clínica, manteniendo su integridad lavado tras lavado.</p>
       </div>
-
       <div class="caract-card">
         <span class="caract-icon">🎨</span>
         <h4>Identificación Personalizada</h4>
         <p>Con nuestra amplia paleta de colores podés crear un sistema de codificación completamente a medida para tu consultorio o cátedra.</p>
       </div>
-
       <div class="caract-card">
         <span class="caract-icon">🚚</span>
         <h4>Entregas y Envíos</h4>
-        <p>Hacemos entregas SIN COSTO en todas las facultades de <strong>CABA</strong> y <strong>La Plata</strong>. Y enviamos a todo el país — <strong>gratis a partir de 12 cintas</strong>.</p>
+        <p>Hacemos entregas en todas las facultades de <strong>CABA</strong> y <strong>La Plata</strong>. Y enviamos a todo el país — <strong>gratis a partir de 12 cintas</strong>.</p>
       </div>
-
     </div>
 
     <div class="caract-nota">
@@ -741,7 +732,6 @@
       <button class="filter-btn" data-target="#vivos">Colores Vivos</button>
       <button class="filter-btn" data-target="#brillantes">Brillantes ✨</button>
       <button class="filter-btn" data-target="#pastel">Colores Pastel</button>
-      <button class="filter-btn" data-target="#metalizado">Colores Metalizados</button>
     </div>
   </nav>
 
@@ -1084,43 +1074,6 @@
         </div>
       </div>
 
-      <h3 class="categoria-titulo" id="metalizado">— Colores Metalizados —</h3>
-
-      <div class="producto">
-        <div class="producto-imagen">
-          <div class="carousel">
-            <div class="carousel-track">
-              <img src="Cinta Lila Metalizado.png" alt="Cinta Lila Metalizado" />
-              <img src="Cinta Lila Metalizado Muestra.png" alt="Cinta Lila Metalizado Muestra" />
-            </div>
-            <div class="carousel-dots"></div>
-          </div>
-        </div>
-        <div class="producto-info">
-          <h3>Cinta Codificadora Lila Metalizado</h3>
-          <p>Acabado suave con un leve brillo que facilita diferenciar el instrumental sin perder sobriedad.</p>
-          <div class="producto-precio">$3.000 <span>ARS</span></div>
-          <button class="btn-agregar" data-nombre="Cinta Lila Metalizado" onclick="agregarAlCarrito('Cinta Lila Metalizado', 3000)">Añadir al Carrito</button>
-        </div>
-      </div>
-
-      <div class="producto">
-        <div class="producto-imagen">
-          <div class="carousel">
-            <div class="carousel-track">
-              <img src="Cinta Rosa Metalizado.png" alt="Cinta Rosa Metalizado" />
-              <img src="Cinta Rosa Metalizado Muestra.png" alt="Cinta Rosa Metalizado Muestra" />
-            </div>
-            <div class="carousel-dots"></div>
-          </div>
-        </div>
-        <div class="producto-info">
-          <h3>Cinta Codificadora Rosa Metalizado</h3>
-          <p>Delicado tono rosado con acabado metalizado que combina suavidad y distinción. Una opción elegante para personalizar el instrumental.</p>
-          <div class="producto-precio">$3.000 <span>ARS</span></div>
-          <button class="btn-agregar" data-nombre="Cinta Rosa Metalizado" onclick="agregarAlCarrito('Cinta Rosa Metalizado', 3000)">Añadir al Carrito</button>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -1147,7 +1100,6 @@
     <p class="footer-text">Cintas codificadoras para profesionales exigentes</p>
 
     <div class="footer-redes">
-
       <a href="https://www.instagram.com/codi_dental/?hl=es-la" target="_blank" class="footer-red">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -1170,7 +1122,6 @@
         </svg>
         +54 9 11 2293-8343
       </a>
-
     </div>
 
     <div class="footer-divider"></div>
@@ -1211,7 +1162,7 @@
       });
     });
 
-    const secciones = ["#vivos", "#brillantes", "#pastel", "#metalizado"];
+    const secciones = ["#vivos", "#brillantes", "#pastel"];
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
