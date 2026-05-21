@@ -32,6 +32,7 @@
       --shadow-glow: 0 0 30px rgba(155, 140, 180, 0.28);
     }
 
+    /* ── Announcement bar ── */
     .announcement-bar {
       background: var(--color-accent);
       color: var(--pd-lilac-dark);
@@ -46,45 +47,152 @@
       border-bottom: 1px solid rgba(61,43,94,0.06);
     }
 
+    /* ── Header ── */
     header {
-      position: relative;
-      min-height: 100vh;
+      background: var(--color-white);
+      border-bottom: 1px solid rgba(155, 140, 180, 0.15);
+    }
+
+    .header-logo-bar {
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 60px 20px;
-      background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-      overflow: hidden;
-      color: var(--color-text);
+      padding: 28px 20px 22px;
+      background: var(--color-white);
     }
-
-    header::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(ellipse at center, rgba(61, 43, 94, 0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .logo-container { position: relative; z-index: 2; }
 
     .header-logo-img {
       display: block;
-      margin: 0 auto 20px;
+      margin: 0 auto 18px;
       width: 100%;
-      max-width: 360px;
+      max-width: 200px;
       height: auto;
-      filter: drop-shadow(0px 6px 18px rgba(61,43,94,0.15));
+      filter: drop-shadow(0px 4px 12px rgba(61,43,94,0.12));
       transition: transform 0.35s ease, filter 0.35s ease;
       image-rendering: -webkit-optimize-contrast;
     }
 
     .header-logo-img:hover {
-      transform: translateY(-4px) scale(1.02);
+      transform: translateY(-3px) scale(1.02);
     }
 
+    .header-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: var(--color-card-bg);
+      border: 1px solid rgba(155, 140, 180, 0.3);
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--pd-lilac-dark);
+      white-space: nowrap;
+    }
+
+    /* ── Banner carousel ── */
+    .banner-carousel {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      background: var(--color-card-bg);
+    }
+
+    .banner-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.6s ease;
+      will-change: transform;
+    }
+
+    .banner-slide {
+      min-width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .banner-slide:nth-child(1) { background: linear-gradient(135deg, var(--pd-lilac-pale), var(--pd-lilac-light)); }
+    .banner-slide:nth-child(2) { background: linear-gradient(135deg, var(--pd-lilac-light), var(--pd-nude)); }
+    .banner-slide:nth-child(3) { background: linear-gradient(135deg, var(--pd-nude), var(--pd-lilac-pale)); }
+
+    .banner-slide img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .banner-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px; height: 44px;
+      background: rgba(249, 247, 251, 0.85);
+      border: 1px solid rgba(155, 140, 180, 0.3);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--pd-lilac-dark);
+      z-index: 10;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(4px);
+      line-height: 1;
+      padding: 0;
+    }
+
+    .banner-arrow:hover {
+      background: var(--pd-nude);
+      border-color: var(--pd-nude);
+    }
+
+    .banner-prev { left: 16px; }
+    .banner-next { right: 16px; }
+
+    .banner-dots {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      padding: 8px 14px;
+      background: rgba(249, 246, 255, 0.65);
+      backdrop-filter: blur(5px);
+      border-radius: 20px;
+    }
+
+    .banner-dot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(155, 140, 180, 0.5);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 0;
+    }
+
+    .banner-dot.active {
+      background: var(--pd-nude);
+      transform: scale(1.35);
+    }
+
+    /* ── sr-only ── */
     .sr-only {
       position: absolute !important;
       width: 1px; height: 1px;
@@ -95,154 +203,7 @@
 
     .logo-text { display: none !important; }
 
-    .logo-subtitle {
-      font-size: clamp(1rem, 2.5vw, 1.4rem);
-      font-weight: 600;
-      color: var(--pd-lilac-dark);
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      margin-bottom: 40px;
-    }
-
-    .tagline {
-      text-shadow: 0px 1px 2px rgba(255, 255, 255, 0.9);
-      font-family: "Playfair Display", serif;
-      font-size: clamp(1.2rem, 3vw, 2rem);
-      font-style: italic;
-      color: var(--pd-lilac-dark);
-      margin-bottom: 20px;
-    }
-
-    .hero-description {
-      max-width: 700px;
-      font-size: 1.1rem;
-      color: var(--color-text-muted);
-      margin-bottom: 50px;
-      line-height: 1.9;
-    }
-
-    .hero-description strong { color: var(--pd-lilac-dark); font-weight: 700; }
-
-    .btn-cta {
-      display: inline-block;
-      padding: 18px 50px;
-      font-family: "Inter", sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: #ffffff;
-      background: var(--gradient-gold);
-      border: none;
-      border-radius: 15px;
-      cursor: pointer;
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow-glow);
-    }
-
-    .btn-cta:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 50px rgba(61,43,94,0.12);
-      background: linear-gradient(135deg, var(--pd-lilac), var(--pd-lilac-light));
-      color: #fff;
-    }
-
-    .btn-cta::after {
-      content: "";
-      position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
-      transition: left 0.5s ease;
-    }
-
-    .btn-cta:hover::after { left: 100%; }
-
-    .caracteristicas {
-      background: var(--color-white);
-      padding: 80px 20px;
-    }
-
-    .caracteristicas .section-title {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      text-align: center;
-      margin-bottom: 16px;
-      color: var(--color-text);
-    }
-
-    .caracteristicas .section-subtitle {
-      text-align: center;
-      color: var(--color-text-muted);
-      max-width: 580px;
-      margin: 0 auto 50px;
-      font-size: 1rem;
-      line-height: 1.7;
-    }
-
-    .caract-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto 40px;
-    }
-
-    .caract-card {
-      background: var(--color-card-bg);
-      border: 1px solid rgba(155, 140, 180, 0.2);
-      border-radius: 20px;
-      padding: 36px 28px;
-      text-align: center;
-      box-shadow: var(--shadow-soft);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .caract-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 14px 40px rgba(155, 140, 180, 0.28);
-    }
-
-    .caract-icon {
-      font-size: 2.4rem;
-      margin-bottom: 18px;
-      display: block;
-    }
-
-    .caract-card h4 {
-      font-family: "Playfair Display", serif;
-      font-size: 1.15rem;
-      color: var(--pd-lilac-dark);
-      margin-bottom: 10px;
-    }
-
-    .caract-card p {
-      font-size: 0.92rem;
-      color: var(--color-text-muted);
-      line-height: 1.65;
-    }
-
-    .caract-nota {
-      max-width: 700px;
-      margin: 0 auto;
-      background: rgba(232, 196, 176, 0.18);
-      border-left: 3px solid var(--pd-nude);
-      border-radius: 12px;
-      padding: 18px 24px;
-      font-size: 0.9rem;
-      color: var(--color-text-muted);
-      line-height: 1.6;
-      text-align: center;
-    }
-
-    .caract-nota strong {
-      color: var(--pd-lilac-dark);
-      font-weight: 600;
-    }
-
+    /* ── Nav sticky ── */
     .nav-sticky {
       position: sticky;
       top: 48px;
@@ -280,6 +241,7 @@
       border-color: var(--color-accent);
     }
 
+    /* ── Sections ── */
     .section { padding: 100px 20px; }
 
     .section-title {
@@ -306,6 +268,26 @@
       border-radius: 10px;
     }
 
+    /* ── Nota importante ── */
+    .caract-nota {
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(232, 196, 176, 0.18);
+      border-left: 3px solid var(--pd-nude);
+      border-radius: 12px;
+      padding: 18px 24px;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .caract-nota strong {
+      color: var(--pd-lilac-dark);
+      font-weight: 600;
+    }
+
+    /* ── Catalog ── */
     .catalogo {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -427,13 +409,6 @@
       margin-bottom: 12px;
     }
 
-    .producto p {
-      font-size: 0.95rem;
-      color: var(--color-text);
-      margin-bottom: 20px;
-      line-height: 1.7;
-    }
-
     .producto-precio {
       font-family: "Playfair Display", serif;
       font-size: 1.8rem;
@@ -471,6 +446,7 @@
       border-color: var(--color-text-muted);
     }
 
+    /* ── Carrito ── */
     .carrito-section {
       background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
     }
@@ -552,6 +528,7 @@
     }
     .btn-finalizar:hover { background: var(--color-accent-light); color: var(--color-text); }
 
+    /* ── Floating cart button ── */
     .btn-carrito-flotante {
       position: fixed;
       bottom: 30px; right: 30px;
@@ -585,6 +562,7 @@
       border-radius: 50%;
     }
 
+    /* ── Footer ── */
     footer {
       background: var(--pd-lilac-dark);
       padding: 60px 20px 40px;
@@ -658,17 +636,25 @@
       color: rgba(122, 107, 138, 0.7);
     }
 
+    /* ── Mobile ── */
     @media (max-width: 768px) {
-      header { min-height: auto; padding: 40px 15px; }
-      .logo-subtitle { font-size: 0.9rem; letter-spacing: 3px; margin-bottom: 25px; }
-      .hero-description { font-size: 1rem; line-height: 1.6; margin-bottom: 30px; }
+      .announcement-bar { font-size: 0.82rem; padding: 9px 10px; }
+      .header-logo-bar { padding: 20px 15px 16px; }
+      .header-logo-img { max-width: 160px; margin-bottom: 14px; }
+      .header-badge { font-size: 0.75rem; padding: 6px 12px; }
+      .banner-carousel { height: 220px; }
+      .banner-arrow { width: 34px; height: 34px; font-size: 1.1rem; }
+      .nav-sticky { top: 44px; padding: 16px; }
       .nav-filters { gap: 10px; }
       .filter-btn { padding: 10px 15px; font-size: 0.7rem; }
-      .catalogo { grid-template-columns: 1fr; gap: 30px; }
+      .section { padding: 60px 15px; }
+      .catalogo { grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 10px; }
+      .categoria-titulo { font-size: 1.4rem; }
+      .producto-info { padding: 14px 12px; }
+      .producto h3 { font-size: 0.95rem; margin-bottom: 8px; }
+      .producto-precio { font-size: 1.3rem; margin-bottom: 12px; }
+      .btn-agregar { padding: 10px; font-size: 0.7rem; letter-spacing: 0.5px; border-radius: 10px; }
       .carrito-container { padding: 30px 20px; }
-      .nav-sticky { top: 44px; padding: 16px; }
-      .announcement-bar { font-size: 0.82rem; padding: 9px 10px; }
-      .caract-grid { grid-template-columns: 1fr; }
       .footer-redes { gap: 12px; }
       .footer-red { padding: 10px 18px; font-size: 0.82rem; }
     }
@@ -681,61 +667,51 @@
   </div>
 
   <header>
-    <div class="logo-container">
+    <div class="header-logo-bar">
       <h1 class="sr-only">CodiDental</h1>
-      <img src="Nuevo Logo.png" alt="CodiDental - Cintas codificadoras" class="header-logo-img" width="600" height="170" />
-      <p class="logo-subtitle">Cintas Codificadoras</p>
-      <p class="tagline">Dale vida a tu instrumental</p>
-      <p class="hero-description">
-        Transformamos tu instrumental odontológico en una experiencia ordenada,
-        estética y profesional. Nuestras cintas son <strong>resistentes al autoclave</strong> y
-        <strong>resistentes al cloro</strong>.
-      </p>
-      <a href="#catalogo" class="btn-cta">Explorar Colección</a>
+      <img src="Nuevo Logo.png" alt="CodiDental - Cintas codificadoras" class="header-logo-img" width="400" height="113" />
+      <div class="header-badges">
+        <span class="header-badge">🔬 Resistentes al Autoclave</span>
+        <span class="header-badge">🧴 Resistentes al Cloro</span>
+        <span class="header-badge">🎨 Amplia paleta de colores</span>
+        <span class="header-badge">🚚 Envíos a toda Argentina</span>
+      </div>
+    </div>
+    <div class="banner-carousel" id="bannerCarousel">
+      <div class="banner-track" id="bannerTrack">
+        <div class="banner-slide">
+          <img src="banner1.png" alt="Banner 1" />
+        </div>
+        <div class="banner-slide">
+          <img src="banner2.png" alt="Banner 2" />
+        </div>
+        <div class="banner-slide">
+          <img src="banner3.png" alt="Banner 3" />
+        </div>
+      </div>
+      <button class="banner-arrow banner-prev" id="bannerPrev" aria-label="Anterior">&#8249;</button>
+      <button class="banner-arrow banner-next" id="bannerNext" aria-label="Siguiente">&#8250;</button>
+      <div class="banner-dots" id="bannerDots">
+        <button class="banner-dot active"></button>
+        <button class="banner-dot"></button>
+        <button class="banner-dot"></button>
+      </div>
     </div>
   </header>
 
-  <section class="caracteristicas">
-    <h2 class="section-title">¿Por qué elegir CodiDental?</h2>
-    <p class="section-subtitle">Diseñadas para el entorno clínico más exigente, nuestras cintas combinan funcionalidad, estética y durabilidad en cada detalle.</p>
-
-    <div class="caract-grid">
-      <div class="caract-card">
-        <span class="caract-icon">🔬</span>
-        <h4>Compatibles con Autoclave</h4>
-        <p>Soportan ciclos de esterilización en autoclave sin perder color ni adherencia. Tu instrumental siempre listo y seguro.</p>
-      </div>
-      <div class="caract-card">
-        <span class="caract-icon">🧴</span>
-        <h4>Resistentes al Cloro</h4>
-        <p>Toleran desinfecciones con soluciones cloradas de uso habitual en clínica, manteniendo su integridad lavado tras lavado.</p>
-      </div>
-      <div class="caract-card">
-        <span class="caract-icon">🎨</span>
-        <h4>Identificación Personalizada</h4>
-        <p>Con nuestra amplia paleta de colores podés crear un sistema de codificación completamente a medida para tu consultorio o cátedra.</p>
-      </div>
-      <div class="caract-card">
-        <span class="caract-icon">🚚</span>
-        <h4>Entregas y Envíos</h4>
-        <p>Hacemos entregas en todas las facultades de <strong>CABA</strong> y <strong>La Plata</strong>. Y enviamos a todo el país — <strong>gratis a partir de 12 cintas</strong>.</p>
-      </div>
-    </div>
-
-    <div class="caract-nota">
-      <strong>⚠️ Importante:</strong> Las cintas no son aptas para esterilización en estufa de calor seco. Se recomienda exclusivamente el uso en autoclave para garantizar su durabilidad.
-    </div>
-  </section>
-
   <nav class="nav-sticky">
     <div class="nav-filters">
-      <button class="filter-btn" data-target="#vivos">Colores Vivos</button>
       <button class="filter-btn" data-target="#brillantes">Brillantes ✨</button>
       <button class="filter-btn" data-target="#pastel">Colores Pastel</button>
+      <button class="filter-btn" data-target="#vivos">Colores Vivos</button>
     </div>
   </nav>
 
   <section id="catalogo" class="section">
+    <div class="caract-nota" style="margin-bottom: 50px;">
+      <strong>⚠️ Importante:</strong> Las cintas no son aptas para esterilización en estufa de calor seco. Se recomienda exclusivamente el uso en autoclave para garantizar su durabilidad.
+    </div>
+
     <h2 class="section-title">Nuestra Colección</h2>
     <p class="section-subtitle">
       Cada cinta tiene un largo de un metro y está cuidadosamente seleccionada para ofrecer la máxima calidad
@@ -744,224 +720,8 @@
     <div class="gold-line"></div>
 
     <div class="catalogo">
-      <h3 class="categoria-titulo" id="vivos">— Colores Vivos —</h3>
 
-      <div class="producto">
-        <div class="producto-imagen">
-          <div class="carousel">
-            <div class="carousel-track">
-              <img src="Cinta Rosa.png" alt="Cinta Rosa" />
-              <img src="Cinta Rosa Muestra.png" alt="Cinta Rosa Muestra" />
-            </div>
-            <div class="carousel-dots"></div>
-          </div>
-        </div>
-        <div class="producto-info">
-          <h3>Cinta Codificadora Rosa</h3>
-          <p>Color visible y fácil de identificar. Ideal para mantener el instrumental organizado con un tono cálido y suave.</p>
-          <div class="producto-precio">$1.500 <span>ARS</span></div>
-          <button class="btn-agregar" data-nombre="Cinta Rosa" onclick="agregarAlCarrito('Cinta Rosa', 1500)">Añadir al Carrito</button>
-        </div>
-      </div>
-
-      <div class="producto">
-        <div class="producto-imagen">
-          <div class="carousel">
-            <div class="carousel-track">
-              <img src="Cinta Menta.png" alt="Cinta Menta" />
-              <img src="Cinta Menta Muestra.png" alt="Cinta Menta Muestra" />
-            </div>
-            <div class="carousel-dots"></div>
-          </div>
-        </div>
-        <div class="producto-info">
-          <h3>Cinta Codificadora Menta</h3>
-          <p>Tono fresco que aporta claridad visual al instrumental. Muy útil para diferenciar piezas rápidamente.</p>
-          <div class="producto-precio">$1.500 <span>ARS</span></div>
-          <button class="btn-agregar" data-nombre="Cinta Menta" onclick="agregarAlCarrito('Cinta Menta', 1500)">Añadir al Carrito</button>
-        </div>
-      </div>
-
-      <div class="producto">
-        <div class="producto-imagen">
-          <div class="carousel">
-            <div class="carousel-track">
-              <img src="Cinta Turquesa.png" alt="Cinta Turquesa" />
-              <img src="Cinta Turquesa Muestra.png" alt="Cinta Turquesa Muestra" />
-            </div>
-            <div class="carousel-dots"></div>
-          </div>
-        </div>
-        <div class="producto-info">
-          <h3>Cinta Codificadora Turquesa</h3>
-          <p>Color limpio y moderno que se distingue sin ser demasiado intenso. Ayuda a ubicar el instrumental de forma rápida.</p>
-          <div class="producto-precio">$1.500 <span>ARS</span></div>
-          <button class="btn-agregar" data-nombre="Cinta Turquesa" onclick="agregarAlCarrito('Cinta Turquesa', 1500)">Añadir al Carrito</button>
-        </div>
-      </div>
-
-      <div class="producto">
-        <div class="producto-imagen">
-          <div class="carousel">
-            <div class="carousel-track">
-              <img src="Cinta Salmón.png" alt="Cinta Salmón" />
-              <img src="Cinta Salmón Muestra.png" alt="Cinta Salmón Muestra" />
-            </div>
-            <div class="carousel-dots"></div>
-          </div>
-        </div>
-        <div class="producto-info">
-          <h3>Cinta Codificadora Salmón</h3>
-          <p>Color cálido que destaca sin exagerar. Facilita la identificación y mantiene una estética uniforme.</p>
-          <div class="producto-precio">$1.500 <span>ARS</span></div>
-          <button class="btn-agregar" data-nombre="Cinta Salmón" onclick="agregarAlCarrito('Cinta Salmón', 1500)">Añadir al Carrito</button>
-        </div>
-      </div>
-
-      <div class="producto">
-        <div class="producto-imagen">
-          <div class="carousel">
-            <div class="carousel-track">
-              <img src="Cinta Azul.png" alt="Cinta Azul" />
-              <img src="Cinta Azul Muestra.png" alt="Cinta Azul Muestra" />
-            </div>
-            <div class="carousel-dots"></div>
-          </div>
-        </div>
-        <div class="producto-info">
-          <h3>Cinta Codificadora Azul</h3>
-          <p>Tono vibrante y llamativo que facilita la identificación inmediata del instrumental. Ideal para un sistema de colores claro y ordenado.</p>
-          <div class="producto-precio">$1.500 <span>ARS</span></div>
-          <button class="btn-agregar" data-nombre="Cinta Azul" onclick="agregarAlCarrito('Cinta Azul', 1500)">Añadir al Carrito</button>
-        </div>
-      </div>
-
-      <div class="producto">
-        <div class="producto-imagen">
-          <div class="carousel">
-            <div class="carousel-track">
-              <img src="Cinta Rojo Bordó.png" alt="Cinta Rojo Bordó" />
-              <img src="Cinta Rojo Bordó Muestra.png" alt="Cinta Rojo Bordó Muestra" />
-            </div>
-            <div class="carousel-dots"></div>
-          </div>
-        </div>
-        <div class="producto-info">
-          <h3>Cinta Codificadora Rojo Bordó</h3>
-          <p>Color intenso y elegante que aporta distinción al instrumental. Perfecto para quienes buscan un tono profundo y sofisticado.</p>
-          <div class="producto-precio">$1.500 <span>ARS</span></div>
-          <button class="btn-agregar" data-nombre="Cinta Rojo Bordó" onclick="agregarAlCarrito('Cinta Rojo Bordó', 1500)">Añadir al Carrito</button>
-        </div>
-      </div>
-
-      <div class="producto">
-        <div class="producto-imagen">
-          <div class="carousel">
-            <div class="carousel-track">
-              <img src="Cinta Negro.png" alt="Cinta Negro" />
-              <img src="Cinta Negro Muestra.png" alt="Cinta Negro Muestra" />
-            </div>
-            <div class="carousel-dots"></div>
-          </div>
-        </div>
-        <div class="producto-info">
-          <h3>Cinta Codificadora Negro</h3>
-          <p>Clásico y versátil, el negro aporta un look profesional y moderno al instrumental. Contraste perfecto para cualquier entorno clínico.</p>
-          <div class="producto-precio">$1.500 <span>ARS</span></div>
-          <button class="btn-agregar" data-nombre="Cinta Negro" onclick="agregarAlCarrito('Cinta Negro', 1500)">Añadir al Carrito</button>
-        </div>
-      </div>
-
-      <div class="producto">
-        <div class="producto-imagen">
-          <div class="carousel">
-            <div class="carousel-track">
-              <img src="Cinta Púrpura.png" alt="Cinta Púrpura" />
-              <img src="Cinta Púrpura Muestra.png" alt="Cinta Púrpura Muestra" />
-            </div>
-            <div class="carousel-dots"></div>
-          </div>
-        </div>
-        <div class="producto-info">
-          <h3>Cinta Codificadora Púrpura</h3>
-          <p>Tono profundo y llamativo que combina elegancia y visibilidad. Una opción única para destacar el instrumental con personalidad.</p>
-          <div class="producto-precio">$1.500 <span>ARS</span></div>
-          <button class="btn-agregar" data-nombre="Cinta Púrpura" onclick="agregarAlCarrito('Cinta Púrpura', 1500)">Añadir al Carrito</button>
-        </div>
-      </div>
-
-      <div class="producto">
-        <div class="producto-imagen">
-          <div class="carousel">
-            <div class="carousel-track">
-              <img src="Cinta Violeta.png" alt="Cinta Violeta" />
-              <img src="Cinta Violeta Muestra.png" alt="Cinta Violeta Muestra" />
-            </div>
-            <div class="carousel-dots"></div>
-          </div>
-        </div>
-        <div class="producto-info">
-          <h3>Cinta Codificadora Violeta</h3>
-          <p>Tono vibrante y distintivo que combina intensidad y elegancia. Ideal para quienes buscan un color llamativo con carácter propio.</p>
-          <div class="producto-precio">$1.500 <span>ARS</span></div>
-          <button class="btn-agregar" data-nombre="Cinta Violeta" onclick="agregarAlCarrito('Cinta Violeta', 1500)">Añadir al Carrito</button>
-        </div>
-      </div>
-
-      <div class="producto">
-        <div class="producto-imagen">
-          <div class="carousel">
-            <div class="carousel-track">
-              <img src="Cinta Azul Electrico.png" alt="Cinta Azul Electrico" />
-              <img src="Cinta Azul Electrico Muestra.png" alt="Cinta Azul Electrico Muestra" />
-            </div>
-            <div class="carousel-dots"></div>
-          </div>
-        </div>
-        <div class="producto-info">
-          <h3>Cinta Codificadora Azul Eléctrico</h3>
-          <p>Tono intenso y llamativo que resalta al instante. Ideal para quienes buscan máxima visibilidad con un color vibrante y moderno.</p>
-          <div class="producto-precio">$1.500 <span>ARS</span></div>
-          <button class="btn-agregar" data-nombre="Cinta Azul Electrico" onclick="agregarAlCarrito('Cinta Azul Electrico', 1500)">Añadir al Carrito</button>
-        </div>
-      </div>
-
-      <div class="producto">
-        <div class="producto-imagen">
-          <div class="carousel">
-            <div class="carousel-track">
-              <img src="Cinta Blanco.png" alt="Cinta Blanco" />
-              <img src="Cinta Blanco Muestra.png" alt="Cinta Blanco Muestra" />
-            </div>
-            <div class="carousel-dots"></div>
-          </div>
-        </div>
-        <div class="producto-info">
-          <h3>Cinta Codificadora Blanco</h3>
-          <p>Limpio y minimalista, el blanco aporta una estética neutra y elegante al instrumental. Perfecto para un look prolijo y sin estridencias.</p>
-          <div class="producto-precio">$1.500 <span>ARS</span></div>
-          <button class="btn-agregar" data-nombre="Cinta Blanco" onclick="agregarAlCarrito('Cinta Blanco', 1500)">Añadir al Carrito</button>
-        </div>
-      </div>
-
-      <div class="producto">
-        <div class="producto-imagen">
-          <div class="carousel">
-            <div class="carousel-track">
-              <img src="Cinta Marron.png" alt="Cinta Marron" />
-              <img src="Cinta Marron Muestra.png" alt="Cinta Marron Muestra" />
-            </div>
-            <div class="carousel-dots"></div>
-          </div>
-        </div>
-        <div class="producto-info">
-          <h3>Cinta Codificadora Marrón</h3>
-          <p>Tono cálido y terroso que aporta sobriedad y distinción al instrumental. Una opción diferente para quienes prefieren colores naturales.</p>
-          <div class="producto-precio">$1.500 <span>ARS</span></div>
-          <button class="btn-agregar" data-nombre="Cinta Marron" onclick="agregarAlCarrito('Cinta Marron', 1500)">Añadir al Carrito</button>
-        </div>
-      </div>
-
+      <!-- ── Brillantes (primero) ── -->
       <h3 class="categoria-titulo" id="brillantes">— Brillantes —</h3>
 
       <div class="producto">
@@ -976,7 +736,6 @@
         </div>
         <div class="producto-info">
           <h3>Cinta Codificadora Rosa Brillante</h3>
-          <p>Un tono delicado con acabado brillante que aporta personalidad y una presencia única al instrumental.</p>
           <div class="producto-precio">$3.000 <span>ARS</span></div>
           <button class="btn-agregar" data-nombre="Cinta Rosa Brillante" onclick="agregarAlCarrito('Cinta Rosa Brillante', 3000)">Añadir al Carrito</button>
         </div>
@@ -994,7 +753,6 @@
         </div>
         <div class="producto-info">
           <h3>Cinta Codificadora Azul Brillante</h3>
-          <p>Color vibrante con terminación brillante, ideal para destacar y reconocer el instrumental de forma inmediata.</p>
           <div class="producto-precio">$3.000 <span>ARS</span></div>
           <button class="btn-agregar" data-nombre="Cinta Azul Brillante" onclick="agregarAlCarrito('Cinta Azul Brillante', 3000)">Añadir al Carrito</button>
         </div>
@@ -1012,7 +770,6 @@
         </div>
         <div class="producto-info">
           <h3>Cinta Codificadora Rojo Brillante</h3>
-          <p>Rojo intenso con acabado brillante que garantiza visibilidad inmediata. Una opción audaz y llamativa para identificar el instrumental al instante.</p>
           <div class="producto-precio">$3.000 <span>ARS</span></div>
           <button class="btn-agregar" data-nombre="Cinta Rojo Brillante" onclick="agregarAlCarrito('Cinta Rojo Brillante', 3000)">Añadir al Carrito</button>
         </div>
@@ -1030,12 +787,12 @@
         </div>
         <div class="producto-info">
           <h3>Cinta Codificadora Verde Brillante</h3>
-          <p>Tono fresco y vibrante con terminación brillante. Perfecta para quienes buscan un color enérgico y fácil de distinguir en el instrumental.</p>
           <div class="producto-precio">$3.000 <span>ARS</span></div>
           <button class="btn-agregar" data-nombre="Cinta Verde Brillante" onclick="agregarAlCarrito('Cinta Verde Brillante', 3000)">Añadir al Carrito</button>
         </div>
       </div>
 
+      <!-- ── Pastel (segundo) ── -->
       <h3 class="categoria-titulo" id="pastel">— Colores Pastel —</h3>
 
       <div class="producto">
@@ -1050,7 +807,6 @@
         </div>
         <div class="producto-info">
           <h3>Cinta Codificadora Lila Pastel</h3>
-          <p>Tono equilibrado, discreto y agradable a la vista. Buena opción para quienes prefieren colores suaves pero notorios.</p>
           <div class="producto-precio">$1.500 <span>ARS</span></div>
           <button class="btn-agregar" data-nombre="Cinta Lila Pastel" onclick="agregarAlCarrito('Cinta Lila Pastel', 1500)">Añadir al Carrito</button>
         </div>
@@ -1068,9 +824,215 @@
         </div>
         <div class="producto-info">
           <h3>Cinta Codificadora Rosa Pastel</h3>
-          <p>Tono delicado y armónico, ideal para un instrumental prolijo y uniforme.</p>
           <div class="producto-precio">$1.500 <span>ARS</span></div>
           <button class="btn-agregar" data-nombre="Cinta Rosa Pastel" onclick="agregarAlCarrito('Cinta Rosa Pastel', 1500)">Añadir al Carrito</button>
+        </div>
+      </div>
+
+      <!-- ── Colores Vivos (tercero) ── -->
+      <h3 class="categoria-titulo" id="vivos">— Colores Vivos —</h3>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Rosa.png" alt="Cinta Rosa" />
+              <img src="Cinta Rosa Muestra.png" alt="Cinta Rosa Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Rosa</h3>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Rosa" onclick="agregarAlCarrito('Cinta Rosa', 1500)">Añadir al Carrito</button>
+        </div>
+      </div>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Menta.png" alt="Cinta Menta" />
+              <img src="Cinta Menta Muestra.png" alt="Cinta Menta Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Menta</h3>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Menta" onclick="agregarAlCarrito('Cinta Menta', 1500)">Añadir al Carrito</button>
+        </div>
+      </div>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Turquesa.png" alt="Cinta Turquesa" />
+              <img src="Cinta Turquesa Muestra.png" alt="Cinta Turquesa Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Turquesa</h3>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Turquesa" onclick="agregarAlCarrito('Cinta Turquesa', 1500)">Añadir al Carrito</button>
+        </div>
+      </div>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Salmón.png" alt="Cinta Salmón" />
+              <img src="Cinta Salmón Muestra.png" alt="Cinta Salmón Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Salmón</h3>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Salmón" onclick="agregarAlCarrito('Cinta Salmón', 1500)">Añadir al Carrito</button>
+        </div>
+      </div>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Azul.png" alt="Cinta Azul" />
+              <img src="Cinta Azul Muestra.png" alt="Cinta Azul Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Azul</h3>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Azul" onclick="agregarAlCarrito('Cinta Azul', 1500)">Añadir al Carrito</button>
+        </div>
+      </div>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Rojo Bordó.png" alt="Cinta Rojo Bordó" />
+              <img src="Cinta Rojo Bordó Muestra.png" alt="Cinta Rojo Bordó Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Rojo Bordó</h3>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Rojo Bordó" onclick="agregarAlCarrito('Cinta Rojo Bordó', 1500)">Añadir al Carrito</button>
+        </div>
+      </div>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Negro.png" alt="Cinta Negro" />
+              <img src="Cinta Negro Muestra.png" alt="Cinta Negro Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Negro</h3>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Negro" onclick="agregarAlCarrito('Cinta Negro', 1500)">Añadir al Carrito</button>
+        </div>
+      </div>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Púrpura.png" alt="Cinta Púrpura" />
+              <img src="Cinta Púrpura Muestra.png" alt="Cinta Púrpura Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Púrpura</h3>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Púrpura" onclick="agregarAlCarrito('Cinta Púrpura', 1500)">Añadir al Carrito</button>
+        </div>
+      </div>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Violeta.png" alt="Cinta Violeta" />
+              <img src="Cinta Violeta Muestra.png" alt="Cinta Violeta Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Violeta</h3>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Violeta" onclick="agregarAlCarrito('Cinta Violeta', 1500)">Añadir al Carrito</button>
+        </div>
+      </div>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Azul Electrico.png" alt="Cinta Azul Electrico" />
+              <img src="Cinta Azul Electrico Muestra.png" alt="Cinta Azul Electrico Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Azul Eléctrico</h3>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Azul Electrico" onclick="agregarAlCarrito('Cinta Azul Electrico', 1500)">Añadir al Carrito</button>
+        </div>
+      </div>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Blanco.png" alt="Cinta Blanco" />
+              <img src="Cinta Blanco Muestra.png" alt="Cinta Blanco Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Blanco</h3>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Blanco" onclick="agregarAlCarrito('Cinta Blanco', 1500)">Añadir al Carrito</button>
+        </div>
+      </div>
+
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Marron.png" alt="Cinta Marron" />
+              <img src="Cinta Marron Muestra.png" alt="Cinta Marron Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Marrón</h3>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Marron" onclick="agregarAlCarrito('Cinta Marron', 1500)">Añadir al Carrito</button>
         </div>
       </div>
 
@@ -1085,7 +1047,7 @@
       </ul>
       <p id="total"></p>
       <button class="btn-finalizar" onclick="enviarWhatsApp()">
-        Finalizar Pedido
+        Enviar pedido al WhatsApp
       </button>
     </div>
   </section>
@@ -1129,8 +1091,7 @@
   </footer>
 
   <script>
-    let carrito = [];
-
+    // ── Product carousels ──
     document.querySelectorAll(".carousel").forEach((carousel) => {
       const track = carousel.querySelector(".carousel-track");
       const dotsContainer = carousel.querySelector(".carousel-dots");
@@ -1151,6 +1112,7 @@
       });
     });
 
+    // ── Filter nav ──
     document.querySelectorAll(".filter-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         const target = document.querySelector(btn.dataset.target);
@@ -1162,7 +1124,7 @@
       });
     });
 
-    const secciones = ["#vivos", "#brillantes", "#pastel"];
+    const secciones = ["#brillantes", "#pastel", "#vivos"];
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -1178,6 +1140,9 @@
       const el = document.querySelector(sel);
       if (el) observer.observe(el);
     });
+
+    // ── Cart ──
+    let carrito = [];
 
     function agregarAlCarrito(nombre, precio) {
       const p = carrito.find(i => i.nombre === nombre);
@@ -1344,6 +1309,37 @@
 
       document.body.appendChild(overlay);
     }
+
+    // ── Banner carousel ──
+    (function () {
+      const carousel = document.getElementById('bannerCarousel');
+      const track = document.getElementById('bannerTrack');
+      const dots = document.querySelectorAll('.banner-dot');
+      const slides = track.querySelectorAll('.banner-slide');
+      let current = 0;
+      let autoplayTimer;
+
+      function goTo(index) {
+        current = (index + slides.length) % slides.length;
+        track.style.transform = `translateX(-${current * carousel.offsetWidth}px)`;
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+
+      function next() { goTo(current + 1); }
+      function prev() { goTo(current - 1); }
+
+      function startTimer() { autoplayTimer = setInterval(next, 4000); }
+      function resetTimer() { clearInterval(autoplayTimer); startTimer(); }
+
+      document.getElementById('bannerNext').addEventListener('click', () => { next(); resetTimer(); });
+      document.getElementById('bannerPrev').addEventListener('click', () => { prev(); resetTimer(); });
+      dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); resetTimer(); }));
+
+      window.addEventListener('resize', () => goTo(current));
+
+      goTo(0);
+      startTimer();
+    })();
   </script>
 </body>
 </html>
