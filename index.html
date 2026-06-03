@@ -1269,7 +1269,6 @@
           const prompts = {
             caba: "¿En qué facultad o lugar se puede entregar el pedido?",
             laplata: "¿En qué facultad cursás?",
-            unlam: "¿En qué facultad cursás?",
             otras: "¿A qué provincia realizamos el envío?"
           };
           const numeros = {
@@ -1279,9 +1278,14 @@
             otras: "5491122938343"
           };
 
-          const detalle = prompt(prompts[zona], "");
+          let detalle = null;
+          if (zona !== 'unlam') {
+            detalle = prompt(prompts[zona], "");
+          }
           let mensaje = "Hola! Quiero hacer este pedido:%0A%0A";
-          if (detalle && detalle.trim()) {
+          if (zona === 'unlam') {
+            mensaje += `*Entrega:* UNLaM - Universidad Nacional de La Matanza%0A%0A`;
+          } else if (detalle && detalle.trim()) {
             mensaje += `*Detalle:* ${detalle.trim()}%0A%0A`;
           }
           carrito.forEach(i => {
