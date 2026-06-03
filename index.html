@@ -32,7 +32,6 @@
       --shadow-glow: 0 0 30px rgba(155, 140, 180, 0.28);
     }
 
-    /* ── Announcement bar ── */
     .announcement-bar {
       background: var(--color-accent);
       color: var(--pd-lilac-dark);
@@ -47,7 +46,6 @@
       border-bottom: 1px solid rgba(61,43,94,0.06);
     }
 
-    /* ── Header ── */
     header {
       background: var(--color-white);
       border-bottom: 1px solid rgba(155, 140, 180, 0.15);
@@ -97,7 +95,6 @@
       white-space: nowrap;
     }
 
-    /* ── Banner carousel ── */
     .banner-carousel {
       position: relative;
       width: 100%;
@@ -192,7 +189,6 @@
       transform: scale(1.35);
     }
 
-    /* ── sr-only ── */
     .sr-only {
       position: absolute !important;
       width: 1px; height: 1px;
@@ -203,7 +199,6 @@
 
     .logo-text { display: none !important; }
 
-    /* ── Nav sticky ── */
     .nav-sticky {
       position: sticky;
       top: 48px;
@@ -241,7 +236,6 @@
       border-color: var(--color-accent);
     }
 
-    /* ── Sections ── */
     .section { padding: 100px 20px; }
 
     .section-title {
@@ -268,7 +262,6 @@
       border-radius: 10px;
     }
 
-    /* ── Nota importante ── */
     .caract-nota {
       max-width: 700px;
       margin: 0 auto;
@@ -287,7 +280,6 @@
       font-weight: 600;
     }
 
-    /* ── Catalog ── */
     .catalogo {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -446,7 +438,6 @@
       border-color: var(--color-text-muted);
     }
 
-    /* ── Carrito ── */
     .carrito-section {
       background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
     }
@@ -528,7 +519,6 @@
     }
     .btn-finalizar:hover { background: var(--color-accent-light); color: var(--color-text); }
 
-    /* ── Floating cart button ── */
     .btn-carrito-flotante {
       position: fixed;
       bottom: 30px; right: 30px;
@@ -562,7 +552,6 @@
       border-radius: 50%;
     }
 
-    /* ── Footer ── */
     footer {
       background: var(--pd-lilac-dark);
       padding: 60px 20px 40px;
@@ -636,7 +625,6 @@
       color: rgba(122, 107, 138, 0.7);
     }
 
-    /* ── Mobile ── */
     @media (max-width: 768px) {
       .announcement-bar { font-size: 0.82rem; padding: 9px 10px; }
       .header-logo-bar { padding: 20px 15px 16px; }
@@ -721,7 +709,6 @@
 
     <div class="catalogo">
 
-      <!-- ── Brillantes (primero) ── -->
       <h3 class="categoria-titulo" id="brillantes">— Brillantes —</h3>
 
       <div class="producto">
@@ -792,7 +779,6 @@
         </div>
       </div>
 
-      <!-- ── Pastel (segundo) ── -->
       <h3 class="categoria-titulo" id="pastel">— Colores Pastel —</h3>
 
       <div class="producto">
@@ -829,7 +815,6 @@
         </div>
       </div>
 
-      <!-- ── Colores Vivos (tercero) ── -->
       <h3 class="categoria-titulo" id="vivos">— Colores Vivos —</h3>
 
       <div class="producto">
@@ -1254,6 +1239,7 @@
           <div style="display:flex; flex-direction:column; gap:12px;">
             <button data-zona="caba" style="padding:14px; border-radius:14px; border:1px solid var(--pd-lilac); background:transparent; color: var(--pd-lilac); font-size:0.9rem; font-weight:600; letter-spacing:1px; cursor:pointer;">🏙️ Ciudad de Buenos Aires</button>
             <button data-zona="laplata" style="padding:14px; border-radius:14px; border:1px solid var(--pd-lilac); background:transparent; color: var(--pd-lilac); font-size:0.9rem; font-weight:600; letter-spacing:1px; cursor:pointer;">🎓 La Plata</button>
+            <button data-zona="unlam" style="padding:14px; border-radius:14px; border:1px solid var(--pd-lilac); background:transparent; color: var(--pd-lilac); font-size:0.9rem; font-weight:600; letter-spacing:1px; cursor:pointer;">🎓 UNLaM - La Matanza</button>
             <button data-zona="otras" style="padding:14px; border-radius:14px; border:1px solid var(--pd-lilac); background:transparent; color: var(--pd-lilac); font-size:0.9rem; font-weight:600; letter-spacing:1px; cursor:pointer;">📦 Otras Provincias</button>
             <button data-zona="cancelar" style="margin-top:8px; background:none; border:none; color: var(--color-text-muted); font-size:0.85rem; cursor:pointer; text-decoration:underline;">Cancelar</button>
           </div>
@@ -1283,11 +1269,13 @@
           const prompts = {
             caba: "¿En qué facultad o lugar se puede entregar el pedido?",
             laplata: "¿En qué facultad cursás?",
+            unlam: "¿En qué facultad cursás?",
             otras: "¿A qué provincia realizamos el envío?"
           };
           const numeros = {
             caba: "5491122938343",
             laplata: "5492216181642",
+            unlam: "5491122938343",
             otras: "5491122938343"
           };
 
