@@ -15,23 +15,18 @@
       --pd-lilac-light: #C9B8D8;
       --pd-lilac-pale: #F0EBF5;
       --pd-nude: #E8C4B0;
-
       --color-primary: var(--pd-lilac);
       --color-secondary: var(--pd-lilac-pale);
       --color-accent: var(--pd-nude);
       --color-accent-light: var(--pd-lilac-light);
-
       --color-text: var(--pd-lilac-dark);
       --color-text-muted: #7A6B8A;
-
       --color-white: #F9F7FB;
       --color-card-bg: #F4F0F9;
-
       --gradient-gold: linear-gradient(135deg, var(--pd-lilac-light), var(--pd-lilac-pale));
       --shadow-soft: 0 10px 40px rgba(155, 140, 180, 0.18);
       --shadow-glow: 0 0 30px rgba(155, 140, 180, 0.28);
     }
-
     .announcement-bar {
       background: var(--color-accent);
       color: var(--pd-lilac-dark);
@@ -45,12 +40,10 @@
       z-index: 9999;
       border-bottom: 1px solid rgba(61,43,94,0.06);
     }
-
     header {
       background: var(--color-white);
       border-bottom: 1px solid rgba(155, 140, 180, 0.15);
     }
-
     .header-logo-bar {
       display: flex;
       flex-direction: column;
@@ -58,7 +51,6 @@
       padding: 28px 20px 22px;
       background: var(--color-white);
     }
-
     .header-logo-img {
       display: block;
       margin: 0 auto 18px;
@@ -69,18 +61,15 @@
       transition: transform 0.35s ease, filter 0.35s ease;
       image-rendering: -webkit-optimize-contrast;
     }
-
     .header-logo-img:hover {
       transform: translateY(-3px) scale(1.02);
     }
-
     .header-badges {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 10px;
     }
-
     .header-badge {
       display: inline-flex;
       align-items: center;
@@ -94,7 +83,6 @@
       color: var(--pd-lilac-dark);
       white-space: nowrap;
     }
-
     .banner-carousel {
       position: relative;
       width: 100%;
@@ -102,14 +90,12 @@
       overflow: hidden;
       background: var(--color-card-bg);
     }
-
     .banner-track {
       display: flex;
       height: 100%;
       transition: transform 0.6s ease;
       will-change: transform;
     }
-
     .banner-slide {
       min-width: 100%;
       height: 100%;
@@ -119,11 +105,9 @@
       align-items: center;
       justify-content: center;
     }
-
     .banner-slide:nth-child(1) { background: linear-gradient(135deg, var(--pd-lilac-pale), var(--pd-lilac-light)); }
     .banner-slide:nth-child(2) { background: linear-gradient(135deg, var(--pd-lilac-light), var(--pd-nude)); }
     .banner-slide:nth-child(3) { background: linear-gradient(135deg, var(--pd-nude), var(--pd-lilac-pale)); }
-
     .banner-slide img {
       position: absolute;
       top: 0; left: 0;
@@ -131,7 +115,6 @@
       object-fit: cover;
       display: block;
     }
-
     .banner-arrow {
       position: absolute;
       top: 50%;
@@ -152,15 +135,12 @@
       line-height: 1;
       padding: 0;
     }
-
     .banner-arrow:hover {
       background: var(--pd-nude);
       border-color: var(--pd-nude);
     }
-
     .banner-prev { left: 16px; }
     .banner-next { right: 16px; }
-
     .banner-dots {
       position: absolute;
       bottom: 16px;
@@ -173,7 +153,6 @@
       backdrop-filter: blur(5px);
       border-radius: 20px;
     }
-
     .banner-dot {
       width: 9px; height: 9px;
       border-radius: 50%;
@@ -183,12 +162,10 @@
       transition: all 0.3s ease;
       padding: 0;
     }
-
     .banner-dot.active {
       background: var(--pd-nude);
       transform: scale(1.35);
     }
-
     .sr-only {
       position: absolute !important;
       width: 1px; height: 1px;
@@ -196,9 +173,7 @@
       overflow: hidden; clip: rect(0,0,0,0);
       white-space: nowrap; border: 0;
     }
-
     .logo-text { display: none !important; }
-
     .nav-sticky {
       position: sticky;
       top: 48px;
@@ -208,14 +183,12 @@
       border-bottom: 1px solid rgba(155, 140, 180, 0.3);
       padding: 20px;
     }
-
     .nav-filters {
       display: flex;
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
     }
-
     .filter-btn {
       padding: 12px 30px;
       font-size: 0.85rem;
@@ -229,15 +202,12 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
-
     .filter-btn:hover, .filter-btn.activo {
       color: var(--color-accent);
       background: var(--color-accent-light);
       border-color: var(--color-accent);
     }
-
     .section { padding: 100px 20px; }
-
     .section-title {
       font-family: "Playfair Display", serif;
       font-size: clamp(2rem, 5vw, 3rem);
@@ -245,7 +215,6 @@
       margin-bottom: 20px;
       color: var(--color-text);
     }
-
     .section-subtitle {
       text-align: center;
       color: var(--color-text-muted);
@@ -253,7 +222,6 @@
       margin: 0 auto 60px;
       font-size: 1.1rem;
     }
-
     .gold-line {
       width: 80px;
       height: 2px;
@@ -261,7 +229,6 @@
       margin: 30px auto 60px;
       border-radius: 10px;
     }
-
     .caract-nota {
       max-width: 700px;
       margin: 0 auto;
@@ -274,12 +241,10 @@
       line-height: 1.6;
       text-align: center;
     }
-
     .caract-nota strong {
       color: var(--pd-lilac-dark);
       font-weight: 600;
     }
-
     .catalogo {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -288,7 +253,6 @@
       margin: 0 auto;
       padding: 0 20px;
     }
-
     .categoria-titulo {
       grid-column: 1 / -1;
       font-family: "Playfair Display", serif;
@@ -300,9 +264,7 @@
       border-top: 1px solid rgba(155, 140, 180, 0.3);
       border-radius: 10px;
     }
-
     .categoria-titulo:first-child { border-top: none; margin-top: 0; }
-
     .producto {
       background: var(--color-card-bg);
       border: 1px solid rgba(155, 140, 180, 0.3);
@@ -313,7 +275,6 @@
       color: var(--color-text);
       box-shadow: var(--shadow-soft);
     }
-
     .producto::before {
       content: "";
       position: absolute;
@@ -324,15 +285,12 @@
       transition: transform 0.4s ease;
       border-radius: 20px 20px 0 0;
     }
-
     .producto:hover {
       transform: translateY(-10px);
       box-shadow: 0 10px 40px rgba(155, 140, 180, 0.45);
       border-color: var(--color-accent);
     }
-
     .producto:hover::before { transform: scaleX(1); }
-
     .producto-imagen {
       position: relative;
       overflow: hidden;
@@ -340,7 +298,6 @@
       background: linear-gradient(135deg, #f9f9ff, #f0ebf5);
       border-radius: 20px 20px 0 0;
     }
-
     .carousel-track {
       display: flex;
       overflow-x: auto;
@@ -349,9 +306,7 @@
       scrollbar-width: none;
       height: 100%;
     }
-
     .carousel-track::-webkit-scrollbar { display: none; }
-
     .carousel-track img {
       width: 100%;
       height: 100%;
@@ -361,9 +316,7 @@
       transition: transform 0.6s ease;
       border-radius: 20px 20px 0 0;
     }
-
     .producto:hover .carousel-track img { transform: scale(1.05); }
-
     .carousel-dots {
       position: absolute;
       bottom: 15px;
@@ -376,7 +329,6 @@
       backdrop-filter: blur(5px);
       border-radius: 20px;
     }
-
     .carousel-dots button {
       width: 8px; height: 8px;
       border-radius: 50%;
@@ -385,14 +337,11 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
-
     .carousel-dots button.active {
       background: var(--color-accent);
       transform: scale(1.3);
     }
-
     .producto-info { padding: 30px; text-align: center; }
-
     .producto h3 {
       font-family: "Playfair Display", serif;
       font-size: 1.4rem;
@@ -400,16 +349,13 @@
       color: var(--color-accent);
       margin-bottom: 12px;
     }
-
     .producto-precio {
       font-family: "Playfair Display", serif;
       font-size: 1.8rem;
       color: var(--color-accent);
       margin-bottom: 20px;
     }
-
     .producto-precio span { font-size: 1rem; color: var(--color-text-muted); }
-
     .btn-agregar {
       width: 100%;
       padding: 15px;
@@ -424,12 +370,9 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
-
     .btn-agregar:hover { color: var(--color-primary); background: var(--color-accent); }
     .btn-agregar.en-carrito { background: var(--color-accent); color: var(--color-primary); }
-
     .producto.agotado { opacity: 0.75; filter: grayscale(30%); }
-
     .btn-agregar:disabled {
       cursor: not-allowed;
       opacity: 0.5;
@@ -437,7 +380,6 @@
       color: var(--color-text-muted);
       border-color: var(--color-text-muted);
     }
-
     .carrito-section {
       background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
     }
@@ -518,7 +460,6 @@
       transition: background 0.3s ease;
     }
     .btn-finalizar:hover { background: var(--color-accent-light); color: var(--color-text); }
-
     .btn-carrito-flotante {
       position: fixed;
       bottom: 30px; right: 30px;
@@ -551,7 +492,6 @@
       color: white;
       border-radius: 50%;
     }
-
     footer {
       background: var(--pd-lilac-dark);
       padding: 60px 20px 40px;
@@ -559,7 +499,6 @@
       border-top: 1px solid rgba(155, 140, 180, 0.1);
       color: var(--color-text-muted);
     }
-
     .footer-logo {
       font-family: "Playfair Display", serif;
       font-size: 2rem;
@@ -569,13 +508,11 @@
       background-clip: text;
       margin-bottom: 12px;
     }
-
     .footer-text {
       font-size: 0.9rem;
       margin-bottom: 36px;
       color: var(--pd-lilac-light);
     }
-
     .footer-redes {
       display: flex;
       justify-content: center;
@@ -583,7 +520,6 @@
       flex-wrap: wrap;
       margin-bottom: 36px;
     }
-
     .footer-red {
       display: flex;
       align-items: center;
@@ -599,32 +535,27 @@
       transition: all 0.3s ease;
       background: rgba(255,255,255,0.04);
     }
-
     .footer-red:hover {
       background: rgba(201, 184, 216, 0.12);
       border-color: var(--pd-nude);
       color: var(--pd-nude);
       transform: translateY(-2px);
     }
-
     .footer-red svg {
       width: 18px;
       height: 18px;
       flex-shrink: 0;
     }
-
     .footer-divider {
       width: 60px;
       height: 1px;
       background: rgba(201, 184, 216, 0.2);
       margin: 0 auto 24px;
     }
-
     .footer-copy {
       font-size: 0.8rem;
       color: rgba(122, 107, 138, 0.7);
     }
-
     @media (max-width: 768px) {
       .announcement-bar { font-size: 0.82rem; padding: 9px 10px; }
       .header-logo-bar { padding: 20px 15px 16px; }
@@ -649,11 +580,9 @@
   </style>
 </head>
 <body>
-
   <div class="announcement-bar">
     Envío gratis en compras de 15 cintas o más — Envíos a toda la Argentina
   </div>
-
   <header>
     <div class="header-logo-bar">
       <h1 class="sr-only">CodiDental</h1>
@@ -686,7 +615,6 @@
       </div>
     </div>
   </header>
-
   <nav class="nav-sticky">
     <div class="nav-filters">
       <button class="filter-btn" data-target="#brillantes">Brillantes ✨</button>
@@ -694,23 +622,18 @@
       <button class="filter-btn" data-target="#vivos">Colores Vivos</button>
     </div>
   </nav>
-
   <section id="catalogo" class="section">
     <div class="caract-nota" style="margin-bottom: 50px;">
       <strong>⚠️ Importante:</strong> Las cintas no son aptas para esterilización en estufa de calor seco. Se recomienda exclusivamente el uso en autoclave para garantizar su durabilidad.
     </div>
-
     <h2 class="section-title">Nuestra Colección</h2>
     <p class="section-subtitle">
       Cada cinta tiene un largo de un metro y está cuidadosamente seleccionada para ofrecer la máxima calidad
       y durabilidad.
     </p>
     <div class="gold-line"></div>
-
     <div class="catalogo">
-
       <h3 class="categoria-titulo" id="brillantes">— Brillantes —</h3>
-
       <div class="producto">
         <div class="producto-imagen">
           <div class="carousel">
@@ -727,7 +650,6 @@
           <button class="btn-agregar" data-nombre="Cinta Rosa Brillante" onclick="agregarAlCarrito('Cinta Rosa Brillante', 3000)">Añadir al Carrito</button>
         </div>
       </div>
-
       <div class="producto">
         <div class="producto-imagen">
           <div class="carousel">
@@ -744,7 +666,6 @@
           <button class="btn-agregar" data-nombre="Cinta Azul Brillante" onclick="agregarAlCarrito('Cinta Azul Brillante', 3000)">Añadir al Carrito</button>
         </div>
       </div>
-
       <div class="producto">
         <div class="producto-imagen">
           <div class="carousel">
@@ -761,7 +682,6 @@
           <button class="btn-agregar" data-nombre="Cinta Rojo Brillante" onclick="agregarAlCarrito('Cinta Rojo Brillante', 3000)">Añadir al Carrito</button>
         </div>
       </div>
-
       <div class="producto">
         <div class="producto-imagen">
           <div class="carousel">
@@ -778,9 +698,7 @@
           <button class="btn-agregar" data-nombre="Cinta Verde Brillante" onclick="agregarAlCarrito('Cinta Verde Brillante', 3000)">Añadir al Carrito</button>
         </div>
       </div>
-
       <h3 class="categoria-titulo" id="pastel">— Colores Pastel —</h3>
-
       <div class="producto">
         <div class="producto-imagen">
           <div class="carousel">
@@ -797,7 +715,6 @@
           <button class="btn-agregar" data-nombre="Cinta Lila Pastel" onclick="agregarAlCarrito('Cinta Lila Pastel', 1500)">Añadir al Carrito</button>
         </div>
       </div>
-
       <div class="producto">
         <div class="producto-imagen">
           <div class="carousel">
@@ -814,9 +731,7 @@
           <button class="btn-agregar" data-nombre="Cinta Rosa Pastel" onclick="agregarAlCarrito('Cinta Rosa Pastel', 1500)">Añadir al Carrito</button>
         </div>
       </div>
-
       <h3 class="categoria-titulo" id="vivos">— Colores Vivos —</h3>
-
       <div class="producto">
         <div class="producto-imagen">
           <div class="carousel">
@@ -833,7 +748,6 @@
           <button class="btn-agregar" data-nombre="Cinta Rosa" onclick="agregarAlCarrito('Cinta Rosa', 1500)">Añadir al Carrito</button>
         </div>
       </div>
-
       <div class="producto">
         <div class="producto-imagen">
           <div class="carousel">
@@ -850,7 +764,6 @@
           <button class="btn-agregar" data-nombre="Cinta Menta" onclick="agregarAlCarrito('Cinta Menta', 1500)">Añadir al Carrito</button>
         </div>
       </div>
-
       <div class="producto">
         <div class="producto-imagen">
           <div class="carousel">
@@ -867,7 +780,6 @@
           <button class="btn-agregar" data-nombre="Cinta Turquesa" onclick="agregarAlCarrito('Cinta Turquesa', 1500)">Añadir al Carrito</button>
         </div>
       </div>
-
       <div class="producto">
         <div class="producto-imagen">
           <div class="carousel">
@@ -884,7 +796,6 @@
           <button class="btn-agregar" data-nombre="Cinta Salmón" onclick="agregarAlCarrito('Cinta Salmón', 1500)">Añadir al Carrito</button>
         </div>
       </div>
-
       <div class="producto">
         <div class="producto-imagen">
           <div class="carousel">
@@ -901,7 +812,6 @@
           <button class="btn-agregar" data-nombre="Cinta Azul" onclick="agregarAlCarrito('Cinta Azul', 1500)">Añadir al Carrito</button>
         </div>
       </div>
-
       <div class="producto">
         <div class="producto-imagen">
           <div class="carousel">
@@ -918,7 +828,6 @@
           <button class="btn-agregar" data-nombre="Cinta Rojo Bordó" onclick="agregarAlCarrito('Cinta Rojo Bordó', 1500)">Añadir al Carrito</button>
         </div>
       </div>
-
       <div class="producto">
         <div class="producto-imagen">
           <div class="carousel">
@@ -935,7 +844,6 @@
           <button class="btn-agregar" data-nombre="Cinta Negro" onclick="agregarAlCarrito('Cinta Negro', 1500)">Añadir al Carrito</button>
         </div>
       </div>
-
       <div class="producto">
         <div class="producto-imagen">
           <div class="carousel">
@@ -952,7 +860,6 @@
           <button class="btn-agregar" data-nombre="Cinta Púrpura" onclick="agregarAlCarrito('Cinta Púrpura', 1500)">Añadir al Carrito</button>
         </div>
       </div>
-
       <div class="producto">
         <div class="producto-imagen">
           <div class="carousel">
@@ -969,7 +876,6 @@
           <button class="btn-agregar" data-nombre="Cinta Violeta" onclick="agregarAlCarrito('Cinta Violeta', 1500)">Añadir al Carrito</button>
         </div>
       </div>
-
       <div class="producto">
         <div class="producto-imagen">
           <div class="carousel">
@@ -986,7 +892,6 @@
           <button class="btn-agregar" data-nombre="Cinta Azul Electrico" onclick="agregarAlCarrito('Cinta Azul Electrico', 1500)">Añadir al Carrito</button>
         </div>
       </div>
-
       <div class="producto">
         <div class="producto-imagen">
           <div class="carousel">
@@ -1003,7 +908,6 @@
           <button class="btn-agregar" data-nombre="Cinta Blanco" onclick="agregarAlCarrito('Cinta Blanco', 1500)">Añadir al Carrito</button>
         </div>
       </div>
-
       <div class="producto">
         <div class="producto-imagen">
           <div class="carousel">
@@ -1020,10 +924,24 @@
           <button class="btn-agregar" data-nombre="Cinta Marron" onclick="agregarAlCarrito('Cinta Marron', 1500)">Añadir al Carrito</button>
         </div>
       </div>
-
+      <div class="producto">
+        <div class="producto-imagen">
+          <div class="carousel">
+            <div class="carousel-track">
+              <img src="Cinta Amarillo.png" alt="Cinta Amarillo" />
+              <img src="Cinta Amarillo Muestra.png" alt="Cinta Amarillo Muestra" />
+            </div>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="producto-info">
+          <h3>Cinta Codificadora Amarillo</h3>
+          <div class="producto-precio">$1.500 <span>ARS</span></div>
+          <button class="btn-agregar" data-nombre="Cinta Amarillo" onclick="agregarAlCarrito('Cinta Amarillo', 1500)">Añadir al Carrito</button>
+        </div>
+      </div>
     </div>
   </section>
-
   <section id="carrito" class="section carrito-section">
     <div class="carrito-container">
       <h2 class="carrito-titulo">Tu Carrito</h2>
@@ -1036,16 +954,13 @@
       </button>
     </div>
   </section>
-
   <button id="btnCarritoFlotante" class="btn-carrito-flotante">
     🛒
     <span id="carritoBadge" class="burbuja-carrito">0</span>
   </button>
-
   <footer>
     <div class="footer-logo">CodiDental</div>
     <p class="footer-text">Cintas codificadoras para profesionales exigentes</p>
-
     <div class="footer-redes">
       <a href="https://www.instagram.com/codi_dental/?hl=es-la" target="_blank" class="footer-red">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1055,14 +970,12 @@
         </svg>
         @codi_dental
       </a>
-
       <a href="https://www.tiktok.com/@codi_dental" target="_blank" class="footer-red">
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/>
         </svg>
         @codi_dental
       </a>
-
       <a href="https://wa.me/5491122938343" target="_blank" class="footer-red">
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
@@ -1070,11 +983,9 @@
         +54 9 11 2293-8343
       </a>
     </div>
-
     <div class="footer-divider"></div>
     <p class="footer-copy">© 2025 CodiDental · Todos los derechos reservados</p>
   </footer>
-
   <script>
     // ── Product carousels ──
     document.querySelectorAll(".carousel").forEach((carousel) => {
@@ -1096,7 +1007,6 @@
         });
       });
     });
-
     // ── Filter nav ──
     document.querySelectorAll(".filter-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -1108,7 +1018,6 @@
         }
       });
     });
-
     const secciones = ["#brillantes", "#pastel", "#vivos"];
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -1120,15 +1029,12 @@
         }
       });
     }, { threshold: 0.3, rootMargin: "-120px" });
-
     secciones.forEach((sel) => {
       const el = document.querySelector(sel);
       if (el) observer.observe(el);
     });
-
     // ── Cart ──
     let carrito = [];
-
     function agregarAlCarrito(nombre, precio) {
       const p = carrito.find(i => i.nombre === nombre);
       if (p) {
@@ -1140,7 +1046,6 @@
       actualizarBotones(nombre);
       actualizarBotonFlotante();
     }
-
     function quitarDelCarrito(nombre) {
       const p = carrito.find(i => i.nombre === nombre);
       if (!p) return;
@@ -1152,7 +1057,6 @@
       actualizarBotones(nombre);
       actualizarBotonFlotante();
     }
-
     function mostrarCarrito() {
       const lista = document.getElementById("listaCarrito");
       lista.innerHTML = "";
@@ -1178,7 +1082,6 @@
       });
       document.getElementById("total").innerHTML = `Total: <span>$${total.toLocaleString()}</span>`;
     }
-
     function actualizarBotones(nombre) {
       document.querySelectorAll(".btn-agregar[data-nombre]").forEach(b => {
         if (b.dataset.nombre === nombre) {
@@ -1193,7 +1096,6 @@
         }
       });
     }
-
     function actualizarBotonFlotante() {
       const boton = document.getElementById("btnCarritoFlotante");
       const badge = document.getElementById("carritoBadge");
@@ -1207,17 +1109,14 @@
         badge.style.display = "none";
       }
     }
-
     document.getElementById("btnCarritoFlotante").addEventListener("click", () => {
       document.getElementById("carrito").scrollIntoView({ behavior: "smooth", block: "start" });
     });
-
     function enviarWhatsApp() {
       if (!carrito.length) {
         alert("Agregá al menos un producto antes de finalizar el pedido.");
         return;
       }
-
       const overlay = document.createElement('div');
       overlay.style.cssText = `
         position:fixed; top:0; left:0; width:100%; height:100%;
@@ -1225,7 +1124,6 @@
         display:flex; align-items:center; justify-content:center;
         z-index:20000;
       `;
-
       overlay.innerHTML = `
         <div style="
           background: var(--color-white); border-radius:24px; padding:40px 30px;
@@ -1245,7 +1143,6 @@
           </div>
         </div>
       `;
-
       overlay.querySelectorAll('button[data-zona]').forEach(btn => {
         btn.addEventListener('mouseenter', () => {
           if (btn.dataset.zona !== 'cancelar') {
@@ -1265,7 +1162,6 @@
             document.body.removeChild(overlay);
             return;
           }
-
           const prompts = {
             caba: "¿En qué facultad o lugar se puede entregar el pedido?",
             laplata: "¿En qué facultad cursás?",
@@ -1277,7 +1173,6 @@
             unlam: "5491122938343",
             otras: "5491122938343"
           };
-
           let detalle = null;
           if (zona !== 'unlam') {
             detalle = prompt(prompts[zona], "");
@@ -1293,15 +1188,12 @@
           });
           const totalPrecio = carrito.reduce((a, i) => a + i.cantidad * i.precio, 0);
           mensaje += `%0A*Total: $${totalPrecio}*%0A%0A`;
-
           window.open(`https://wa.me/${numeros[zona]}?text=${mensaje}`, "_blank");
           document.body.removeChild(overlay);
         });
       });
-
       document.body.appendChild(overlay);
     }
-
     // ── Banner carousel ──
     (function () {
       const carousel = document.getElementById('bannerCarousel');
@@ -1310,25 +1202,19 @@
       const slides = track.querySelectorAll('.banner-slide');
       let current = 0;
       let autoplayTimer;
-
       function goTo(index) {
         current = (index + slides.length) % slides.length;
         track.style.transform = `translateX(-${current * carousel.offsetWidth}px)`;
         dots.forEach((d, i) => d.classList.toggle('active', i === current));
       }
-
       function next() { goTo(current + 1); }
       function prev() { goTo(current - 1); }
-
       function startTimer() { autoplayTimer = setInterval(next, 4000); }
       function resetTimer() { clearInterval(autoplayTimer); startTimer(); }
-
       document.getElementById('bannerNext').addEventListener('click', () => { next(); resetTimer(); });
       document.getElementById('bannerPrev').addEventListener('click', () => { prev(); resetTimer(); });
       dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); resetTimer(); }));
-
       window.addEventListener('resize', () => goTo(current));
-
       goTo(0);
       startTimer();
     })();
